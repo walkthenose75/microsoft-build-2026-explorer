@@ -177,8 +177,8 @@ This is a personal collection of announcements and updates at  around **Microsof
       *Unified Fabric and database roadmap aligns data strategy.*
     - [Rayfin](https://aka.ms/rayfin)  
       *Rayfin moves prototypes to governed Fabric backends.*
-    - [GPU-accelerated Fabric Data Warehouse](https://azure.microsoft.com/en-us/blog/microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-microsoft-databases/)  
-      *GPU acceleration speeds analytics and AI workloads.*
+    - [GPU-accelerated Fabric Data Warehouse](https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/A-new-analytics-frontier-GPU-accelerated-Fabric-Data-Warehouse/ba-p/5191598)  
+      *GPU acceleration speeds analytics and AI workloads up to 7x.*
     - [Database Hub in Fabric](https://community.fabric.microsoft.com/t5/Fabric-Updates-Blogs/Advancing-Databases-for-the-Next-Generation-of-Applications/ba-p/5172237)  
       *Database Hub unifies control across engines.*
     - [OneLake catalog in Foundry](https://community.fabric.microsoft.com/t5/Fabric-Updates-Blogs/OneLake-catalog-is-now-natively-available-in-Foundry-Generally/ba-p/5178376)  
