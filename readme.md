@@ -121,7 +121,7 @@ This is a personal collection of announcements and updates at  around **Microsof
 - **Containers and Kubernetes:**
     - [What's new in AKS at Microsoft Build 2026](https://techcommunity.microsoft.com/blog/appsonazureblog/whats-new-in-azure-kubernetes-service-at-microsoft-build-2026/4524862)  
       *AKS updates signal stronger platform for AI.*
-    - [AKS on bare metal](https://techcommunity.microsoft.com/blog/appsonazureblog/whats-new-in-azure-kubernetes-service-at-microsoft-build-2026/4524862)  
+    - [AKS on bare metal](https://blog.aks.azure.com/2026/06/02/aks-baremetal-public-preview)  
       *Bare metal unlocks NVLink and RDMA for GPU workloads.*
     - [Azure Container Apps Sandboxes](https://techcommunity.microsoft.com/blog/appsonazureblog/introducing-azure-container-apps-sandboxes-secure-infrastructure-for-agentic-wor/4524131)  
       *MicroVM sandboxes isolate agentic workloads securely.*
