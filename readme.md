@@ -37,7 +37,7 @@ This is a personal collection of announcements and updates at  around **Microsof
       *100 Gb/s low-latency Guest RDMA for distributed AI and HPC.*
     - [Lasv5 and Laosv5 VMs](https://techcommunity.microsoft.com/blog/azurecompute/announcing-preview-of-new-azure-lasv5-and-laosv5-vms-based-on-the-amd-epyc%E2%84%A2-%E2%80%98tur/4522407)  
       *35% more CPU, 138 TB local storage for data-heavy workloads.*
-    - [Azure Linux 4.0](https://azure.microsoft.com/updates?id=564543)  
+    - [Azure Linux 4.0](https://aka.ms/azurelinux-blog)  
       *Azure Linux 4.0 extends container hosting to general-purpose VMs.*
     - [Surface RTX Spark Dev Box and DGX Station for Windows](https://blogs.windows.com/windowsdeveloper/2026/06/02/build-2026-furthering-windows-as-the-trusted-platform-for-development/)  
       *RTX Spark: 1 petaflop, 128 GB memory. DGX Station: 1T parameters locally.*
