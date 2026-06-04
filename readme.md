@@ -187,8 +187,6 @@ This is a personal collection of announcements and updates at  around **Microsof
 - **PostgreSQL, HorizonDB, SQL, and MySQL:**
     - [Azure HorizonDB](https://techcommunity.microsoft.com/blog/adforpostgresql/azure-horizondb-enterprise-ready-postgres-engineered-for-the-ai-era/4524094)  
       *Enterprise PostgreSQL-compatible service for AI patterns.*
-    - [Azure HorizonDB update record](https://azure.microsoft.com/updates?id=563087)  
-      *Public preview enables early evaluation.*
     - [PostgreSQL Build 2026 roundup](https://techcommunity.microsoft.com/blog/adforpostgresql/announcing-new-security-maintenance-and-analytics-features-for-postgresql-at-mic/4524559)  
       *Updates add security, analytics, migration tooling.*
     - [DuckDB extension for Azure Database for PostgreSQL](https://azure.microsoft.com/updates?id=563766)  
