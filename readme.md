@@ -31,8 +31,6 @@ This is a personal collection of announcements and updates at  around **Microsof
       *Arm-based VMs, 50% better performance for AI workloads.*
     - [Confidential Live Migration for Intel TDX confidential VMs](https://techcommunity.microsoft.com/blog/azureconfidentialcomputingblog/announcing-confidential-live-migration-in-azure/4524558)  
       *Private preview enables protected host migration with minimal interruption.*
-    - [Cobalt 200 VM series update](https://azure.microsoft.com/updates?id=564451)  
-      *Adds 5 Cobalt series for right-sized Arm options.*
     - [Guest RDMA for Azure Boost](https://techcommunity.microsoft.com/blog/azurecompute/announcing-preview-of-guest-rdma-for-azure-boost/4524589)  
       *100 Gb/s low-latency Guest RDMA for distributed AI and HPC.*
     - [Lasv5 and Laosv5 VMs](https://techcommunity.microsoft.com/blog/azurecompute/announcing-preview-of-new-azure-lasv5-and-laosv5-vms-based-on-the-amd-epyc%E2%84%A2-%E2%80%98tur/4522407)  
