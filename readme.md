@@ -285,7 +285,7 @@ This is a personal collection of announcements and updates at  around **Microsof
 - **Models, speech, content, and R&D:**
     - [Seven new First-Party Microsoft AI models](https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/)  
       *Seven new MAI models across reasoning, coding, multimodal.*
-    - [Mayo Clinic frontier healthcare model partnership](https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/)  
+    - [Mayo Clinic frontier healthcare model partnership](https://newsnetwork.mayoclinic.org/discussion/mayo-clinic-and-microsoft-collaborate-to-develop-a-frontier-ai-model-for-healthcare/)  
       *Mayo Clinic partnership develops healthcare models.*
     - [MAI-Voice-2 in Microsoft Foundry](https://azure.microsoft.com/updates?id=563217)  
       *Public preview introduces multilingual voice cloning and prompting in Foundry.*
