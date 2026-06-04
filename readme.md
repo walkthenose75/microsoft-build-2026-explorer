@@ -29,7 +29,7 @@ This is a personal collection of announcements and updates at  around **Microsof
 - **Compute and hardware:**
     - [Azure Cobalt 200 VMs](https://azure.microsoft.com/en-us/blog/new-azure-cobalt-200-vms-deliver-50-performance-improvement-fully-optimized-for-modern-agentic-ai-workloads/)  
       *Arm-based VMs, 50% better performance for AI workloads.*
-    - [Confidential Live Migration for Intel TDX confidential VMs](https://azure.microsoft.com/updates?id=565000)  
+    - [Confidential Live Migration for Intel TDX confidential VMs](https://techcommunity.microsoft.com/blog/azureconfidentialcomputingblog/announcing-confidential-live-migration-in-azure/4524558)  
       *Private preview enables protected host migration with minimal interruption.*
     - [Cobalt 200 VM series update](https://azure.microsoft.com/updates?id=564451)  
       *Adds 5 Cobalt series for right-sized Arm options.*
