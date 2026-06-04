@@ -2,9 +2,9 @@
 
 This is a personal collection of announcements and updates at  around **Microsoft //Build 2026**, organized by service category for navigation and reference.
 
-**Last Updated:** June 4, 2026, 7:42 AM (EST)
+**Last Updated:** June 4, 2026, 8:01 AM (EST)
 
-**Current Total Updates:** 131 announcements
+**Current Total Updates:** 132 announcements
 
 **🎯 What's Inside:** Announcements across Hardware & Infrastructure, Apps & Development, Data & Analytics, AI & Agents, and Security & Governance with direct links to official documentation and blog posts.
 
@@ -319,6 +319,8 @@ This is a personal collection of announcements and updates at  around **Microsof
 - **Agent and model security:**
     - [Securing code, agents, and models across the development lifecycle](https://www.microsoft.com/en-us/security/blog/2026/06/02/microsoft-build-2026-securing-code-agents-and-models-across-the-development-lifecycle/)  
       *Security controls are first-class in AI pipelines.*
+    - [Build MDASH / Agentic DevSecOps](https://aka.ms/AgenticDevSecOps)  
+      *Build security update on MDASH and agentic DevSecOps workflows for vulnerability discovery and remediation.*
     - [Agent 365 GA and expanded local/cloud agent management](https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/)  
       *Unified governance across local, SaaS, cloud agents.*
     - [Windows platform security for AI agents](https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/)  
