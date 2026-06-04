@@ -2,7 +2,7 @@
 
 This is a personal collection of announcements and updates from **Microsoft //Build 2026**, organized by service category for navigation and reference.
 
-**Last Updated:** June 3, 2026
+**Last Updated:** June 4, 2026
 
 **🎯 What's Inside:** 100+ announcements across Hardware & Infrastructure, Apps & Development, Data & Analytics, AI & Agents, and Security & Governance with direct links to official documentation and blog posts.
 
@@ -26,59 +26,61 @@ This is a personal collection of announcements and updates from **Microsoft //Bu
 
 - **Compute and hardware:**
     - [Azure Cobalt 200 VMs](https://azure.microsoft.com/en-us/blog/new-azure-cobalt-200-vms-deliver-50-performance-improvement-fully-optimized-for-modern-agentic-ai-workloads/)  
-      *Arm-based VMs optimized for scale-out, Linux-based, agentic AI workloads.*
+      *Arm-based VMs, 50% better performance for AI workloads.*
     - [Cobalt 200 VM series update](https://azure.microsoft.com/updates?id=564451)  
-      *Dpsv7, Dplsv7, Epsv7, Mpsv4, and Lpsv5-series preview.*
+      *Adds 5 Cobalt series for right-sized Arm options.*
     - [Guest RDMA for Azure Boost](https://techcommunity.microsoft.com/blog/azurecompute/announcing-preview-of-guest-rdma-for-azure-boost/4524589)  
-      *Low-latency RDMA networking inside guest VMs.*
+      *100 Gb/s low-latency Guest RDMA for distributed AI and HPC.*
     - [Lasv5 and Laosv5 VMs](https://techcommunity.microsoft.com/blog/azurecompute/announcing-preview-of-new-azure-lasv5-and-laosv5-vms-based-on-the-amd-epyc%E2%84%A2-%E2%80%98tur/4522407)  
-      *AMD EPYC Turin storage-optimized VM preview.*
+      *35% more CPU, 138 TB local storage for data-heavy workloads.*
     - [Azure Linux 4.0](https://azure.microsoft.com/updates?id=564543)  
-      *Azure Linux 4.0 for VMs and VM Scale Sets.*
+      *Azure Linux 4.0 extends container hosting to general-purpose VMs.*
     - [Surface RTX Spark Dev Box and DGX Station for Windows](https://blogs.windows.com/windowsdeveloper/2026/06/02/build-2026-furthering-windows-as-the-trusted-platform-for-development/)  
-      *NVIDIA-powered local AI and agent development hardware.*
+      *RTX Spark: 1 petaflop, 128 GB memory. DGX Station: 1T parameters locally.*
     - [Project Solara](https://commandline.microsoft.com/project-solara-build-2026/)  
-      *Chip-to-cloud platform for agent-first devices, just-in-time UI, enterprise manageability, and new stationary/portable form factors for agent-driven experiences.*
+      *Standardizes building, deploying, managing agent-first devices end-to-end.*
+    - [Majorana 2 (Microsoft Quantum)](https://quantum.microsoft.com/en-us/insights/blogs/majorana-2-scalable-quantum-processor)  
+      *Redesigned materials stack aims for more reliable topological qubits.*
 
 - **Azure Local, Arc, and edge:**
     - [Small form factor infrastructure](https://techcommunity.microsoft.com/blog/azurearcblog/embed-intelligence-into-physical-systems-with-smaller-form-factor-infrastructure/4524876)  
-      *Azure-managed small form factor bare-metal edge infrastructure with Provisioned Machine, Foundry Local, AKS on bare metal, and IoT Operations.*
+      *Azure-managed edge infrastructure runs AI and ops closer to devices.*
     - [Foundry Local on Azure Local for sovereign AI](https://techcommunity.microsoft.com/blog/azurearcblog/build-deploy-and-govern-sovereign-ai-with-foundry-local-on-azure-local/4522945)  
-      *Sovereign AI, multi-node support, vLLM models, local Microsoft 365 retrieval, and GitHub Enterprise Local preview.*
+      *Multi-node sovereign AI with local retrieval for regulated orgs.*
     - [Foundry Local multi-node inference and vLLM](https://techcommunity.microsoft.com/blog/azurearcblog/scale-on-prem-ai-with-foundry-local-on-azure-local-multi-node-inference-and-vllm/4516692)  
-      *Production-scale on-prem AI inference.*
+      *Multi-node vLLM scales on-prem serving to production.*
     - [GitHub Enterprise Local](https://techcommunity.microsoft.com/blog/azurearcblog/introducing-github-enterprise-local-preview-devops-for-sovereign-and-private-clo/4523046)  
-      *DevSecOps lifecycle on Azure Local for sovereign and air-gapped environments.*
+      *GitHub Enterprise Local keeps DevSecOps workflows air-gapped.*
     - [Agentic retrieval in Foundry Local](https://techcommunity.microsoft.com/blog/azurearcblog/unlock-on-prem-productivity-with-agentic-retrieval-in-foundry-local/4523646)  
-      *RAG at the edge using local Microsoft 365 data.*
+      *On-prem agentic M365 retrieval reduces latency and exposure risk.*
 
 - **Storage and migration:**
     - [Azure Files on macOS with Entra ID](https://techcommunity.microsoft.com/blog/azurestorageblog/secure-modern-access-to-azure-files-on-macos-with-ms-entra-id/4524077)  
-      *Identity-based Azure Files access from macOS.*
+      *Entra ID macOS Azure Files removes key auth friction.*
     - [File share centric management model](https://techcommunity.microsoft.com/blog/azurestorageblog/simpler-scalable-file-share-management-in-azure---now-generally-available/4523035)  
-      *Top-level Azure Files resource model with per-share RBAC, encryption, private endpoints, and Bicep/ARM support.*
+      *Share-centric model simplifies per-share RBAC and automation.*
     - [File share migrations with Azure Copilot Migration Agent](https://techcommunity.microsoft.com/blog/azurestorageblog/file-share-migrations-simplified-with-azure-copilot-migration-agent/4524563)  
-      *Agentic SMB/NFS to Azure Files and blob-to-blob migration workflows.*
+      *Agent-assisted migrations reduce manual planning.*
 
 - **Observability and resiliency:**
     - [What's new in Observability at Build 2026](https://techcommunity.microsoft.com/blog/azureobservabilityblog/what%E2%80%99s-new-in-observability-at-build-2026/4524927)  
-      *Azure Monitor rollup for agent observability, SLI/SLO, Prometheus, alerts, OTLP ingestion, OTel, and transformations.*
+      *Azure Monitor for agent observability and SLI/SLO workflows.*
     - [Azure Monitor Copilot Observability Agent](https://techcommunity.microsoft.com/blog/azureobservabilityblog/azure-monitor-copilot-observability-agent-what%E2%80%99s-new-at-build/4522927)  
-      *Expanded investigation entry points, cross-resource analysis, Foundry integration, and shareable investigations.*
+      *Copilot investigations shorten incident MTTI.*
     - [Direct OpenTelemetry ingestion](https://techcommunity.microsoft.com/blog/azureobservabilityblog/direct-opentelemetry-ingestion-into-azure-monitor-is-now-generally-available/4524044)  
-      *Direct OTLP ingestion for metrics, logs, and traces.*
+      *Direct OTLP ingestion removes custom pipeline overhead.*
     - [Monitor AI coding agents with OpenTelemetry](https://techcommunity.microsoft.com/blog/azureobservabilityblog/monitor-ai-coding-agents-with-opentelemetry-in-azure-monitor/4524049)  
-      *Observability for GitHub Copilot, Claude Code, and Codex.*
+      *Observability for AI coding agents tracks quality and latency.*
     - [Azure Monitor agent observability](https://techcommunity.microsoft.com/blog/azureobservabilityblog/new-capabilities-to-observe-agents-in-azure-monitor/4524896)  
-      *Agent fleet views, automated evaluations, cost breakdown, and traces.*
+      *Fleet views and cost breakdowns for agent operations.*
     - [Monitoring Coverage](https://techcommunity.microsoft.com/blog/azureobservabilityblog/is-your-monitoring-actually-working-whats-new-in-monitoring-coverage/4524619)  
-      *Data flow validation and at-scale recommended alerts for VMs and AKS.*
+      *Monitoring Coverage prevents silent telemetry gaps.*
     - [Multi-stage transformations for Azure Monitor DCRs](https://techcommunity.microsoft.com/blog/azureobservabilityblog/is-94-of-your-syslog-just-noise-now-you-can-filter-it-out-before-ingestion-/4524600)  
-      *Filter, parse, and aggregate telemetry before ingestion.*
+      *Multi-stage transformations cut telemetry noise and cost.*
     - [Azure Infrastructure Resiliency Manager](https://techcommunity.microsoft.com/blog/reliability-and-resiliency-in-azure/announcing-azure-infrastructure-resiliency-manager-public-preview/4523710)  
-      *Resilience workflow across Availability Zones, Advisor, Chaos Studio, Azure Monitor, and Azure Copilot.*
+      *Resilience workflow makes reliability an ongoing practice.*
     - [Kubernetes Center security and version insights](https://techcommunity.microsoft.com/blog/azureinfrastructureblog/kubernetes-center-security--ltsout-of-support-version-insights-now-available/4524567)  
-      *AKS fleet security posture and version support visibility.*
+      *Fleet-level AKS security insights reduce upgrade risk.*
 
 ---
 
@@ -90,73 +92,73 @@ This is a personal collection of announcements and updates from **Microsoft //Bu
 
 - **Azure Functions and SRE Agent:**
     - [azure-functions-skills](https://devblogs.microsoft.com/azure-sdk/introducing-azure-functions-skills-ai-era-workspace)  
-      *Skills, MCP configuration, hooks, and instructions for agent-assisted Azure Functions development.*
+      *Packages skills and MCP config for Functions patterns.*
     - [Azure Functions Serverless Agents Runtime](https://techcommunity.microsoft.com/blog/appsonazureblog/introducing-the-azure-functions-serverless-agents-runtime-preview/4523804)  
-      *Markdown-first programming model for AI agents on Azure Functions.*
+      *Markdown-first runtime lowers serverless agent barrier.*
     - [Go support in Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-go-support-in-azure-functions-preview/4523801)  
-      *First-class Go support on Flex Consumption.*
+      *First-class Go on Flex Consumption for cloud-native.*
     - [Azure Functions MCP Extension](https://techcommunity.microsoft.com/blog/appsonazureblog/azure-functions-mcp-extension-whats-new-at-build-2026/4524099)  
-      *MCP tools, resources, prompts, apps, auth, and schemas for Azure Functions.*
+      *MCP support enables safe agent automation.*
     - [Managed Connectors for Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-managed-connectors-for-azure-functions-preview/4523798)  
-      *1,400+ managed connectors as first-class triggers and typed SDKs.*
+      *1,400+ managed connectors reduce integration plumbing.*
     - [Azure SRE Agent at Build 2026](https://techcommunity.microsoft.com/blog/appsonazureblog/azure-sre-agent-at-microsoft-build-2026-bringing-agentic-operations-to-the-enter/4524669)  
-      *Enterprise SRE Agent releases for VNet integration, managed connectors, permissions, GitHub Enterprise, and private plugins.*
+      *SRE Agent governance enables production operations.*
     - [SRE Agent VNet integration](https://techcommunity.microsoft.com/blog/appsonazureblog/vnet-integration-for-azure-sre-agent-preview/4524287)  
-      *Run SRE Agent outbound traffic through enterprise network controls.*
+      *VNet integration enforces network controls.*
     - [SRE Agent managed connectors](https://techcommunity.microsoft.com/blog/appsonazureblog/managed-connectors-for-sre-agent-preview--govern-what-your-agent-can-do/4524840)  
-      *Governed connector operations, approvals, parameter policies, and credential isolation.*
+      *Governed connectors limit execution blast radius.*
     - [SRE Agent tool permissions and hooks](https://techcommunity.microsoft.com/blog/appsonazureblog/shaping-what-azure-sre-agent-does-tool-permissions-and-hooks/4524791)  
-      *Allow, ask, and deny rules with hooks for pre-execution policy checks.*
+      *Three-mode permissions and hooks add guardrails.*
     - [SRE Agent GitHub Enterprise support](https://techcommunity.microsoft.com/blog/appsonazureblog/bring-your-own-github-app-connecting-azure-sre-agent-to-enterprise-repositories/4524673)  
-      *BYO GitHub App and GitHub Enterprise access for repository-aware investigations.*
+      *GitHub Enterprise support enables repository-aware workflows.*
     - [SRE Agent private plugin marketplace](https://techcommunity.microsoft.com/blog/appsonazureblog/private-plugins-with-azure-sre-agent/4523763)  
-      *Private plugin marketplaces for reusable runbooks, skills, and operational workflows.*
+      *Private marketplaces scale approved SRE practices org-wide.*
 
 - **Containers and Kubernetes:**
     - [What's new in AKS at Microsoft Build 2026](https://techcommunity.microsoft.com/blog/appsonazureblog/whats-new-in-azure-kubernetes-service-at-microsoft-build-2026/4524862)  
-      *AKS umbrella post covering managed system node pools, Azure Container Linux, AKS on bare metal, Fleet Manager for Arc, Anyscale, and AI Runway.*
+      *AKS updates signal stronger platform for AI.*
     - [AKS on bare metal](https://techcommunity.microsoft.com/blog/appsonazureblog/whats-new-in-azure-kubernetes-service-at-microsoft-build-2026/4524862)  
-      *Run AKS on dedicated machines without a hypervisor for NVLink, RDMA, and high-performance networking access.*
+      *Bare metal unlocks NVLink and RDMA for GPU workloads.*
     - [Azure Container Apps Sandboxes](https://techcommunity.microsoft.com/blog/appsonazureblog/introducing-azure-container-apps-sandboxes-secure-infrastructure-for-agentic-wor/4524131)  
-      *MicroVM-backed sandbox infrastructure for agentic workloads.*
+      *MicroVM sandboxes isolate agentic workloads securely.*
     - [Anyscale on Azure](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-anyscale-on-azure-public-preview-powered-by-ray-on-aks/4523704)  
-      *Managed Ray platform running natively on AKS for distributed AI workloads.*
+      *Managed Ray simplifies distributed training and inference.*
     - [Azure Container Linux on AKS](https://azure.microsoft.com/updates?id=564537)  
-      *Container-optimized immutable OS for AKS node pools.*
+      *Immutable OS improves consistency and reduces attack surface.*
     - [ACR Artifact Cache deep dive](https://techcommunity.microsoft.com/blog/appsonazureblog/inside-acr-artifact-cache-pull-through-caching-at-scale/4524949)  
-      *Pull-through caching architecture for Azure Container Registry.*
+      *Pull-through caching reduces latency and upstream risk.*
 
 - **API Management, Logic Apps, and messaging:**
     - [What's new in Azure API Management at Build 2026](https://techcommunity.microsoft.com/blog/integrationsonazureblog/whats-new-in-azure-api-management-at-microsoft-build-2026/4524683)  
-      *Unified Model API, A2A APIs, MCP/A2A safety, API Center, Anthropic/Vertex AI gateway, token observability, and custom domains.*
+      *APIM adds AI-native model routing and safety controls.*
     - [Azure API Management Unified Model API](https://azure.microsoft.com/updates?id=562853)  
-      *Unified API pattern for multi-model AI applications.*
+      *One contract across providers reduces switching churn.*
     - [New AI Gateway capabilities in APIM](https://techcommunity.microsoft.com/blog/integrationsonazureblog/new-ai-gateway-capabilities-in-azure-api-management/4524604)  
-      *OpenAI, Anthropic, Vertex AI routing plus MCP and A2A governance.*
+      *Routes 3 providers with policy-driven governance.*
     - [MCP Test Console and Git sync in Azure API Center](https://techcommunity.microsoft.com/blog/integrationsonazureblog/mcp-test-console-and-git-repository-synch-in-azure-api-center/4524617)  
-      *API Center support for MCP testing and Git synchronization.*
+      *MCP testing and Git sync improve lifecycle governance.*
     - [Azure Connector Namespaces](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-connector-namespaces-managed-integration-for-any-azure-compute/4524250)  
-      *Managed connectors and MCP servers for Azure compute.*
+      *Managed integrations standardize security across runtimes.*
     - [What's new in Azure Logic Apps at Build 2026](https://techcommunity.microsoft.com/blog/integrationsonazureblog/whats-new-in-azure-logic-apps-at-microsoft-build-2026/4524685)  
-      *Logic Apps Automation, MCP Server, Foundry agent invocation, Knowledge as a Service, and Standard SDK.*
+      *MCP and Foundry position workflows for AI automation.*
     - [Logic Apps Automation](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%8E%89-automation-just-became-a-team-sport-meet-azure-logic-apps-automation-/4524555)  
-      *New Logic Apps SKU with AI-assisted workflow generation and Foundry agent integration.*
+      *AI-assisted authoring speeds pipeline building.*
     - [Knowledge as a Service for Logic Apps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%93%A2-announcing-knowledge-as-a-service-for-azure-logic-apps/4524601)  
-      *Document-to-knowledge-base capability inside Logic Apps.*
+      *Knowledge as a Service reduces ETL for grounding.*
     - [Azure Event Grid at Build 2026](https://techcommunity.microsoft.com/blog/messagingonazureblog/azure-event-grid-powering-iot-and-event-driven-applications-at-scale/4521403)  
-      *MQTT v5 Subscription Identifier, 1 MB messages, autoscale, and Stripe events integration.*
+      *1 MB messages, MQTT v5, autoscale for IoT.*
 
 - **GitHub and marketplace:**
     - [GitHub Copilot App](https://github.blog/news-insights/product-news/github-copilot-app-the-agent-native-desktop-experience/)  
-      *Agent-native desktop app with My Work, worktrees, Agent Merge, canvases, and sandboxes.*
+      *Agent-native desktop with worktrees enables parallel tasks.*
     - [GitHub Copilot App repo](https://github.com/github/app)  
-      *Release/download, issues, discussions, and changelog.*
+      *Public repo centralizes releases and feedback loops.*
     - [Copilot SDK GA](https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available)  
-      *Stable SDK for embedding GitHub Copilot's agentic engine.*
+      *Copilot SDK GA enables embedding agentic coding.*
     - [Agent apps for GitHub](https://github.blog/changelog/2026-06-02-extend-github-with-agent-apps)  
-      *Marketplace-installed agent apps integrated into GitHub.*
+      *Agent apps reduce custom bots and scripts.*
     - [Microsoft Marketplace for apps and agents](https://devblogs.microsoft.com/all-things-azure/build-scale-and-monetize-apps-and-agents-with-microsoft-marketplace)  
-      *Build, scale, and monetize apps and agents through Microsoft Marketplace.*
+      *Marketplace creates distribution for AI solutions.*
 
 ---
 
@@ -168,61 +170,61 @@ This is a personal collection of announcements and updates from **Microsoft //Bu
 
 - **Fabric and data platform:**
     - [Building agentic apps with Microsoft Fabric and Microsoft Databases](https://azure.microsoft.com/en-us/blog/microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-microsoft-databases/)  
-      *Hero data roundup covering Rayfin, HorizonDB, Fabric IQ, OneLake, PostgreSQL, Cosmos DB, and Database Hub.*
+      *Unified Fabric and database roadmap aligns data strategy.*
     - [Rayfin](https://aka.ms/rayfin)  
-      *Open-source SDK and CLI for enterprise-grade Fabric app backends, moving agent-built apps from prompt to governed production backends in Fabric.*
+      *Rayfin moves prototypes to governed Fabric backends.*
     - [GPU-accelerated Fabric Data Warehouse](https://azure.microsoft.com/en-us/blog/microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-microsoft-databases/)  
-      *GPU acceleration built directly into Fabric Data Warehouse with NVIDIA accelerated computing and custom CUDA kernels; early access preview planned for July 2026.*
+      *GPU acceleration speeds analytics and AI workloads.*
     - [Database Hub in Fabric](https://community.fabric.microsoft.com/t5/Fabric-Updates-Blogs/Advancing-Databases-for-the-Next-Generation-of-Applications/ba-p/5172237)  
-      *Unified control plane for databases in Fabric.*
+      *Database Hub unifies control across engines.*
     - [OneLake catalog in Foundry](https://community.fabric.microsoft.com/t5/Fabric-Updates-Blogs/OneLake-catalog-is-now-natively-available-in-Foundry-Generally/ba-p/5178376)  
-      *Native OneLake catalog discovery inside Microsoft Foundry.*
+      *OneLake catalog in Foundry eases agent grounding.*
 
 - **PostgreSQL, HorizonDB, SQL, and MySQL:**
     - [Azure HorizonDB](https://techcommunity.microsoft.com/blog/adforpostgresql/azure-horizondb-enterprise-ready-postgres-engineered-for-the-ai-era/4524094)  
-      *PostgreSQL-compatible database service engineered for AI-era applications.*
+      *Enterprise PostgreSQL-compatible service for AI patterns.*
     - [Azure HorizonDB update record](https://azure.microsoft.com/updates?id=563087)  
-      *Public preview entry for HorizonDB.*
+      *Public preview enables early evaluation.*
     - [PostgreSQL Build 2026 roundup](https://techcommunity.microsoft.com/blog/adforpostgresql/announcing-new-security-maintenance-and-analytics-features-for-postgresql-at-mic/4524559)  
-      *Security, maintenance, analytics, migration, extensions, Grafana dashboards, and tooling updates.*
+      *Updates add security, analytics, migration tooling.*
     - [PostgreSQL workflow in Cursor](https://techcommunity.microsoft.com/blog/adforpostgresql/your-postgresql-workflow-just-found-its-new-home-in-cursor/4524081)  
-      *PostgreSQL extension published to Open VSX for AI-native editors.*
+      *PostgreSQL tooling on Open VSX supports AI editors.*
     - [Azure SQL TDE with AES keys](https://techcommunity.microsoft.com/blog/azuresqlblog/transparent-data-encryption-in-azure-sql-database-now-supports-aes-keys-public-p/4523240)  
-      *AES-256 customer-managed keys for TDE in Azure SQL Database.*
+      *AES customer-managed keys strengthen TDE control.*
     - [Azure SQL June updates](https://azure.microsoft.com/updates?id=563137)  
-      *SQL notebooks and developer tooling updates.*
+      *Tooling and notebooks improve query workflows.*
     - [Azure Database for MySQL quota management](https://azure.microsoft.com/updates?id=563147)  
-      *Self-service quota management in Azure Database for MySQL Flexible Server.*
+      *Self-service quota management speeds capacity scaling.*
 
 - **Cosmos DB and DocumentDB:**
     - [Cosmos DB Build 2026 roundup](https://devblogs.microsoft.com/cosmosdb/announced-at-ms-build-2026-azure-cosmos-db-mcp-toolkit-semantic-reranking-global-secondary-indexes-and-more/)  
-      *MCP Toolkit, Agent Kit, memory, semantic reranking, global secondary indexes, failover, distributed transactions, backup, emulator, and change feed.*
+      *Major capabilities ease AI-native workloads.*
     - [Cosmos DB Agent Kit](https://azure.microsoft.com/updates?id=563022)  
-      *Best-practice guidance for AI coding agents building Cosmos DB apps.*
+      *Agent Kit improves app quality.*
     - [Cosmos DB backup](https://azure.microsoft.com/updates?id=562769)  
-      *Vaulted backups for Cosmos DB.*
+      *Vaulted backups improve data loss protection.*
     - [Cosmos DB all versions and deletes change feed](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-db-all-versions-and-deletes-change-feed-mode-is-now-generally-available/)  
-      *Complete change stream including deletes.*
+      *Change feed enables audit and replay.*
     - [Cosmos DB change partition keys](https://devblogs.microsoft.com/cosmosdb/change-partition-keys-in-azure-cosmos-db-is-now-generally-available/)  
-      *Online repartitioning without stopping writes.*
+      *Online partition changes enable repartitioning.*
     - [Cosmos DB Migration Assistant](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-db-migration-assistant-rdbms-to-nosql-public-preview/)  
-      *AI-assisted RDBMS-to-NoSQL migration workflow.*
+      *AI-guided workflows lower modernization complexity.*
     - [Cosmos DB integrated embeddings](https://devblogs.microsoft.com/cosmosdb/announcing-the-public-preview-of-integrated-embeddings-in-azure-cosmos-db-build-ai-apps-with-embeddings-that-stay-in-sync/)  
-      *Embeddings generated and maintained as items are written.*
+      *Integrated embeddings reduce pipeline overhead.*
     - [OmniVec](https://devblogs.microsoft.com/cosmosdb/introducing-omnivec-an-open-source-embedding-platform-for-ai-apps-on-azure/)  
-      *Open-source embedding pipeline platform for Azure data sources.*
+      *Open-source embedding pipeline standardizes vectorization.*
     - [DocumentDB MCP Toolkit](https://azure.microsoft.com/updates?id=563112)  
-      *MCP access for MongoDB-compatible DocumentDB workloads.*
+      *MCP Toolkit enables safer agent automation.*
     - [DocumentDB instant free tier clusters](https://azure.microsoft.com/updates?id=563082)  
-      *Near-instant free tier cluster provisioning.*
+      *Instant free-tier provisioning speeds evaluation.*
     - [DocumentDB migration extension](https://azure.microsoft.com/updates?id=563072)  
-      *VS Code migration workflow.*
+      *Migration extension reduces setup complexity.*
     - [DocumentDB service-managed failovers](https://devblogs.microsoft.com/documentdb/azure-documentdb-general-availability-of-service-managed-failovers)  
-      *Automatic regional failover.*
+      *Service-managed failovers automate regional recovery.*
     - [DocumentDB graceful failovers](https://devblogs.microsoft.com/documentdb/graceful-failovers-in-azure-documentdb-now-generally-available/)  
-      *Controlled planned failovers.*
+      *Graceful failovers enable planned transitions.*
     - [DocumentDB change streams](https://devblogs.microsoft.com/documentdb/change-streams-in-azure-documentdb-richer-events-historical-replay-and-multi-node-change-streams-public-preview/)  
-      *Richer events, historical replay, and multi-node change streams.*
+      *Richer change streams enable event sourcing.*
 
 ## 🤖 AI & Agents
 
@@ -232,51 +234,51 @@ This is a personal collection of announcements and updates from **Microsoft //Bu
 
 - **Microsoft agent platform:**
     - [AI alone won't change your business. The system running it will.](https://blogs.microsoft.com/blog/2026/06/02/ai-alone-wont-change-your-business-the-system-running-it-will/)  
-      *Microsoft's Build 2026 agent-platform framing: GitHub for build, Microsoft IQ for context, Foundry for runtime, Agent 365 for governance, and Teams/Microsoft 365 for surfacing agents.*
+      *AI value comes from full agent systems.*
     - [Work IQ APIs](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/)  
-      *Agent-optimized APIs for Microsoft 365 context, tools, chat, and workspaces.*
+      *Work IQ APIs expose M365 context for automation.*
     - [Web IQ](https://blogs.bing.com/search/June-2026/Announcing-Microsoft-Web-IQ)  
-      *AI-native grounding APIs built on Bing for fresh web, news, image, and video evidence.*
+      *Web IQ improves agent factuality and recency.*
     - [Microsoft Scout](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/)  
-      *Always-on personal agent built on OpenClaw with Work IQ context and governed Entra identity.*
+      *Always-on personal agent with enterprise governance.*
     - [Project Lobster is Microsoft Scout](https://www.linkedin.com/pulse/project-lobster-microsoft-scout-omar-shahine-o5bae)  
-      *Behind-the-scenes context on the path from Project Lobster to Microsoft Scout.*
+      *Implementation context for Scout's design.*
     - [Frontier Tuning](https://devblogs.microsoft.com/microsoft365dev/frontier-tuning-teaching-ai-to-work-the-way-you-do/)  
-      *Domain-specific model tuning using enterprise data, workflows, and reinforcement-learning environments.*
+      *Domain-specific models fit organizational patterns.*
 
 - **Microsoft Foundry:**
     - [What's new in Microsoft Foundry | Build Edition](https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/)  
-      *Foundry Build 2026 overview covering agents, toolboxes, routines, memory, Web IQ, models, guardrails, tracing, and optimization.*
+      *Maturing platform integrates build and governance.*
     - [Build and run agents at scale with Microsoft Foundry](https://devblogs.microsoft.com/foundry/agent-service-build2026/)  
-      *Deep dive on Foundry Agent Service, hosted agents, Microsoft Agent Framework, Toolboxes, Voice Live, memory, and tracing.*
+      *Hosted agents at scale with production tooling.*
     - [Hosted Agents in Microsoft Foundry Agent Service](https://azure.microsoft.com/updates?id=563596)  
-      *Container-based runtime for bringing agent code from any framework into Microsoft Foundry.*
+      *Container runtime reduces migration friction.*
     - [Foundry IQ](https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/)  
-      *Unified knowledge, serverless retrieval, Work IQ, Fabric IQ, Azure SQL, File Search, MCP, and Web IQ knowledge sources.*
+      *Unifies 6+ sources with serverless retrieval.*
     - [Toolboxes and Routines in Microsoft Foundry](https://devblogs.microsoft.com/foundry/toolbox-build-26/)  
-      *Governed tools, skills, MCP clients, connectors, and scheduled agent execution.*
+      *Standardized tools ease operationalization.*
     - [Agent Optimizer in Foundry Agent Service](https://devblogs.microsoft.com/foundry/agent-optimizer-build2026/)  
-      *Turns production failures into ranked, reviewable agent improvements.*
+      *Converts failures to ranked improvements.*
     - [Agent memory in Foundry](https://devblogs.microsoft.com/foundry/memory-build2026/)  
-      *Procedural, user, and session memory for production agents.*
+      *Three memory scopes enable context-aware agents.*
     - [Enterprise agent distribution in Microsoft Foundry](https://devblogs.microsoft.com/foundry/from-building-agents-to-working-with-them-enterprise-agent-distribution-in-microsoft-foundry/)  
-      *Publish Foundry agents to Microsoft 365 Copilot and Teams.*
+      *Distribution to M365 and Teams closes adoption gap.*
     - [Microsoft Agent Framework](https://commandline.microsoft.com/agent-framework-layered-sdk-loops-workflows-harnesses/)  
-      *Provider-neutral agent framework for loops, workflows, harnesses, tools, context, memory, and permissions.*
+      *Provider-neutral architecture avoids vendor lock-in.*
 
 - **Models, speech, content, and R&D:**
-    - [Seven new MAI models](https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/)  
-      *Microsoft AI model-family announcement covering reasoning, coding, image, voice, transcription, and Frontier Tuning.*
+    - [Seven new First-Party Microsoft AI models](https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/)  
+      *Seven new MAI models across reasoning, coding, multimodal.*
     - [Mayo Clinic frontier healthcare model partnership](https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/)  
-      *Microsoft and Mayo Clinic are co-creating a frontier healthcare AI model to be made available through Azure Foundry after validation.*
+      *Mayo Clinic partnership develops healthcare models.*
     - [Azure Speech at Build 2026](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/azure-speech-at-build-2026-powering-voice-agents-with-real-time-and-life-like-ex/4524638)  
-      *Voice Live, hosted voice agents, speech-to-speech models, WebSocket/WebRTC support, and Foundry speech playground.*
+      *Real-time, lifelike voice agents with streaming protocols.*
     - [Azure Content Understanding at Build 2026](https://devblogs.microsoft.com/foundry/whats-new-in-azure-content-understanding-at-build-2026/)  
-      *Content Understanding in Foundry Tools with agentic mode, analyzers, and workflow integrations.*
+      *Richer analyzers turn content into agent signals.*
     - [Microsoft Discovery GA and Discovery app preview](https://azure.microsoft.com/en-us/blog/announcing-microsoft-discovery-general-availability-and-microsoft-discovery-app-preview/)  
-      *Agentic R&D platform for scientific and engineering workflows.*
+      *Discovery GA enables agentic scientific workflows.*
     - [Majorana 2 and Microsoft Discovery](https://news.microsoft.com/source/features/innovation/majorana-2-microsoft-discovery-agentic-ai/)  
-      *Next-generation quantum chip built with the help of Microsoft Discovery's agentic AI.*
+      *AI tooling accelerates deep-tech R&D.*
 
 ## 🔒 Security & Governance
 
@@ -286,35 +288,35 @@ This is a personal collection of announcements and updates from **Microsoft //Bu
 
 - **Agent and model security:**
     - [Securing code, agents, and models across the development lifecycle](https://www.microsoft.com/en-us/security/blog/2026/06/02/microsoft-build-2026-securing-code-agents-and-models-across-the-development-lifecycle/)  
-      *MDASH, Defender/GitHub Code Security, Agent 365 SDK, MXC, Windows 365 for Agents, Purview DLP, and Defender model scanning.*
+      *Security controls are first-class in AI pipelines.*
     - [Agent 365 GA and expanded local/cloud agent management](https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/)  
-      *Observe, govern, and secure local, SaaS, and cloud agents.*
+      *Unified governance across local, SaaS, cloud agents.*
     - [Windows platform security for AI agents](https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/)  
-      *MXC SDK, process/session isolation, micro-VM roadmap, Linux containers, Windows 365 for Agents, and OpenClaw on Windows.*
+      *Windows platform security for local agents.*
     - [Microsoft Execution Containers SDK](https://github.com/microsoft/mxc)  
-      *Policy-driven execution layer for agents on Windows and WSL.*
+      *Policy-driven execution enforces least privilege.*
     - [OpenClaw on Windows with Microsoft Execution Containers](https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/)  
-      *OpenClaw node and gateway run securely on Windows using MXC, with a companion app for setting up claws or connecting to existing ones.*
+      *OpenClaw on Windows enables secure deployment.*
     - [OpenClaw Windows Node](https://github.com/openclaw/openclaw-windows-node)  
-      *OpenClaw node and gateway for Windows.*
+      *OpenClaw Windows Node lowers setup complexity.*
     - [Windows 365 at Build 2026](https://techcommunity.microsoft.com/blog/windows-itpro-blog/made-for-developers-and-agents-windows-365-at-build-2026/4519041)  
-      *Ready-to-code Cloud PCs and secured execution environments for agents.*
+      *Managed Cloud PCs enable secure agent execution.*
 
 - **Defender, Purview, and database security:**
     - [Start secure, stay secure](https://techcommunity.microsoft.com/blog/microsoftdefendercloudblog/start-secure-stay-secure-how-microsoft-is-closing-the-gap-from-code-to-runtime/4524580)  
-      *Defender for Cloud Build post for MDASH and Defender for Cloud + GitHub Code Security.*
+      *Code-to-runtime connects developer to runtime security.*
     - [Defender for Cloud hardened images](https://techcommunity.microsoft.com/blog/microsoftdefendercloudblog/the-end-of-patching-era-for-containers-microsoft-defender-for-cloud-expands-hard/4524798)  
-      *Container image hardening as a security baseline.*
+      *Hardened images reduce patching overhead.*
     - [Purview sensitivity labels in Azure AI Search](https://azure.microsoft.com/updates?id=563591)  
-      *Sensitivity labels flow into Azure AI Search ingestion.*
+      *Labels enable policy-aware retrieval.*
     - [Purview label auditing in Azure AI Search](https://azure.microsoft.com/updates?id=563267)  
-      *Audit events for labels carried alongside indexed documents.*
+      *Auditing creates compliance evidence trails.*
     - [PostgreSQL Defender security assessments](https://azure.microsoft.com/updates?id=563781)  
-      *Continuous security assessment for Azure Database for PostgreSQL.*
+      *Continuous security assessments for PostgreSQL.*
     - [PostgreSQL cross-tenant CMK](https://azure.microsoft.com/updates?id=563776)  
-      *Cross-tenant customer-managed keys for PostgreSQL Flexible Server.*
+      *Cross-tenant CMK enables stricter key separation.*
     - [Azure SQL TDE with AES customer-managed keys](https://azure.microsoft.com/updates?id=563142)  
-      *AES-256 keys for TDE with customer-managed keys.*
+      *AES-256 CMK strengthens encryption governance.*
 
 ---
 
@@ -343,4 +345,4 @@ This list is maintained by Matt Hansen. Feel free to suggest additions or correc
 
 ---
 
-*Last updated: June 3, 2026*
+*Last updated: June 4, 2026*
