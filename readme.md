@@ -197,7 +197,7 @@ This is a personal collection of announcements and updates at  around **Microsof
       *AES customer-managed keys strengthen TDE control.*
     - [Azure SQL June updates](https://azure.microsoft.com/updates?id=563137)  
       *Tooling and notebooks improve query workflows.*
-    - [Azure Database for MySQL quota management](https://azure.microsoft.com/updates?id=563147)  
+    - [Azure Database for MySQL Self-Service quota management](https://techcommunity.microsoft.com/blog/adformysql/general-availability-of-the-mysql-flexible-server-quota-management-self-service-/4523373)  
       *Self-service quota management speeds capacity scaling.*
 
 - **Cosmos DB and DocumentDB:**
