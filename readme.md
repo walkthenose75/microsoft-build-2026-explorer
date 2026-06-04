@@ -261,7 +261,7 @@ This is a personal collection of announcements and updates at  around **Microsof
       *Hosted agents at scale with production tooling.*
     - [Hosted Agents in Microsoft Foundry Agent Service](https://azure.microsoft.com/updates?id=563596)  
       *Container runtime reduces migration friction.*
-    - [Foundry IQ](https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/)  
+    - [What's new in Foundry IQ | Build Edition](https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/)  
       *Unifies 6+ sources with serverless retrieval.*
     - [Foundry IQ recall improvements for knowledge bases](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/foundry-iq-improve-recall-by-up-to-54-with-knowledge-bases/4524852)  
       *Agentic retrieval updates improve recall and reduce token costs in enterprise search.*
