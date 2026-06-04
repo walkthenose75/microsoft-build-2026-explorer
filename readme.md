@@ -1,10 +1,12 @@
 # 🚀 Matt's List of //Build 2026 Announcements
 
-This is a personal collection of announcements and updates from **Microsoft //Build 2026**, organized by service category for navigation and reference.
+This is a personal collection of announcements and updates at  around **Microsoft //Build 2026**, organized by service category for navigation and reference.
 
-**Last Updated:** June 4, 2026
+**Last Updated:** June 4, 2026, 7:42 AM (EST)
 
-**🎯 What's Inside:** 100+ announcements across Hardware & Infrastructure, Apps & Development, Data & Analytics, AI & Agents, and Security & Governance with direct links to official documentation and blog posts.
+**Current Total Updates:** 131 announcements
+
+**🎯 What's Inside:** 131 announcements across Hardware & Infrastructure, Apps & Development, Data & Analytics, AI & Agents, and Security & Governance with direct links to official documentation and blog posts.
 
 ---
 
@@ -27,6 +29,8 @@ This is a personal collection of announcements and updates from **Microsoft //Bu
 - **Compute and hardware:**
     - [Azure Cobalt 200 VMs](https://azure.microsoft.com/en-us/blog/new-azure-cobalt-200-vms-deliver-50-performance-improvement-fully-optimized-for-modern-agentic-ai-workloads/)  
       *Arm-based VMs, 50% better performance for AI workloads.*
+    - [Confidential Live Migration for Intel TDX confidential VMs](https://azure.microsoft.com/updates?id=565000)  
+      *Private preview enables protected host migration with minimal interruption.*
     - [Cobalt 200 VM series update](https://azure.microsoft.com/updates?id=564451)  
       *Adds 5 Cobalt series for right-sized Arm options.*
     - [Guest RDMA for Azure Boost](https://techcommunity.microsoft.com/blog/azurecompute/announcing-preview-of-guest-rdma-for-azure-boost/4524589)  
@@ -153,6 +157,8 @@ This is a personal collection of announcements and updates from **Microsoft //Bu
       *Agent-native desktop with worktrees enables parallel tasks.*
     - [GitHub Copilot App repo](https://github.com/github/app)  
       *Public repo centralizes releases and feedback loops.*
+    - [MAI-Code-1-Flash in GitHub Copilot](https://github.blog/changelog/2026-06-02-mai-code-1-flash-is-now-available-for-github-copilot)  
+      *Small-tier coding model rollout expands lightweight coding options in Copilot.*
     - [Copilot SDK GA](https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available)  
       *Copilot SDK GA enables embedding agentic coding.*
     - [Agent apps for GitHub](https://github.blog/changelog/2026-06-02-extend-github-with-agent-apps)  
@@ -187,6 +193,8 @@ This is a personal collection of announcements and updates from **Microsoft //Bu
       *Public preview enables early evaluation.*
     - [PostgreSQL Build 2026 roundup](https://techcommunity.microsoft.com/blog/adforpostgresql/announcing-new-security-maintenance-and-analytics-features-for-postgresql-at-mic/4524559)  
       *Updates add security, analytics, migration tooling.*
+    - [DuckDB extension for Azure Database for PostgreSQL](https://azure.microsoft.com/updates?id=563766)  
+      *DuckDB support in Flexible Server expands in-database analytics options.*
     - [PostgreSQL workflow in Cursor](https://techcommunity.microsoft.com/blog/adforpostgresql/your-postgresql-workflow-just-found-its-new-home-in-cursor/4524081)  
       *PostgreSQL tooling on Open VSX supports AI editors.*
     - [Azure SQL TDE with AES keys](https://techcommunity.microsoft.com/blog/azuresqlblog/transparent-data-encryption-in-azure-sql-database-now-supports-aes-keys-public-p/4523240)  
@@ -219,6 +227,8 @@ This is a personal collection of announcements and updates from **Microsoft //Bu
       *Instant free-tier provisioning speeds evaluation.*
     - [DocumentDB migration extension](https://azure.microsoft.com/updates?id=563072)  
       *Migration extension reduces setup complexity.*
+    - [Advanced full-text search in Azure DocumentDB](https://azure.microsoft.com/updates?id=563077)  
+      *Fuzzy, proximity, and BM25 search improve hybrid text and vector retrieval.*
     - [DocumentDB service-managed failovers](https://devblogs.microsoft.com/documentdb/azure-documentdb-general-availability-of-service-managed-failovers)  
       *Service-managed failovers automate regional recovery.*
     - [DocumentDB graceful failovers](https://devblogs.microsoft.com/documentdb/graceful-failovers-in-azure-documentdb-now-generally-available/)  
@@ -237,6 +247,8 @@ This is a personal collection of announcements and updates from **Microsoft //Bu
       *AI value comes from full agent systems.*
     - [Work IQ APIs](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/)  
       *Work IQ APIs expose M365 context for automation.*
+    - [Computer-using agents, workflows, and real-time voice experiences](https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/)  
+      *Copilot Studio updates connect UI automation, workflows, and real-time voice in one platform.*
     - [Web IQ](https://blogs.bing.com/search/June-2026/Announcing-Microsoft-Web-IQ)  
       *Web IQ improves agent factuality and recency.*
     - [Microsoft Scout](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/)  
@@ -255,8 +267,16 @@ This is a personal collection of announcements and updates from **Microsoft //Bu
       *Container runtime reduces migration friction.*
     - [Foundry IQ](https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/)  
       *Unifies 6+ sources with serverless retrieval.*
+    - [Foundry IQ recall improvements for knowledge bases](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/foundry-iq-improve-recall-by-up-to-54-with-knowledge-bases/4524852)  
+      *Agentic retrieval updates improve recall and reduce token costs in enterprise search.*
+    - [Foundry IQ governance and enterprise AI security](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/foundry-iq-new-governance-and-enterprise-ai-security-capabilities/4524825)  
+      *Adds ACL sync, Purview integration, and private connectivity for governed retrieval workflows.*
     - [Toolboxes and Routines in Microsoft Foundry](https://devblogs.microsoft.com/foundry/toolbox-build-26/)  
       *Standardized tools ease operationalization.*
+    - [Browser automation tool with Toolboxes in Foundry](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-the-new-browser-automation-tool-with-toolboxes-in-foundry/4522790)  
+      *MCP-native browser automation adds live view and intervention controls for hosted agents.*
+    - [Domain filter for specialized model discovery](https://azure.microsoft.com/updates?id=563731)  
+      *Model catalog domain filters speed discovery of industry-tuned models.*
     - [Agent Optimizer in Foundry Agent Service](https://devblogs.microsoft.com/foundry/agent-optimizer-build2026/)  
       *Converts failures to ranked improvements.*
     - [Agent memory in Foundry](https://devblogs.microsoft.com/foundry/memory-build2026/)  
@@ -271,8 +291,18 @@ This is a personal collection of announcements and updates from **Microsoft //Bu
       *Seven new MAI models across reasoning, coding, multimodal.*
     - [Mayo Clinic frontier healthcare model partnership](https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/)  
       *Mayo Clinic partnership develops healthcare models.*
+    - [MAI-Voice-2 in Microsoft Foundry](https://azure.microsoft.com/updates?id=563217)  
+      *Public preview introduces multilingual voice cloning and prompting in Foundry.*
     - [Azure Speech at Build 2026](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/azure-speech-at-build-2026-powering-voice-agents-with-real-time-and-life-like-ex/4524638)  
       *Real-time, lifelike voice agents with streaming protocols.*
+    - [Voice Live evaluation harness](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/evaluate-before-you-ship-introducing-the-voice-live-evaluation-harness/4523064)  
+      *Open-source evaluation pipeline scores multi-turn voice agents before production.*
+    - [Text Analytics for Health NextGen Playground](https://azure.microsoft.com/updates?id=563671)  
+      *Foundry playground exposes FHIR-aligned health entity extraction for pre-integration testing.*
+    - [TextPII NextGen Playground updates](https://azure.microsoft.com/updates?id=564241)  
+      *Updated configuration panel improves interactive PII validation workflows.*
+    - [Conversational PII NextGen Playground](https://azure.microsoft.com/updates?id=564246)  
+      *Conversation-focused PII testing supports transcript-style privacy and compliance scenarios.*
     - [Azure Content Understanding at Build 2026](https://devblogs.microsoft.com/foundry/whats-new-in-azure-content-understanding-at-build-2026/)  
       *Richer analyzers turn content into agent signals.*
     - [Microsoft Discovery GA and Discovery app preview](https://azure.microsoft.com/en-us/blog/announcing-microsoft-discovery-general-availability-and-microsoft-discovery-app-preview/)  
