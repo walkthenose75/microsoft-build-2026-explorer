@@ -1,24 +1,24 @@
 # 🚀 Matt's List of //Build 2026 Announcements
 
-This is a personal collection of announcements and updates from **Microsoft Build 2026**, organized by service category for navigation and reference.
+This is a personal collection of announcements and updates from **Microsoft //Build 2026**, organized by service category for navigation and reference.
 
 **Last Updated:** June 3, 2026
 
-**🎯 What's Inside:** 100+ announcements across Infrastructure, Apps, Data, AI, and Security with direct links to official documentation and blog posts.
+**🎯 What's Inside:** 100+ announcements across Hardware & Infrastructure, Apps & Development, Data & Analytics, AI & Agents, and Security & Governance with direct links to official documentation and blog posts.
 
 ---
 
 ## 📋 Table of Contents
 
-- [🏗️ Azure Infrastructure](#-azure-infrastructure)
-- [🔧 Azure Apps](#-azure-apps)
-- [📊 Azure Data](#-azure-data)
-- [🤖 Azure AI](#-azure-ai)
+- [🏗️ Hardware & Infrastructure](#-hardware--infrastructure)
+- [🔧 Apps & Development](#-apps--development)
+- [📊 Data & Analytics](#-data--analytics)
+- [🤖 AI & Agents](#-ai--agents)
 - [🔒 Security & Governance](#-security--governance)
 
 ---
 
-## 🏗️ Azure Infrastructure
+## 🏗️ Hardware & Infrastructure
 
 > *Core infrastructure services, compute, storage, operations, resiliency, and foundational Azure capabilities*
 
@@ -82,7 +82,7 @@ This is a personal collection of announcements and updates from **Microsoft Buil
 
 ---
 
-## 🔧 Azure Apps
+## 🔧 Apps & Development
 
 > *Application development, deployment, integration, SRE agents, and developer platform services*
 
@@ -160,7 +160,7 @@ This is a personal collection of announcements and updates from **Microsoft Buil
 
 ---
 
-## 📊 Azure Data
+## 📊 Data & Analytics
 
 > *Data storage, analytics, databases, Fabric, and data management services*
 
@@ -224,7 +224,7 @@ This is a personal collection of announcements and updates from **Microsoft Buil
     - [DocumentDB change streams](https://devblogs.microsoft.com/documentdb/change-streams-in-azure-documentdb-richer-events-historical-replay-and-multi-node-change-streams-public-preview/)  
       *Richer events, historical replay, and multi-node change streams.*
 
-## 🤖 Azure AI
+## 🤖 AI & Agents
 
 > *Microsoft Foundry, agents, models, grounding, speech, R&D, and AI application platform capabilities*
 
@@ -317,3 +317,30 @@ This is a personal collection of announcements and updates from **Microsoft Buil
       *AES-256 keys for TDE with customer-managed keys.*
 
 ---
+
+## 📅 Event Information
+
+**Microsoft //Build 2026**  
+🌐 *Developer conference announcements roundup*  
+📚 *Coverage focused on platform, data, AI, apps, and security updates*
+
+### Summary
+Microsoft //Build 2026 highlighted major updates across infrastructure, developer tooling, data and analytics, AI agent platforms, and security governance. This list tracks notable announcements and links directly to source posts and documentation.
+
+---
+
+## 📝 Contributing
+
+This list is maintained by Matt Hansen. Feel free to suggest additions or corrections direct or via PR.
+
+---
+
+## 🔗 Resources
+
+- [Official Microsoft //Build](https://build.microsoft.com/)
+- [Azure Updates](https://azure.microsoft.com/updates/)
+- [Microsoft Tech Community](https://techcommunity.microsoft.com/)
+
+---
+
+*Last updated: June 3, 2026*
