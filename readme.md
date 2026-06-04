@@ -239,7 +239,7 @@ This is a personal collection of announcements and updates at  around **Microsof
 ### Key Announcements
 
 - **Microsoft agent platform:**
-    - [AI alone won't change your business. The system running it will.](https://blogs.microsoft.com/blog/2026/06/02/ai-alone-wont-change-your-business-the-system-running-it-will/)  
+    - [Microsoft Agent Platform Build Blog](https://blogs.microsoft.com/blog/2026/06/02/ai-alone-wont-change-your-business-the-system-running-it-will/)  
       *AI value comes from full agent systems.*
     - [Work IQ APIs](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/)  
       *Work IQ APIs expose M365 context for automation.*
