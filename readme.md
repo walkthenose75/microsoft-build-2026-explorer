@@ -153,11 +153,9 @@ This is a personal collection of announcements and updates at  around **Microsof
       *1 MB messages, MQTT v5, autoscale for IoT.*
 
 - **GitHub and marketplace:**
+    - [MAI-Code-1-Flash in GitHub Copilot](https://github.blog/changelog/2026-06-02-mai-code-1-flash-is-now-available-for-github-copilot)  
     - [GitHub Copilot App](https://github.blog/news-insights/product-news/github-copilot-app-the-agent-native-desktop-experience/)  
       *Agent-native desktop with worktrees enables parallel tasks.*
-    - [GitHub Copilot App repo](https://github.com/github/app)  
-      *Public repo centralizes releases and feedback loops.*
-    - [MAI-Code-1-Flash in GitHub Copilot](https://github.blog/changelog/2026-06-02-mai-code-1-flash-is-now-available-for-github-copilot)  
       *Small-tier coding model rollout expands lightweight coding options in Copilot.*
     - [Copilot SDK GA](https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available)  
       *Copilot SDK GA enables embedding agentic coding.*
