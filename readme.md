@@ -127,7 +127,7 @@ This is a personal collection of announcements and updates at  around **Microsof
       *MicroVM sandboxes isolate agentic workloads securely.*
     - [Anyscale on Azure](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-anyscale-on-azure-public-preview-powered-by-ray-on-aks/4523704)  
       *Managed Ray simplifies distributed training and inference.*
-    - [Azure Container Linux on AKS](https://azure.microsoft.com/updates?id=564537)  
+    - [Azure Container Linux on AKS](https://aka.ms/azurecontainerlinux-blog)
       *Immutable OS improves consistency and reduces attack surface.*
     - [ACR Artifact Cache deep dive](https://techcommunity.microsoft.com/blog/appsonazureblog/inside-acr-artifact-cache-pull-through-caching-at-scale/4524949)  
       *Pull-through caching reduces latency and upstream risk.*
