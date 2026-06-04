@@ -92,7 +92,7 @@ This is a personal collection of announcements and updates at  around **Microsof
 
 ### Key Announcements
 
-- **Azure Functions and SRE Agent:**
+- **Azure Functions:**
     - [azure-functions-skills](https://devblogs.microsoft.com/azure-sdk/introducing-azure-functions-skills-ai-era-workspace)  
       *Packages skills and MCP config for Functions patterns.*
     - [Azure Functions Serverless Agents Runtime](https://techcommunity.microsoft.com/blog/appsonazureblog/introducing-the-azure-functions-serverless-agents-runtime-preview/4523804)  
@@ -103,6 +103,8 @@ This is a personal collection of announcements and updates at  around **Microsof
       *MCP support enables safe agent automation.*
     - [Managed Connectors for Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-managed-connectors-for-azure-functions-preview/4523798)  
       *1,400+ managed connectors reduce integration plumbing.*
+
+- **Azure SRE Agent:**
     - [Azure SRE Agent at Build 2026](https://techcommunity.microsoft.com/blog/appsonazureblog/azure-sre-agent-at-microsoft-build-2026-bringing-agentic-operations-to-the-enter/4524669)  
       *SRE Agent governance enables production operations.*
     - [SRE Agent VNet integration](https://techcommunity.microsoft.com/blog/appsonazureblog/vnet-integration-for-azure-sre-agent-preview/4524287)  
