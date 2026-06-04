@@ -34,7 +34,7 @@ This is a personal collection of announcements and updates at  around **Microsof
     - [Guest RDMA for Azure Boost](https://techcommunity.microsoft.com/blog/azurecompute/announcing-preview-of-guest-rdma-for-azure-boost/4524589)  
       *100 Gb/s low-latency Guest RDMA for distributed AI and HPC.*
     - [Lasv5 and Laosv5 VMs](https://techcommunity.microsoft.com/blog/azurecompute/announcing-preview-of-new-azure-lasv5-and-laosv5-vms-based-on-the-amd-epyc%E2%84%A2-%E2%80%98tur/4522407)  
-      *35% more CPU, 138 TB local storage for data-heavy workloads.*
+      *Upgrades include: 35% more CPU, 138 TB local storage, and 200 Gbps Bandwidth*
     - [Azure Linux 4.0](https://aka.ms/azurelinux-blog)  
       *Azure Linux 4.0 extends container hosting to general-purpose VMs.*
     - [Surface RTX Spark Dev Box and DGX Station for Windows](https://blogs.windows.com/windowsdeveloper/2026/06/02/build-2026-furthering-windows-as-the-trusted-platform-for-development/)  
@@ -65,7 +65,8 @@ This is a personal collection of announcements and updates at  around **Microsof
       *Agent-assisted migrations reduce manual planning.*
 
 - **Observability and resiliency:**
-    - [What's new in Observability at Build 2026](https://techcommunity.microsoft.com/blog/azureobservabilityblog/what%E2%80%99s-new-in-observability-at-build-2026/4524927)  
+    - [What's new in Observability at Build 2026](https://techcommunity.microsoft.com/blog/azureobservabilityblog/what%E2%80%99s-new-in-observability-at-build-2026/4524927)
+    - [Azure Infrastructure Resiliency Manager](https://techcommunity.microsoft.com/blog/reliability-and-resiliency-in-azure/announcing-azure-infrastructure-resiliency-manager-public-preview/4523710)
       *Azure Monitor for agent observability and SLI/SLO workflows.*
     - [Azure Monitor Copilot Observability Agent](https://techcommunity.microsoft.com/blog/azureobservabilityblog/azure-monitor-copilot-observability-agent-what%E2%80%99s-new-at-build/4522927)  
       *Copilot investigations shorten incident MTTI.*
@@ -79,7 +80,6 @@ This is a personal collection of announcements and updates at  around **Microsof
       *Monitoring Coverage prevents silent telemetry gaps.*
     - [Multi-stage transformations for Azure Monitor DCRs](https://techcommunity.microsoft.com/blog/azureobservabilityblog/is-94-of-your-syslog-just-noise-now-you-can-filter-it-out-before-ingestion-/4524600)  
       *Multi-stage transformations cut telemetry noise and cost.*
-    - [Azure Infrastructure Resiliency Manager](https://techcommunity.microsoft.com/blog/reliability-and-resiliency-in-azure/announcing-azure-infrastructure-resiliency-manager-public-preview/4523710)  
       *Resilience workflow makes reliability an ongoing practice.*
     - [Kubernetes Center security and version insights](https://techcommunity.microsoft.com/blog/azureinfrastructureblog/kubernetes-center-security--ltsout-of-support-version-insights-now-available/4524567)  
       *Fleet-level AKS security insights reduce upgrade risk.*
