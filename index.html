@@ -675,13 +675,12 @@ a:hover { text-decoration: underline; }
 }
 .theme-toggle:hover { background: rgba(255,255,255,0.18); }
 
-/* === Keynote Banner === */
+/* === Keynote Banner (Microsoft Vision tab content) === */
 .keynote-banner {
   background: var(--cp-surface);
   border: 1px solid var(--cp-border);
   border-radius: 16px;
-  margin: 1.5rem auto;
-  max-width: 1400px;
+  margin: 0 0 1.5rem 0;
   padding: 0;
   overflow: hidden;
 }
@@ -823,29 +822,6 @@ a:hover { text-decoration: underline; }
     <div class="filter-bar" id="filterBar"></div>
   </div>
 </header>
-
-<!-- Keynote Banner -->
-<section class="keynote-banner" style="margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem;">
-  <div class="keynote-inner">
-    <div class="keynote-video">
-      <iframe src="https://www.youtube.com/embed/FFMm454fxNA" title="Satya Nadella Opening Keynote — Microsoft Build 2026" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-    </div>
-    <div class="keynote-info">
-      <div class="keynote-label">🎤 Opening Keynote</div>
-      <div class="keynote-title">Satya Nadella — Microsoft Build 2026: "Be Yourself at Work"</div>
-      <div class="keynote-desc">
-        Satya Nadella unveils Microsoft's vision for the age of AI — intelligence that's truly yours, a full stack your way, and frontier science accelerating human progress. From Microsoft IQ to Azure AI Foundry, agents in Teams & M365, and the Majorana 2 quantum chip.
-      </div>
-      <div class="keynote-links">
-        <a href="https://www.youtube.com/watch?v=FFMm454fxNA" target="_blank" rel="noopener" class="keynote-link primary">▶ Watch Full Keynote</a>
-        <a href="https://www.youtube.com/watch?v=ZhZqeo7SD0Y" target="_blank" rel="noopener" class="keynote-link secondary">⚡ Highlights</a>
-        <a href="https://blogs.microsoft.com/blog/2026/06/02/microsoft-build-2026-be-yourself-at-work/" target="_blank" rel="noopener" class="keynote-link secondary">📝 Blog Post</a>
-        <a href="https://news.microsoft.com/build-2026/" target="_blank" rel="noopener" class="keynote-link secondary">📰 News Hub</a>
-        <a href="https://news.microsoft.com/speeches/satya-nadella-microsoft-build-2026/" target="_blank" rel="noopener" class="keynote-link secondary">📄 Transcript</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- Main Layout -->
 <div class="main-layout">
@@ -1677,9 +1653,15 @@ a:hover { text-decoration: underline; }
     // Clear loading
     content.innerHTML = '';
 
-    // Build filter pills in hero
+    // Build filter pills in hero — Microsoft Vision first (default)
+    const visionPill = document.createElement('button');
+    visionPill.className = 'filter-pill active';
+    visionPill.dataset.cat = 'vision';
+    visionPill.innerHTML = `🎤 Microsoft Vision`;
+    filterBar.appendChild(visionPill);
+
     const allPill = document.createElement('button');
-    allPill.className = 'filter-pill active';
+    allPill.className = 'filter-pill';
     allPill.dataset.cat = 'all';
     allPill.innerHTML = `All <span class="pill-count" id="pillCountAll">${totalCount}</span>`;
     filterBar.appendChild(allPill);
@@ -1701,8 +1683,15 @@ a:hover { text-decoration: underline; }
     // Remove old nav buttons
     sidebar.querySelectorAll('.nav-btn, .nav-divider, .sidebar-source, .sidebar-updated').forEach(el => el.remove());
 
+    // Microsoft Vision nav button (default active)
+    const visionBtn = document.createElement('button');
+    visionBtn.className = 'nav-btn active';
+    visionBtn.dataset.cat = 'vision';
+    visionBtn.innerHTML = `<span class="nav-emoji">🎤</span><span class="nav-label">Microsoft Vision</span>`;
+    sidebar.appendChild(visionBtn);
+
     const showAllBtn = document.createElement('button');
-    showAllBtn.className = 'nav-btn active';
+    showAllBtn.className = 'nav-btn';
     showAllBtn.dataset.cat = 'all';
     showAllBtn.innerHTML = `<span class="nav-emoji">📋</span><span class="nav-label">Show All</span><span class="nav-count" id="navCountAll">${totalCount}</span>`;
     sidebar.appendChild(showAllBtn);
@@ -1736,7 +1725,34 @@ a:hover { text-decoration: underline; }
       sidebar.appendChild(updatedDiv);
     }
 
-    // Build category sections
+    // Build Microsoft Vision content section (default view)
+    const visionSection = document.createElement('section');
+    visionSection.className = 'keynote-banner';
+    visionSection.id = 'vision-section';
+    visionSection.innerHTML = `
+      <div class="keynote-inner">
+        <div class="keynote-video">
+          <iframe src="https://www.youtube.com/embed/FFMm454fxNA" title="Satya Nadella Opening Keynote — Microsoft Build 2026" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="keynote-info">
+          <div class="keynote-label">🎤 Opening Keynote</div>
+          <div class="keynote-title">Satya Nadella — Microsoft Build 2026: "Be Yourself at Work"</div>
+          <div class="keynote-desc">
+            Satya Nadella unveils Microsoft's vision for the age of AI — intelligence that's truly yours, a full stack your way, and frontier science accelerating human progress. From Microsoft IQ to Azure AI Foundry, agents in Teams & M365, and the Majorana 2 quantum chip.
+          </div>
+          <div class="keynote-links">
+            <a href="https://www.youtube.com/watch?v=FFMm454fxNA" target="_blank" rel="noopener" class="keynote-link primary">▶ Watch Full Keynote</a>
+            <a href="https://www.youtube.com/watch?v=ZhZqeo7SD0Y" target="_blank" rel="noopener" class="keynote-link secondary">⚡ Highlights</a>
+            <a href="https://blogs.microsoft.com/blog/2026/06/02/microsoft-build-2026-be-yourself-at-work/" target="_blank" rel="noopener" class="keynote-link secondary">📝 Blog Post</a>
+            <a href="https://news.microsoft.com/build-2026/" target="_blank" rel="noopener" class="keynote-link secondary">📰 News Hub</a>
+            <a href="https://news.microsoft.com/speeches/satya-nadella-microsoft-build-2026/" target="_blank" rel="noopener" class="keynote-link secondary">📄 Transcript</a>
+          </div>
+        </div>
+      </div>
+    `;
+    content.appendChild(visionSection);
+
+    // Build category sections (hidden by default since Vision is default tab)
     categories.forEach(cat => {
       const meta = CATEGORY_META[cat.id] || {};
       let catCount = 0;
@@ -1746,6 +1762,7 @@ a:hover { text-decoration: underline; }
       section.className = 'category-section';
       section.id = `cat-${cat.id}`;
       section.dataset.cat = cat.id;
+      section.style.display = 'none'; // Hidden by default (Vision tab is default)
 
       let html = `
         <div class="category-header">
@@ -1815,7 +1832,7 @@ a:hover { text-decoration: underline; }
     const searchInput = document.getElementById('searchInput');
     const searchClear = document.getElementById('searchClear');
     const noResults = document.getElementById('noResults');
-    let activeCategory = 'all';
+    let activeCategory = 'vision';
     let searchDebounce = null;
 
     // Category filter (pills + sidebar nav)
@@ -1830,9 +1847,16 @@ a:hover { text-decoration: underline; }
       document.querySelectorAll('.nav-btn').forEach(b => {
         b.classList.toggle('active', b.dataset.cat === catId);
       });
-      // Show/hide sections
+
+      // Toggle Microsoft Vision section
+      const visionEl = document.getElementById('vision-section');
+      if (visionEl) visionEl.style.display = catId === 'vision' ? '' : 'none';
+
+      // Show/hide category sections
       document.querySelectorAll('.category-section').forEach(s => {
-        if (catId === 'all') {
+        if (catId === 'vision') {
+          s.style.display = 'none';
+        } else if (catId === 'all') {
           s.style.display = '';
         } else {
           s.style.display = s.dataset.cat === catId ? '' : 'none';
@@ -1849,7 +1873,9 @@ a:hover { text-decoration: underline; }
         setActiveCategory(cat);
 
         // Scroll to section if specific category
-        if (cat !== 'all') {
+        if (cat === 'vision') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else if (cat !== 'all') {
           const section = document.getElementById(`cat-${cat}`);
           if (section) section.scrollIntoView({ behavior: 'smooth' });
         }
@@ -1860,6 +1886,12 @@ a:hover { text-decoration: underline; }
     function applySearch() {
       const query = searchInput.value.trim().toLowerCase();
       searchClear.classList.toggle('visible', query.length > 0);
+
+      // When Vision tab is active, search doesn't apply to it
+      if (activeCategory === 'vision') {
+        noResults.style.display = 'none';
+        return;
+      }
 
       let totalVisible = 0;
       const catCounts = {};
