@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Microsoft //Build 2026 Explorer</title>
-<meta name="description" content="Interactive explorer for Microsoft Build 2026 announcements. Filter, search, and browse 130+ announcements by category.">
+<title>Microsoft Build 2026 Announcements</title>
+<meta name="description" content="Interactive explorer for Microsoft Build 2026 announcements. Filter, search, and browse 260+ announcements across 22 categories.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
 <script>
 (()=>{
@@ -468,6 +468,26 @@ a:hover { text-decoration: underline; }
   color: var(--cp-text-muted);
   line-height: 1.5;
 }
+.source-badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-left: 6px;
+  vertical-align: middle;
+  line-height: 1;
+  white-space: nowrap;
+}
+.source-badge.ga { background: rgba(74,222,128,0.15); color: #4ade80; }
+.source-badge.preview { background: rgba(96,165,250,0.15); color: #60a5fa; }
+.source-badge.private-preview { background: rgba(168,85,247,0.15); color: #a855f7; }
+.source-badge.coming-soon { background: rgba(251,191,36,0.15); color: #fbbf24; }
+.source-badge.open-source { background: rgba(74,222,128,0.15); color: #4ade80; }
+.source-badge.experimental { background: rgba(251,146,60,0.15); color: #fb923c; }
+.source-badge.announced { background: rgba(148,163,184,0.1); color: #94a3b8; }
 .card.hidden { display: none; }
 
 /* === Category accent left border on cards === */
@@ -735,8 +755,8 @@ a:hover { text-decoration: underline; }
       <div class="hero-brand">
         <div class="hero-logo">🚀</div>
         <div>
-          <div class="hero-title">Microsoft <span>//Build 2026</span> Explorer</div>
-          <div class="hero-subtitle">Interactive browser for all Build 2026 announcements</div>
+          <div class="hero-title">Microsoft <span>//Build 2026</span> Announcements</div>
+          <div class="hero-subtitle">Interactive browser for Build 2026 & Wave 1 Release announcements</div>
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:0.75rem;">
@@ -791,7 +811,7 @@ a:hover { text-decoration: underline; }
   <main class="content" id="content">
     <div class="loading-container" id="loadingState">
       <div class="spinner"></div>
-      <div class="loading-text">Fetching announcements from GitHub...</div>
+      <div class="loading-text">Loading announcements...</div>
     </div>
   </main>
 </div>
@@ -799,7 +819,7 @@ a:hover { text-decoration: underline; }
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-row">
-    <span>Sourced from <a href="https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/" target="_blank" rel="noopener">Microsoft Learn</a>, <a href="https://news.microsoft.com/build-2026/" target="_blank" rel="noopener">official blogs</a>, <a href="https://devblogs.microsoft.com/" target="_blank" rel="noopener">DevBlogs</a>, and <a href="https://github.com/matthansen0/matts-build-2026-list" target="_blank" rel="noopener">Matt Hansen's community list</a></span>
+    <span>Inspired by <a href="https://github.com/matthansen0/matts-build-2026-list" target="_blank" rel="noopener">Matt Hansen's Build 2026 List</a> · Additional data from <a href="https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/" target="_blank" rel="noopener">Microsoft Learn</a>, <a href="https://news.microsoft.com/build-2026/" target="_blank" rel="noopener">official blogs</a>, &amp; <a href="https://devblogs.microsoft.com/" target="_blank" rel="noopener">DevBlogs</a></span>
     <span>·</span>
     <span>Built with ❤️ for the Microsoft developer community</span>
   </div>
@@ -812,8 +832,7 @@ a:hover { text-decoration: underline; }
 (function() {
   'use strict';
 
-  const REPO_URL = 'https://raw.githubusercontent.com/matthansen0/matts-build-2026-list/main/readme.md';
-  const REPO_LINK = 'https://github.com/matthansen0/matts-build-2026-list';
+  // Inspired by https://github.com/matthansen0/matts-build-2026-list
 
   const CATEGORY_META = {
     'hardware-infrastructure': { emoji: '🏗️', color: 'var(--build-cat-infra)', label: 'Hardware & Infrastructure' },
@@ -840,8 +859,207 @@ a:hover { text-decoration: underline; }
     'd365-customer-insights':  { emoji: '🎯', color: 'rgba(220,62,95,0.6)', label: 'D365 Customer Insights' }
   };
 
-  // ── Supplemental Categories (not in Matt's readme) ──────────
-  const SUPPLEMENTAL_CATEGORIES = [
+  // ── All Categories ──────────────────────────────────────────
+  const ALL_CATEGORIES = [
+    // ── Hardware & Infrastructure (originally from Matt Hansen's repo) ──
+    {
+      id: 'hardware-infrastructure', emoji: '🏗️', title: 'Hardware & Infrastructure',
+      description: 'Core infrastructure services, compute, storage, operations, resiliency, and foundational Azure capabilities',
+      subcategories: [
+        { name: 'Compute and hardware', announcements: [
+          { title: 'Azure Cobalt 200 VMs', url: 'https://azure.microsoft.com/en-us/blog/new-azure-cobalt-200-vms-deliver-50-performance-improvement-fully-optimized-for-modern-agentic-ai-workloads/', description: 'Arm-based VMs, 50% better performance for AI workloads.' },
+          { title: 'Confidential Live Migration for Intel TDX confidential VMs', url: 'https://techcommunity.microsoft.com/blog/azureconfidentialcomputingblog/announcing-confidential-live-migration-in-azure/4524558', description: 'Private preview enables protected host migration with minimal interruption.' },
+          { title: 'Guest RDMA for Azure Boost', url: 'https://techcommunity.microsoft.com/blog/azurecompute/announcing-preview-of-guest-rdma-for-azure-boost/4524589', description: '100 Gb/s low-latency Guest RDMA for distributed AI and HPC.' },
+          { title: 'Lasv5 and Laosv5 VMs', url: 'https://techcommunity.microsoft.com/blog/azurecompute/announcing-preview-of-new-azure-lasv5-and-laosv5-vms-based-on-the-amd-epyc%E2%84%A2-%E2%80%98tur/4522407', description: 'Upgrades include: 35% more CPU, 138 TB local storage, and 200 Gbps Bandwidth' },
+          { title: 'Azure Linux 4.0', url: 'https://aka.ms/azurelinux-blog', description: 'Azure Linux 4.0 extends container hosting to general-purpose VMs.' },
+          { title: 'Surface RTX Spark Dev Box and DGX Station for Windows', url: 'https://blogs.windows.com/windowsdeveloper/2026/06/02/build-2026-furthering-windows-as-the-trusted-platform-for-development/', description: 'RTX Spark: 1 petaflop, 128 GB memory. DGX Station: 1T parameters locally.' },
+          { title: 'Project Solara', url: 'https://commandline.microsoft.com/project-solara-build-2026/', description: 'Standardizes building, deploying, managing agent-first devices end-to-end.' },
+          { title: 'Majorana 2 (Microsoft Quantum)', url: 'https://quantum.microsoft.com/en-us/insights/blogs/majorana-2-scalable-quantum-processor', description: 'Redesigned materials stack aims for more reliable topological qubits.' },
+        ]},
+        { name: 'Azure Local, Arc, and edge', announcements: [
+          { title: 'Small form factor infrastructure', url: 'https://techcommunity.microsoft.com/blog/azurearcblog/embed-intelligence-into-physical-systems-with-smaller-form-factor-infrastructure/4524876', description: 'Azure-managed edge infrastructure runs AI and ops closer to devices.' },
+          { title: 'Foundry Local on Azure Local for sovereign AI', url: 'https://techcommunity.microsoft.com/blog/azurearcblog/build-deploy-and-govern-sovereign-ai-with-foundry-local-on-azure-local/4522945', description: 'Multi-node sovereign AI with local retrieval for regulated orgs.' },
+          { title: 'Foundry Local multi-node inference and vLLM', url: 'https://techcommunity.microsoft.com/blog/azurearcblog/scale-on-prem-ai-with-foundry-local-on-azure-local-multi-node-inference-and-vllm/4516692', description: 'Multi-node vLLM scales on-prem serving to production.' },
+          { title: 'GitHub Enterprise Local', url: 'https://techcommunity.microsoft.com/blog/azurearcblog/introducing-github-enterprise-local-preview-devops-for-sovereign-and-private-clo/4523046', description: 'GitHub Enterprise Local keeps DevSecOps workflows air-gapped.' },
+          { title: 'Agentic retrieval in Foundry Local', url: 'https://techcommunity.microsoft.com/blog/azurearcblog/unlock-on-prem-productivity-with-agentic-retrieval-in-foundry-local/4523646', description: 'On-prem agentic M365 retrieval reduces latency and exposure risk.' },
+        ]},
+        { name: 'Storage and migration', announcements: [
+          { title: 'Azure Files on macOS with Entra ID', url: 'https://techcommunity.microsoft.com/blog/azurestorageblog/secure-modern-access-to-azure-files-on-macos-with-ms-entra-id/4524077', description: 'Entra ID macOS Azure Files removes key auth friction.' },
+          { title: 'File share centric management model', url: 'https://techcommunity.microsoft.com/blog/azurestorageblog/simpler-scalable-file-share-management-in-azure---now-generally-available/4523035', description: 'Share-centric model simplifies per-share RBAC and automation.' },
+          { title: 'File share migrations with Azure Copilot Migration Agent', url: 'https://techcommunity.microsoft.com/blog/azurestorageblog/file-share-migrations-simplified-with-azure-copilot-migration-agent/4524563', description: 'Agent-assisted migrations reduce manual planning.' },
+        ]},
+        { name: 'Observability and resiliency', announcements: [
+          { title: 'What\'s new in Observability at Build 2026', url: 'https://techcommunity.microsoft.com/blog/azureobservabilityblog/what%E2%80%99s-new-in-observability-at-build-2026/4524927', description: '' },
+          { title: 'Azure Infrastructure Resiliency Manager', url: 'https://techcommunity.microsoft.com/blog/reliability-and-resiliency-in-azure/announcing-azure-infrastructure-resiliency-manager-public-preview/4523710', description: 'Azure Monitor for agent observability and SLI/SLO workflows.' },
+          { title: 'Azure Monitor Copilot Observability Agent', url: 'https://techcommunity.microsoft.com/blog/azureobservabilityblog/azure-monitor-copilot-observability-agent-what%E2%80%99s-new-at-build/4522927', description: 'Copilot investigations shorten incident MTTI.' },
+          { title: 'Direct OpenTelemetry ingestion', url: 'https://techcommunity.microsoft.com/blog/azureobservabilityblog/direct-opentelemetry-ingestion-into-azure-monitor-is-now-generally-available/4524044', description: 'Direct OTLP ingestion removes custom pipeline overhead.' },
+          { title: 'Monitor AI coding agents with OpenTelemetry', url: 'https://techcommunity.microsoft.com/blog/azureobservabilityblog/monitor-ai-coding-agents-with-opentelemetry-in-azure-monitor/4524049', description: 'Observability for AI coding agents tracks quality and latency.' },
+          { title: 'Azure Monitor agent observability', url: 'https://techcommunity.microsoft.com/blog/azureobservabilityblog/new-capabilities-to-observe-agents-in-azure-monitor/4524896', description: 'Fleet views and cost breakdowns for agent operations.' },
+          { title: 'Monitoring Coverage', url: 'https://techcommunity.microsoft.com/blog/azureobservabilityblog/is-your-monitoring-actually-working-whats-new-in-monitoring-coverage/4524619', description: 'Monitoring Coverage prevents silent telemetry gaps.' },
+          { title: 'Multi-stage transformations for Azure Monitor DCRs', url: 'https://techcommunity.microsoft.com/blog/azureobservabilityblog/is-94-of-your-syslog-just-noise-now-you-can-filter-it-out-before-ingestion-/4524600', description: 'Resilience workflow makes reliability an ongoing practice.' },
+          { title: 'Kubernetes Center security and version insights', url: 'https://techcommunity.microsoft.com/blog/azureinfrastructureblog/kubernetes-center-security--ltsout-of-support-version-insights-now-available/4524567', description: 'Fleet-level AKS security insights reduce upgrade risk.' },
+        ]},
+      ]
+    },
+    // ── Apps & Development (originally from Matt Hansen's repo) ──
+    {
+      id: 'apps-development', emoji: '🔧', title: 'Apps & Development',
+      description: 'Application development, deployment, integration, SRE agents, and developer platform services',
+      subcategories: [
+        { name: 'Azure Functions', announcements: [
+          { title: 'azure-functions-skills', url: 'https://devblogs.microsoft.com/azure-sdk/introducing-azure-functions-skills-ai-era-workspace', description: 'Packages skills and MCP config for Functions patterns.' },
+          { title: 'Azure Functions Serverless Agents Runtime', url: 'https://techcommunity.microsoft.com/blog/appsonazureblog/introducing-the-azure-functions-serverless-agents-runtime-preview/4523804', description: 'Markdown-first runtime lowers serverless agent barrier.' },
+          { title: 'Go support in Azure Functions', url: 'https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-go-support-in-azure-functions-preview/4523801', description: 'First-class Go on Flex Consumption for cloud-native.' },
+          { title: 'Azure Functions MCP Extension', url: 'https://techcommunity.microsoft.com/blog/appsonazureblog/azure-functions-mcp-extension-whats-new-at-build-2026/4524099', description: 'MCP support enables safe agent automation.' },
+          { title: 'Managed Connectors for Azure Functions', url: 'https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-managed-connectors-for-azure-functions-preview/4523798', description: '1,400+ managed connectors reduce integration plumbing.' },
+        ]},
+        { name: 'Azure SRE Agent', announcements: [
+          { title: 'Azure SRE Agent at Build 2026', url: 'https://techcommunity.microsoft.com/blog/appsonazureblog/azure-sre-agent-at-microsoft-build-2026-bringing-agentic-operations-to-the-enter/4524669', description: 'SRE Agent governance enables production operations.' },
+          { title: 'SRE Agent VNet integration', url: 'https://techcommunity.microsoft.com/blog/appsonazureblog/vnet-integration-for-azure-sre-agent-preview/4524287', description: 'VNet integration enforces network controls.' },
+          { title: 'SRE Agent managed connectors', url: 'https://techcommunity.microsoft.com/blog/appsonazureblog/managed-connectors-for-sre-agent-preview--govern-what-your-agent-can-do/4524840', description: 'Governed connectors limit execution blast radius.' },
+          { title: 'SRE Agent tool permissions and hooks', url: 'https://techcommunity.microsoft.com/blog/appsonazureblog/shaping-what-azure-sre-agent-does-tool-permissions-and-hooks/4524791', description: 'Three-mode permissions and hooks add guardrails.' },
+          { title: 'SRE Agent GitHub Enterprise support', url: 'https://techcommunity.microsoft.com/blog/appsonazureblog/bring-your-own-github-app-connecting-azure-sre-agent-to-enterprise-repositories/4524673', description: 'GitHub Enterprise support enables repository-aware workflows.' },
+          { title: 'SRE Agent private plugin marketplace', url: 'https://techcommunity.microsoft.com/blog/appsonazureblog/private-plugins-with-azure-sre-agent/4523763', description: 'Private marketplaces scale approved SRE practices org-wide.' },
+        ]},
+        { name: 'Containers and Kubernetes', announcements: [
+          { title: 'What\'s new in AKS at Microsoft Build 2026', url: 'https://techcommunity.microsoft.com/blog/appsonazureblog/whats-new-in-azure-kubernetes-service-at-microsoft-build-2026/4524862', description: 'AKS updates signal stronger platform for AI.' },
+          { title: 'What\'s new in Azure Container Apps at Build 2026', url: 'https://techcommunity.microsoft.com/blog/appsonazureblog/whats-new-in-azure-container-apps-at-build26/4524184', description: 'Latest updates and features for Azure Container Apps announced at Build 2026.' },
+          { title: 'AKS on bare metal', url: 'https://blog.aks.azure.com/2026/06/02/aks-baremetal-public-preview', description: 'Bare metal unlocks NVLink and RDMA for GPU workloads.' },
+          { title: 'Azure Container Apps Sandboxes', url: 'https://techcommunity.microsoft.com/blog/appsonazureblog/introducing-azure-container-apps-sandboxes-secure-infrastructure-for-agentic-wor/4524131', description: 'MicroVM sandboxes isolate agentic workloads securely.' },
+          { title: 'Anyscale on Azure', url: 'https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-anyscale-on-azure-public-preview-powered-by-ray-on-aks/4523704', description: 'Managed Ray simplifies distributed training and inference.' },
+          { title: 'Azure Container Linux on AKS', url: 'https://aka.ms/azurecontainerlinux-blog', description: 'Immutable OS improves consistency and reduces attack surface.' },
+          { title: 'ACR Artifact Cache deep dive', url: 'https://techcommunity.microsoft.com/blog/appsonazureblog/inside-acr-artifact-cache-pull-through-caching-at-scale/4524949', description: 'Pull-through caching reduces latency and upstream risk.' },
+        ]},
+        { name: 'API Management, Logic Apps, and messaging', announcements: [
+          { title: 'What\'s new in Azure API Management at Build 2026', url: 'https://techcommunity.microsoft.com/blog/integrationsonazureblog/whats-new-in-azure-api-management-at-microsoft-build-2026/4524683', description: 'APIM adds AI-native model routing and safety controls.' },
+          { title: 'Azure API Management Unified Model API', url: 'https://azure.microsoft.com/updates?id=562853', description: 'One contract across providers reduces switching churn.' },
+          { title: 'New AI Gateway capabilities in APIM', url: 'https://techcommunity.microsoft.com/blog/integrationsonazureblog/new-ai-gateway-capabilities-in-azure-api-management/4524604', description: 'Routes 3 providers with policy-driven governance.' },
+          { title: 'MCP Test Console and Git sync in Azure API Center', url: 'https://techcommunity.microsoft.com/blog/integrationsonazureblog/mcp-test-console-and-git-repository-synch-in-azure-api-center/4524617', description: 'MCP testing and Git sync improve lifecycle governance.' },
+          { title: 'Azure Connector Namespaces', url: 'https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-connector-namespaces-managed-integration-for-any-azure-compute/4524250', description: 'Managed integrations standardize security across runtimes.' },
+          { title: 'What\'s new in Azure Logic Apps at Build 2026', url: 'https://techcommunity.microsoft.com/blog/integrationsonazureblog/whats-new-in-azure-logic-apps-at-microsoft-build-2026/4524685', description: 'MCP and Foundry position workflows for AI automation.' },
+          { title: 'Logic Apps Automation', url: 'https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%8E%89-automation-just-became-a-team-sport-meet-azure-logic-apps-automation-/4524555', description: 'AI-assisted authoring speeds pipeline building.' },
+          { title: 'Knowledge as a Service for Logic Apps', url: 'https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%93%A2-announcing-knowledge-as-a-service-for-azure-logic-apps/4524601', description: 'Knowledge as a Service reduces ETL for grounding.' },
+          { title: 'Azure Event Grid at Build 2026', url: 'https://techcommunity.microsoft.com/blog/messagingonazureblog/azure-event-grid-powering-iot-and-event-driven-applications-at-scale/4521403', description: '1 MB messages, MQTT v5, autoscale for IoT.' },
+        ]},
+        { name: 'GitHub and marketplace', announcements: [
+          { title: 'MAI-Code-1-Flash in GitHub Copilot', url: 'https://github.blog/changelog/2026-06-02-mai-code-1-flash-is-now-available-for-github-copilot', description: '' },
+          { title: 'GitHub Copilot App', url: 'https://github.blog/news-insights/product-news/github-copilot-app-the-agent-native-desktop-experience/', description: 'Small-tier coding model rollout expands lightweight coding options in Copilot.' },
+          { title: 'Copilot SDK GA', url: 'https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available', description: 'Copilot SDK GA enables embedding agentic coding.' },
+          { title: 'Agent apps for GitHub', url: 'https://github.blog/changelog/2026-06-02-extend-github-with-agent-apps', description: 'Agent apps reduce custom bots and scripts.' },
+          { title: 'Microsoft Marketplace for apps and agents', url: 'https://devblogs.microsoft.com/all-things-azure/build-scale-and-monetize-apps-and-agents-with-microsoft-marketplace', description: 'Marketplace creates distribution for AI solutions.' },
+        ]},
+      ]
+    },
+    // ── Data & Analytics (originally from Matt Hansen's repo) ──
+    {
+      id: 'data-analytics', emoji: '📊', title: 'Data & Analytics',
+      description: 'Data storage, analytics, databases, Fabric, and data management services',
+      subcategories: [
+        { name: 'Fabric and data platform', announcements: [
+          { title: 'Building agentic apps with Microsoft Fabric and Microsoft Databases', url: 'https://azure.microsoft.com/en-us/blog/microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-microsoft-databases/', description: 'Unified Fabric and database roadmap aligns data strategy.' },
+          { title: 'Rayfin', url: 'https://aka.ms/rayfin', description: 'Rayfin moves prototypes to governed Fabric backends.' },
+          { title: 'GPU-accelerated Fabric Data Warehouse', url: 'https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/A-new-analytics-frontier-GPU-accelerated-Fabric-Data-Warehouse/ba-p/5191598', description: 'GPU acceleration speeds analytics and AI workloads up to 7x.' },
+          { title: 'Database Hub in Fabric', url: 'https://community.fabric.microsoft.com/t5/Fabric-Updates-Blogs/Advancing-Databases-for-the-Next-Generation-of-Applications/ba-p/5172237', description: 'Database Hub unifies control across engines.' },
+          { title: 'OneLake catalog in Foundry', url: 'https://community.fabric.microsoft.com/t5/Fabric-Updates-Blogs/OneLake-catalog-is-now-natively-available-in-Foundry-Generally/ba-p/5178376', description: 'OneLake catalog in Foundry eases agent grounding.' },
+        ]},
+        { name: 'PostgreSQL, HorizonDB, SQL, and MySQL', announcements: [
+          { title: 'Azure HorizonDB', url: 'https://techcommunity.microsoft.com/blog/adforpostgresql/azure-horizondb-enterprise-ready-postgres-engineered-for-the-ai-era/4524094', description: 'Enterprise PostgreSQL-compatible service for AI patterns.' },
+          { title: 'PostgreSQL Build 2026 roundup', url: 'https://techcommunity.microsoft.com/blog/adforpostgresql/announcing-new-security-maintenance-and-analytics-features-for-postgresql-at-mic/4524559', description: 'Updates add security, analytics, migration tooling.' },
+          { title: 'DuckDB extension for Azure Database for PostgreSQL', url: 'https://azure.microsoft.com/updates?id=563766', description: 'DuckDB support in Flexible Server expands in-database analytics options.' },
+          { title: 'PostgreSQL workflow in Cursor', url: 'https://techcommunity.microsoft.com/blog/adforpostgresql/your-postgresql-workflow-just-found-its-new-home-in-cursor/4524081', description: 'PostgreSQL tooling on Open VSX supports AI editors.' },
+          { title: 'Azure SQL TDE with AES keys', url: 'https://techcommunity.microsoft.com/blog/azuresqlblog/transparent-data-encryption-in-azure-sql-database-now-supports-aes-keys-public-p/4523240', description: 'AES customer-managed keys strengthen TDE control.' },
+          { title: 'Azure SQL June updates', url: 'https://azure.microsoft.com/updates?id=563137', description: 'Tooling and notebooks improve query workflows.' },
+          { title: 'Azure Database for MySQL Self-Service quota management', url: 'https://techcommunity.microsoft.com/blog/adformysql/general-availability-of-the-mysql-flexible-server-quota-management-self-service-/4523373', description: 'Self-service quota management speeds capacity scaling.' },
+        ]},
+        { name: 'Cosmos DB and DocumentDB', announcements: [
+          { title: 'Cosmos DB Build 2026 roundup', url: 'https://devblogs.microsoft.com/cosmosdb/announced-at-ms-build-2026-azure-cosmos-db-mcp-toolkit-semantic-reranking-global-secondary-indexes-and-more/', description: 'Major capabilities ease AI-native workloads.' },
+          { title: 'Cosmos DB Agent Kit', url: 'https://azure.microsoft.com/updates?id=563022', description: 'Agent Kit improves app quality.' },
+          { title: 'Cosmos DB backup', url: 'https://azure.microsoft.com/updates?id=562769', description: 'Vaulted backups improve data loss protection.' },
+          { title: 'Cosmos DB all versions and deletes change feed', url: 'https://devblogs.microsoft.com/cosmosdb/azure-cosmos-db-all-versions-and-deletes-change-feed-mode-is-now-generally-available/', description: 'Change feed enables audit and replay.' },
+          { title: 'Cosmos DB change partition keys', url: 'https://devblogs.microsoft.com/cosmosdb/change-partition-keys-in-azure-cosmos-db-is-now-generally-available/', description: 'Online partition changes enable repartitioning.' },
+          { title: 'Cosmos DB Migration Assistant', url: 'https://devblogs.microsoft.com/cosmosdb/azure-cosmos-db-migration-assistant-rdbms-to-nosql-public-preview/', description: 'AI-guided workflows lower modernization complexity.' },
+          { title: 'Cosmos DB integrated embeddings', url: 'https://devblogs.microsoft.com/cosmosdb/announcing-the-public-preview-of-integrated-embeddings-in-azure-cosmos-db-build-ai-apps-with-embeddings-that-stay-in-sync/', description: 'Integrated embeddings reduce pipeline overhead.' },
+          { title: 'OmniVec', url: 'https://devblogs.microsoft.com/cosmosdb/introducing-omnivec-an-open-source-embedding-platform-for-ai-apps-on-azure/', description: 'Open-source embedding pipeline standardizes vectorization.' },
+          { title: 'DocumentDB MCP Toolkit', url: 'https://azure.microsoft.com/updates?id=563112', description: 'MCP Toolkit enables safer agent automation.' },
+          { title: 'DocumentDB instant free tier clusters', url: 'https://azure.microsoft.com/updates?id=563082', description: 'Instant free-tier provisioning speeds evaluation.' },
+          { title: 'DocumentDB migration extension', url: 'https://azure.microsoft.com/updates?id=563072', description: 'Migration extension reduces setup complexity.' },
+          { title: 'Advanced full-text search in Azure DocumentDB', url: 'https://azure.microsoft.com/updates?id=563077', description: 'Fuzzy, proximity, and BM25 search improve hybrid text and vector retrieval.' },
+          { title: 'DocumentDB service-managed failovers', url: 'https://devblogs.microsoft.com/documentdb/azure-documentdb-general-availability-of-service-managed-failovers', description: 'Service-managed failovers automate regional recovery.' },
+          { title: 'DocumentDB graceful failovers', url: 'https://devblogs.microsoft.com/documentdb/graceful-failovers-in-azure-documentdb-now-generally-available/', description: 'Graceful failovers enable planned transitions.' },
+          { title: 'DocumentDB change streams', url: 'https://devblogs.microsoft.com/documentdb/change-streams-in-azure-documentdb-richer-events-historical-replay-and-multi-node-change-streams-public-preview/', description: 'Richer change streams enable event sourcing.' },
+        ]},
+      ]
+    },
+    // ── AI & Agents (originally from Matt Hansen's repo) ──
+    {
+      id: 'ai-agents', emoji: '🤖', title: 'AI & Agents',
+      description: 'Microsoft Foundry, agents, models, grounding, speech, R&D, and AI application platform capabilities',
+      subcategories: [
+        { name: 'Microsoft agent platform', announcements: [
+          { title: 'Microsoft Agent Platform Build Blog', url: 'https://blogs.microsoft.com/blog/2026/06/02/ai-alone-wont-change-your-business-the-system-running-it-will/', description: 'AI value comes from full agent systems.' },
+          { title: 'Work IQ APIs', url: 'https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/', description: 'Work IQ APIs expose M365 context for automation.' },
+          { title: 'Computer-using agents, workflows, and real-time voice experiences', url: 'https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/', description: 'Copilot Studio updates connect UI automation, workflows, and real-time voice in one platform.' },
+          { title: 'Web IQ', url: 'https://blogs.bing.com/search/June-2026/Announcing-Microsoft-Web-IQ', description: 'Web IQ improves agent factuality and recency.' },
+          { title: 'Microsoft Scout', url: 'https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/', description: 'Always-on personal agent with enterprise governance.' },
+          { title: 'Frontier Tuning', url: 'https://devblogs.microsoft.com/microsoft365dev/frontier-tuning-teaching-ai-to-work-the-way-you-do/', description: 'Domain-specific models fit organizational patterns.' },
+        ]},
+        { name: 'Microsoft Foundry', announcements: [
+          { title: 'What\'s new in Microsoft Foundry | Build Edition', url: 'https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/', description: 'Maturing platform integrates build and governance.' },
+          { title: 'Build and run agents at scale with Microsoft Foundry', url: 'https://devblogs.microsoft.com/foundry/agent-service-build2026/', description: 'Hosted agents at scale with production tooling.' },
+          { title: 'Hosted Agents in Microsoft Foundry Agent Service', url: 'https://azure.microsoft.com/updates?id=563596', description: 'Container runtime reduces migration friction.' },
+          { title: 'What\'s new in Foundry IQ | Build Edition', url: 'https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/', description: 'Unifies 6+ sources with serverless retrieval.' },
+          { title: 'Foundry IQ recall improvements for knowledge bases', url: 'https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/foundry-iq-improve-recall-by-up-to-54-with-knowledge-bases/4524852', description: 'Agentic retrieval updates improve recall and reduce token costs in enterprise search.' },
+          { title: 'Foundry IQ governance and enterprise AI security', url: 'https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/foundry-iq-new-governance-and-enterprise-ai-security-capabilities/4524825', description: 'Adds ACL sync, Purview integration, and private connectivity for governed retrieval workflows.' },
+          { title: 'Toolboxes and Routines in Microsoft Foundry', url: 'https://devblogs.microsoft.com/foundry/toolbox-build-26/', description: 'Standardized tools ease operationalization.' },
+          { title: 'Browser automation tool with Toolboxes in Foundry', url: 'https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-the-new-browser-automation-tool-with-toolboxes-in-foundry/4522790', description: 'MCP-native browser automation adds live view and intervention controls for hosted agents.' },
+          { title: 'Domain filter for specialized model discovery', url: 'https://azure.microsoft.com/updates?id=563731', description: 'Model catalog domain filters speed discovery of industry-tuned models.' },
+          { title: 'Agent Optimizer in Foundry Agent Service', url: 'https://devblogs.microsoft.com/foundry/agent-optimizer-build2026/', description: 'Converts failures to ranked improvements.' },
+          { title: 'Agent memory in Foundry', url: 'https://devblogs.microsoft.com/foundry/memory-build2026/', description: 'Three memory scopes enable context-aware agents.' },
+          { title: 'Enterprise agent distribution in Microsoft Foundry', url: 'https://devblogs.microsoft.com/foundry/from-building-agents-to-working-with-them-enterprise-agent-distribution-in-microsoft-foundry/', description: 'Distribution to M365 and Teams closes adoption gap.' },
+          { title: 'Microsoft Agent Framework', url: 'https://commandline.microsoft.com/agent-framework-layered-sdk-loops-workflows-harnesses/', description: 'Provider-neutral architecture avoids vendor lock-in.' },
+        ]},
+        { name: 'Models, speech, content, and R&D', announcements: [
+          { title: 'Seven new First-Party Microsoft AI models', url: 'https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/', description: 'MAI-Thinking-1, MAI-Code-1-Flash, MAI-Image-2.5, MAI Transcribe-1.5, MAI-Voice-2' },
+          { title: 'Mayo Clinic frontier healthcare model partnership', url: 'https://news.microsoft.com/2026/06/02/mayo-clinic-and-microsoft-collaborate-to-develop-a-frontier-ai-model-for-healthcare/', description: 'Mayo Clinic partnership develops healthcare models.' },
+          { title: 'MAI-Voice-2 in Microsoft Foundry', url: 'https://azure.microsoft.com/updates?id=563217', description: 'Public preview introduces multilingual voice cloning and prompting in Foundry.' },
+          { title: 'Azure Speech at Build 2026', url: 'https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/azure-speech-at-build-2026-powering-voice-agents-with-real-time-and-life-like-ex/4524638', description: 'Real-time, lifelike voice agents with streaming protocols.' },
+          { title: 'Voice Live evaluation harness', url: 'https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/evaluate-before-you-ship-introducing-the-voice-live-evaluation-harness/4523064', description: 'Open-source evaluation pipeline scores multi-turn voice agents before production.' },
+          { title: 'Text Analytics for Health NextGen Playground', url: 'https://azure.microsoft.com/updates?id=563671', description: 'Foundry playground exposes FHIR-aligned health entity extraction for pre-integration testing.' },
+          { title: 'TextPII NextGen Playground updates', url: 'https://azure.microsoft.com/updates?id=564241', description: 'Updated configuration panel improves interactive PII validation workflows.' },
+          { title: 'Conversational PII NextGen Playground', url: 'https://azure.microsoft.com/updates?id=564246', description: 'Conversation-focused PII testing supports transcript-style privacy and compliance scenarios.' },
+          { title: 'Azure Content Understanding at Build 2026', url: 'https://devblogs.microsoft.com/foundry/whats-new-in-azure-content-understanding-at-build-2026/', description: 'Richer analyzers turn content into agent signals.' },
+          { title: 'Microsoft Discovery GA and Discovery app preview', url: 'https://azure.microsoft.com/en-us/blog/announcing-microsoft-discovery-general-availability-and-microsoft-discovery-app-preview/', description: 'Discovery GA enables agentic scientific workflows.' },
+          { title: 'Majorana 2 and Microsoft Discovery', url: 'https://news.microsoft.com/source/features/innovation/majorana-2-microsoft-discovery-agentic-ai/', description: 'AI tooling accelerates deep-tech R&D.' },
+        ]},
+      ]
+    },
+    // ── Security & Governance (originally from Matt Hansen's repo) ──
+    {
+      id: 'security-governance', emoji: '🔒', title: 'Security & Governance',
+      description: 'Security, identity, governance, compliance, and safe agent operations',
+      subcategories: [
+        { name: 'Agent and model security', announcements: [
+          { title: 'Securing code, agents, and models across the development lifecycle', url: 'https://www.microsoft.com/en-us/security/blog/2026/06/02/microsoft-build-2026-securing-code-agents-and-models-across-the-development-lifecycle/', description: 'Security controls are first-class in AI pipelines.' },
+          { title: 'Build MDASH / Agentic DevSecOps', url: 'https://aka.ms/AgenticDevSecOps', description: 'Build security update on MDASH and agentic DevSecOps workflows for vulnerability discovery and remediation.' },
+          { title: 'Agent 365 GA and expanded local/cloud agent management', url: 'https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/', description: 'Unified governance across local, SaaS, cloud agents.' },
+          { title: 'Windows platform security for AI agents', url: 'https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/', description: 'Windows platform security for local agents.' },
+          { title: 'Microsoft Execution Containers SDK', url: 'https://github.com/microsoft/mxc', description: 'Policy-driven execution enforces least privilege.' },
+          { title: 'OpenClaw on Windows with Microsoft Execution Containers', url: 'https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/', description: 'OpenClaw on Windows enables secure deployment.' },
+          { title: 'OpenClaw Windows Node', url: 'https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/', description: 'OpenClaw Windows Node lowers setup complexity.' },
+          { title: 'Windows 365 at Build 2026', url: 'https://techcommunity.microsoft.com/blog/windows-itpro-blog/made-for-developers-and-agents-windows-365-at-build-2026/4519041', description: 'Managed Cloud PCs enable secure agent execution.' },
+        ]},
+        { name: 'Defender, Purview, and database security', announcements: [
+          { title: 'Start secure, stay secure', url: 'https://techcommunity.microsoft.com/blog/microsoftdefendercloudblog/start-secure-stay-secure-how-microsoft-is-closing-the-gap-from-code-to-runtime/4524580', description: 'Code-to-runtime connects developer to runtime security.' },
+          { title: 'Defender for Cloud hardened images', url: 'https://techcommunity.microsoft.com/blog/microsoftdefendercloudblog/the-end-of-patching-era-for-containers-microsoft-defender-for-cloud-expands-hard/4524798', description: 'Hardened images reduce patching overhead.' },
+          { title: 'Purview sensitivity labels in Azure AI Search', url: 'https://azure.microsoft.com/updates?id=563591', description: 'Labels enable policy-aware retrieval.' },
+          { title: 'Purview label auditing in Azure AI Search', url: 'https://azure.microsoft.com/updates?id=563267', description: 'Auditing creates compliance evidence trails.' },
+          { title: 'PostgreSQL Defender security assessments', url: 'https://azure.microsoft.com/updates?id=563781', description: 'Continuous security assessments for PostgreSQL.' },
+          { title: 'PostgreSQL cross-tenant CMK', url: 'https://azure.microsoft.com/updates?id=563776', description: 'Cross-tenant CMK enables stricter key separation.' },
+          { title: 'Azure SQL TDE with AES customer-managed keys', url: 'https://azure.microsoft.com/updates?id=563142', description: 'AES-256 CMK strengthens encryption governance.' },
+        ]},
+      ]
+    },
+    // ── Power Platform & Dynamics 365 ──
     {
       id: 'power-apps', emoji: '⚡', title: 'Power Apps',
       description: 'Low-code/no-code app development — model-driven, canvas, and code apps with AI integration',
@@ -894,18 +1112,52 @@ a:hover { text-decoration: underline; }
           { title: 'Computer-Using Agents (CUA) — GA', url: 'https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/', description: 'First major cloud provider to ship production-ready CUA — available in all geographies' },
           { title: 'Multi-LLM Support for CUA', url: 'https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/', description: 'Choose between OpenAI CUA and Claude Sonnet 4.5 as the underlying vision model' },
           { title: 'Azure Key Vault Credential Management for CUA', url: 'https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/', description: 'Secure credential storage via Key Vault with Purview audit logging' },
+          { title: 'CUA in Multi-Step Workflows — Preview', url: 'https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/', description: 'Embed computer-using agents into multi-step workflows combining APIs, approvals, and UI automation' },
+          { title: 'Computer Use Standalone Tools — Preview', url: 'https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use-standalone', description: 'Modular CUA tools publishable independently and reusable across agents with governed app/website lists' },
         ]},
-        { name: 'Workflows & Voice', announcements: [
+        { name: 'Workflows & AI Nodes', announcements: [
           { title: 'Redesigned Workflows Experience', url: 'https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/', description: 'Unified visual canvas combining APIs, approvals, UI tasks, and AI actions' },
-          { title: 'Real-Time Voice Agents — GA', url: 'https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/', description: 'Voice agents via Dynamics 365 Contact Center with caller identification and emotion detection' },
-          { title: 'Agent-to-Agent Communication', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/planned-features', description: 'Agents can delegate tasks to other agents, enabling multi-agent orchestration' },
-          { title: 'Frontier Tuning Integration — Private Preview', url: 'https://devblogs.microsoft.com/microsoft365dev/frontier-tuning-teaching-ai-to-work-the-way-you-do/', description: 'Reinforcement learning within compliance boundary to teach agents domain-specific behaviors' },
+          { title: 'Prompt Node in Workflows — GA', url: 'https://learn.microsoft.com/en-us/microsoft-copilot-studio/prompt-node-workflow', description: 'Embed a single AI call with model selection and structured output as a workflow step' },
+          { title: 'M365 Copilot Node in Workflows — GA', url: 'https://learn.microsoft.com/en-us/microsoft-copilot-studio/microsoft-365-copilot-node-workflow', description: 'Call M365 Copilot or specific agents (Researcher, Analyst) as a workflow step grounded in your data' },
+          { title: 'Agent Node in Workflows — Preview', url: 'https://learn.microsoft.com/en-us/microsoft-copilot-studio/agent-node-workflow', description: 'Add a Copilot Studio agent as a discrete reasoning step inside any workflow' },
+          { title: 'Async Responses for Agent Flows — GA', url: 'https://learn.microsoft.com/en-us/microsoft-copilot-studio/flow-asynchronous-response', description: 'Long-running processes exceed the 2-minute limit — background execution with async return' },
+          { title: 'MCP-Compliant Tools in Workflows — Preview', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/use-mcp-compliant-tools-agent-workflows', description: 'Discover and invoke MCP tools as deterministic workflow steps with structured inputs/outputs' },
         ]},
-        { name: 'Analytics & Security', announcements: [
+        { name: 'Agent Orchestration & Interop', announcements: [
+          { title: 'A2A Protocol — GA', url: 'https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-add-other-agents', description: 'Agent-to-agent protocol generally available — agents exchange info and delegate tasks via open A2A standard' },
+          { title: 'Real-Time Voice Agents — GA', url: 'https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/', description: 'Voice agents via D365 Contact Center with caller identification, NLU, and emotion detection' },
+          { title: 'New Orchestration Layer — Preview', url: 'https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/', description: 'Upgraded AI stack with ~20% eval improvement and ~50% token consumption reduction' },
+          { title: 'Frontier Tuning — Private Preview', url: 'https://devblogs.microsoft.com/microsoft365dev/frontier-tuning-teaching-ai-to-work-the-way-you-do/', description: 'Reinforcement learning within compliance boundary to teach agents domain-specific behaviors' },
+        ]},
+        { name: 'Models & Intelligence', announcements: [
+          { title: 'GPT-5 Chat — GA', url: 'https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-select-agent-model', description: 'GPT-5 available globally (excluding GCC) for agent orchestration' },
+          { title: 'Claude Sonnet 4.5 & 4.6 — GA', url: 'https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-select-agent-model', description: 'Claude models available cross-geo for agent reasoning and deep analysis' },
+          { title: 'Claude Opus 4.6 — GA', url: 'https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-select-agent-model', description: 'Deep reasoning model for complex multi-step agent tasks' },
+          { title: 'GPT-5.5 Reasoning — Experimental', url: 'https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-select-agent-model', description: 'Next-gen reasoning model in early access environments' },
+          { title: 'Mistral Medium 3.5 — Experimental', url: 'https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-select-agent-model', description: 'Open-weight model option in preview for cross-geo deployments' },
+          { title: 'Work IQ Tools (MCP) — Preview', url: 'https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/', description: 'MCP tools connecting agents to real-time M365 context — mail, calendar, Teams, files' },
+        ]},
+        { name: 'Knowledge & Authoring', announcements: [
+          { title: 'Code Interpreter on SharePoint — GA', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/use-code-interpreter-sharepoint-sources-agent-conversations', description: 'Run Python code against Excel/CSV files in SharePoint for data analysis and chart generation' },
+          { title: 'SharePoint Lists as Knowledge — Coming Soon', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/add-sharepoint-lists-as-knowledge-source', description: 'Add SharePoint lists directly as structured knowledge sources supporting up to 50,000 items' },
+          { title: 'File Groups with Instructions — GA', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/group-files-instructions-guide-agent-answers', description: 'Group up to 500 files with variable-based instructions guiding agent to right file subset' },
+          { title: 'Agents Optimized for M365 Copilot Users — Preview', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/create-agents-optimized-365-365-copilot-users', description: 'Configure agents targeting M365 Copilot with Agent Builder features plus full Studio capabilities' },
+          { title: 'M365 Copilot Agent Suggestions — Coming Soon', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/get-365-copilot-agent-suggestions-based-work-copilot-studio', description: 'Memory-based personalized agent suggestions surfaced in Copilot Studio alongside templates' },
+        ]},
+        { name: 'Governance & Security', announcements: [
+          { title: 'Entra Agent Identities — Preview', url: 'https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-use-entra-agent-identities', description: 'Auto-provisioned Entra identity per agent enabling scoped permissions and Conditional Access' },
+          { title: 'Agent Inventory — GA', url: 'https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-agent-inventory', description: 'Discover and audit all agents tenant-wide from Power Platform admin center or Azure Resource Graph' },
+          { title: 'Credential Oversharing Detection — Coming Soon', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/enforce-safe-sharing-detecting-credential-oversharing', description: 'Prevents unsafe publishing by detecting maker credentials that could leak to users' },
+          { title: 'Strengthened Agent Security — GA', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/planned-features', description: 'Prompt injection protection and data boundary enforcement' },
+          { title: 'Unified Errors & Governance View — Preview', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/see-unified-view-errors-warnings-governance-notifications', description: 'Consolidated status page with publishing errors, runtime issues, and governance notifications' },
+        ]},
+        { name: 'Analytics & Evaluation', announcements: [
+          { title: 'Agent Evaluations Framework — GA', url: 'https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new', description: 'Full evaluation framework with test sets, AI-generated cases, multi-turn support, and CI/CD API' },
+          { title: 'Real-Time Evaluation Streaming — Preview', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/see-evaluation-results-real-time', description: 'Stream per-test results live as evaluations run without waiting for completion' },
+          { title: 'Evaluate Agents for M365 Copilot — Coming Soon', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/evaluate-agents-365-copilot-copilot-studio', description: 'Multi-grader evaluation framework for declarative M365 Copilot agents' },
+          { title: 'Analytics Viewer Role — GA', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/give-read-only-analytics-access-users', description: 'Read-only analytics access via Analyst role without granting editor permissions' },
           { title: 'Custom Metrics for Agent Analytics', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/planned-features', description: 'Define and track custom KPIs for agent performance beyond built-in metrics' },
           { title: 'Sentiment Analysis of Conversations', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/planned-features', description: 'Real-time sentiment scoring during agent conversations' },
-          { title: 'Multi-Turn Conversation Evaluation — GA', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/planned-features', description: 'Evaluate agent quality across full conversation flows, not just single turns' },
-          { title: 'Strengthened Agent Security — GA', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/planned-features', description: 'Enhanced security controls including prompt injection protection and data boundary enforcement' },
         ]},
       ]
     },
@@ -999,7 +1251,7 @@ a:hover { text-decoration: underline; }
       subcategories: [
         { name: 'Core Platform', announcements: [
           { title: 'Agent 365 — Generally Available', url: 'https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/', description: 'Unified registry, dashboards, and governance for all enterprise agents' },
-          { title: 'Agent 365 SDK — GA (Free, Framework-Agnostic)', url: 'https://microsoft.github.io/agent-resources/agent365/', description: 'Open SDK for registering any agent with Agent 365 regardless of framework' },
+          { title: 'Agent 365 SDK — GA (Free, Framework-Agnostic)', url: 'https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/', description: 'Open SDK for registering any agent with Agent 365 regardless of framework' },
           { title: 'Agent Discovery (Cloud + Local)', url: 'https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/', description: 'Discover all agents across cloud services, desktops, and local environments via Defender and Intune' },
           { title: 'OS-Enforced Agent Identity (Entra-Backed)', url: 'https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/', description: 'Operating system-level identity for agents backed by Microsoft Entra' },
         ]},
@@ -1007,7 +1259,7 @@ a:hover { text-decoration: underline; }
           { title: 'Shadow AI Dashboard & Prompt Injection Blocking', url: 'https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/', description: 'Detect unauthorized AI usage and block prompt injection attacks at the platform level' },
           { title: 'Centralized Access Control & Policy', url: 'https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/', description: 'Unified policies for agent permissions across the entire enterprise' },
           { title: 'Windows 365 for Agents — GA', url: 'https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/', description: 'Cloud PCs dedicated to running autonomous agents with full isolation and governance' },
-          { title: 'Agent Types: Delegated, Autonomous, Local, SaaS, Partner', url: 'https://microsoft.github.io/agent-resources/agent365/', description: 'Support for 20+ agent types across the full spectrum of enterprise deployment patterns' },
+          { title: 'Agent Types: Delegated, Autonomous, Local, SaaS, Partner', url: 'https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/', description: 'Support for 20+ agent types across the full spectrum of enterprise deployment patterns' },
         ]},
       ]
     },
@@ -1015,20 +1267,50 @@ a:hover { text-decoration: underline; }
       id: 'microsoft-foundry', emoji: '🏭', title: 'Microsoft Foundry',
       description: 'Unified AI development platform for building, deploying, and managing AI agents and models',
       subcategories: [
-        { name: 'Agent Development', announcements: [
-          { title: 'Hosted Agents in Foundry Agent Service', url: 'https://devblogs.microsoft.com/foundry/agent-service-build2026/', description: 'Deploy and scale agents on managed infrastructure with built-in monitoring' },
-          { title: 'Agent Optimizer — Failure to Ranked Improvements', url: 'https://devblogs.microsoft.com/foundry/agent-optimizer-build2026/', description: 'Automatically analyze agent failures and rank improvement suggestions' },
-          { title: 'Agent Memory (Three Scopes)', url: 'https://devblogs.microsoft.com/foundry/memory-build2026/', description: 'Conversation, user, and organization memory scopes for persistent agent context' },
+        { name: 'Agent Runtime & Orchestration', announcements: [
+          { title: 'Hosted Agents in Foundry Agent Service', url: 'https://devblogs.microsoft.com/foundry/agent-service-build2026/', description: 'Sandboxed per-session compute with durable state — deploy agents on any framework without rewrites' },
+          { title: 'Routines (Scheduled Execution) — Preview', url: 'https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/', description: 'Run agents on timers or schedules — overnight triage, daily summaries, periodic compliance checks' },
+          { title: 'Incoming A2A Protocol — Preview', url: 'https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/enable-agent-to-agent-endpoint', description: 'Expose any Foundry agent as an inbound A2A endpoint discoverable by agents on any cloud or framework' },
+          { title: 'Autopilot Agents (Agent 365) — Preview', url: 'https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/agent-365', description: 'Independent agents with Entra ID, email, Teams presence, and org chart placement' },
           { title: 'Agent Distribution to M365 and Teams', url: 'https://devblogs.microsoft.com/foundry/from-building-agents-to-working-with-them-enterprise-agent-distribution-in-microsoft-foundry/', description: 'Publish agents from Foundry directly to Microsoft 365 and Teams' },
-          { title: 'Foundry Managed Compute', url: 'https://devblogs.microsoft.com/foundry/announcing-foundry-managed-compute/', description: 'GPU platform-as-a-service for hosting open-source and custom AI models behind Foundry APIs' },
+          { title: 'Microsoft Agent Framework — GA', url: 'https://commandline.microsoft.com/agent-framework-layered-sdk-loops-workflows-harnesses/', description: 'Provider-neutral SDK unifying Semantic Kernel and AutoGen with multi-agent orchestration' },
         ]},
-        { name: 'Tools & Platform', announcements: [
-          { title: 'Foundry IQ — Serverless Retrieval (54% Recall Improvement)', url: 'https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/', description: 'Serverless retrieval with knowledge bases achieving 54% recall improvement' },
-          { title: 'Toolboxes & Routines — Standardized Tool Endpoints', url: 'https://devblogs.microsoft.com/foundry/toolbox-build-26/', description: 'Reusable tool packages that agents can discover and invoke via standard protocols' },
-          { title: 'Browser Automation Tool with Toolboxes', url: 'https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-the-new-browser-automation-tool-with-toolboxes-in-foundry/4522790', description: 'MCP-native browser automation for agents to interact with web applications' },
-          { title: 'Foundry Toolkit for VS Code — GA', url: 'https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/', description: 'Full IDE tooling for building, testing, and deploying agents from VS Code' },
-          { title: 'Voice Live — GA', url: 'https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/', description: 'Unified real-time conversational API for voice-enabled agents' },
-          { title: 'Observability to ROI for AI Agents', url: 'https://devblogs.microsoft.com/foundry/build-2026-from-observability-to-roi-for-ai-agents-on-any-framework/', description: 'End-to-end monitoring, tracing, and ROI measurement for agents on any framework' },
+        { name: 'Tools & Developer Experience', announcements: [
+          { title: 'Toolboxes — Preview', url: 'https://devblogs.microsoft.com/foundry/toolbox-build-26/', description: 'Single managed MCP endpoint for all tools — configure once, point any client at one URL' },
+          { title: 'Skills in Toolboxes — Preview', url: 'https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/', description: 'Versioned, project-scoped tool catalog discoverable as MCP resources by agents' },
+          { title: 'Tool Search — Preview', url: 'https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/', description: 'Intelligently selects right tools per task instead of surfacing every tool to the model' },
+          { title: 'Browser Automation Tool — Preview', url: 'https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-the-new-browser-automation-tool-with-toolboxes-in-foundry/4522790', description: 'MCP-native browser automation with live view and intervention controls for hosted agents' },
+          { title: 'Foundry Toolkit for VS Code — GA', url: 'https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/', description: 'Create, debug, trace, and deploy agents from VS Code with full step-by-step inspection' },
+          { title: 'Agent Optimizer', url: 'https://devblogs.microsoft.com/foundry/agent-optimizer-build2026/', description: 'Automatically analyze failures and rank improvement suggestions for continuous agent refinement' },
+          { title: 'Agent Memory (Three Scopes) — Preview', url: 'https://devblogs.microsoft.com/foundry/memory-build2026/', description: 'Conversation, user, and organization memory scopes for persistent context-aware agents' },
+        ]},
+        { name: 'Knowledge & Retrieval', announcements: [
+          { title: 'Foundry IQ — GA', url: 'https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/', description: 'SLA-backed retrieval endpoint unifying 5+ knowledge sources — no custom RAG pipelines' },
+          { title: 'Foundry IQ Serverless Tier — Preview', url: 'https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/', description: 'Scale-to-zero consumption pricing for instant RAG with no idle costs' },
+          { title: 'Foundry IQ 54% Recall Improvement', url: 'https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/foundry-iq-improve-recall-by-up-to-54-with-knowledge-bases/4524852', description: 'Agentic retrieval with knowledge bases achieving 54% recall improvement and reduced token costs' },
+          { title: 'Foundry IQ New Knowledge Sources — Preview', url: 'https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/', description: 'Multi-source knowledge: Work IQ, Fabric IQ, File Search, Azure SQL, and MCP — no custom connectors' },
+          { title: 'Foundry IQ Layout-Aware Ingestion — Preview', url: 'https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/', description: 'Content Understanding chunking converts diagrams, charts, and scans into meaningful text' },
+          { title: 'Web IQ — Limited Access', url: 'https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/', description: 'AI-native live web grounding with sub-165ms latency and zero data retention via MCP' },
+          { title: 'Foundry IQ Governance & Private Connectivity — GA', url: 'https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/foundry-iq-new-governance-and-enterprise-ai-security-capabilities/4524825', description: 'ACL sync, Purview integration, and Shared Private Link for governed retrieval' },
+        ]},
+        { name: 'Trust & Governance', announcements: [
+          { title: 'ASSERT Evaluation Framework — Open Source', url: 'https://devblogs.microsoft.com/foundry/build-2026-open-trust-stack-ai-agents/', description: 'Policy-driven agent evaluation converting written policies into executable test scenarios' },
+          { title: 'Agent Control Specification (ACS) — Open Source', url: 'https://devblogs.microsoft.com/foundry/build-2026-open-trust-stack-ai-agents/', description: 'Open spec for deterministic safety controls at 8 agent lifecycle checkpoints — portable YAML manifests' },
+          { title: 'Guided Guardrail Setup — Preview', url: 'https://learn.microsoft.com/en-us/azure/foundry/guardrails/guided-set-up', description: 'Questionnaire-driven guardrail recommendations — PII, jailbreak, task adherence — no security expertise needed' },
+          { title: 'Runtime DLP — Preview', url: 'https://devblogs.microsoft.com/foundry/build-2026-open-trust-stack-ai-agents/', description: 'Microsoft Purview DLP enforcement in real-time agent interactions — detect and block sensitive data' },
+          { title: 'Rubric Evaluator — Preview', url: 'https://devblogs.microsoft.com/foundry/build-2026-open-trust-stack-ai-agents/', description: 'Auto-generates weighted evaluation criteria from agent context and feeds into Agent Optimizer' },
+          { title: 'Purview Insights in Foundry — GA', url: 'https://devblogs.microsoft.com/foundry/build-2026-open-trust-stack-ai-agents/', description: 'Data security context embedded in Foundry Control Plane — SITs, sensitive interaction %, high-risk users' },
+          { title: 'Agent ROI — Private Preview', url: 'https://devblogs.microsoft.com/foundry/build-2026-open-trust-stack-ai-agents/', description: 'Measure real business impact — task completion, time saved, cost efficiency — to justify investment' },
+          { title: 'Tracing & Evals for Any Framework — Preview', url: 'https://devblogs.microsoft.com/foundry/build-2026-open-trust-stack-ai-agents/', description: 'Production-grade tracing and evaluation for LangChain, Semantic Kernel, or any custom framework' },
+          { title: 'Multi-Turn Evaluation — Preview', url: 'https://devblogs.microsoft.com/foundry/build-2026-open-trust-stack-ai-agents/', description: 'Evaluate agent quality across full conversations catching issues that only surface with context accumulation' },
+          { title: 'User Simulation — Preview', url: 'https://devblogs.microsoft.com/foundry/build-2026-open-trust-stack-ai-agents/', description: 'Auto-generate realistic multi-turn conversations for agent testing without manual case creation' },
+        ]},
+        { name: 'Models & Compute', announcements: [
+          { title: 'Fireworks AI Integration — GA', url: 'https://devblogs.microsoft.com/foundry/build-2026-foundry-models/', description: 'Production-grade open model inference via single Azure endpoint with enterprise SLAs' },
+          { title: 'Foundry Managed Compute', url: 'https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/', description: 'Global model workload routing without managing infrastructure — addresses regional GPU constraints' },
+          { title: 'Voice Live — GA', url: 'https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/', description: 'Unified real-time conversational API for speech, TTS, turn detection, interruption, and avatars' },
+          { title: 'Domain Filter for Model Discovery', url: 'https://azure.microsoft.com/updates?id=563731', description: 'Model catalog domain filters speed discovery of industry-tuned models' },
+          { title: 'Content Understanding Enhancements', url: 'https://devblogs.microsoft.com/foundry/whats-new-in-azure-content-understanding-at-build-2026/', description: 'Agentic mode, GPT-5.2 support, MarkItDown integration, LangChain loader — 80% token cost reduction' },
         ]},
       ]
     },
@@ -1130,106 +1412,36 @@ a:hover { text-decoration: underline; }
     },
   ];
 
-  // ── Markdown Parser ──────────────────────────────────────────
-  function parseMarkdown(text) {
-    const lines = text.split('\n');
-    const categories = [];
-    let currentCat = null;
-    let currentSub = null;
-    let currentAnnouncement = null;
-    let lastUpdated = '';
 
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
+  // ── Status Detection ─────────────────────────────────────────
+  function detectStatus(title, description, url) {
+    const t = title.toLowerCase();
+    const d = (description || '').toLowerCase();
+    const combined = t + ' ' + d;
 
-      // Extract last updated date
-      const updatedMatch = line.match(/\*\*Last Updated:\*\*\s*(.+)/);
-      if (updatedMatch) {
-        lastUpdated = updatedMatch[1].trim();
-        continue;
-      }
+    // Order matters — check most specific first
+    if (/private preview/i.test(title)) return { badge: 'Private Preview', cls: 'private-preview' };
+    if (/open source/i.test(title)) return { badge: 'Open Source', cls: 'open-source' };
+    if (/experimental/i.test(title)) return { badge: 'Experimental', cls: 'experimental' };
+    if (/coming soon/i.test(title)) return { badge: 'Coming Soon', cls: 'coming-soon' };
+    if (/limited access/i.test(title)) return { badge: 'Limited Access', cls: 'preview' };
 
-      // Category heading: ## 🏗️ Hardware & Infrastructure
-      if (line.match(/^## [🏗🔧📊🤖🔒]/)) {
-        // Stop at non-announcement sections
-        if (line.includes('Event Information') || line.includes('Contributing') || line.includes('Resources') || line.includes('Table of Contents')) {
-          currentCat = null;
-          continue;
-        }
-        const titleMatch = line.match(/^## (.+)$/);
-        if (!titleMatch) continue;
-        const fullTitle = titleMatch[1].trim();
-        const emoji = fullTitle.match(/^(\S+)\s*/)?.[1] || '';
-        const title = fullTitle.replace(/^(\S+)\s*/, '').trim();
-        const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '');
-        currentCat = { id, emoji, title, description: '', subcategories: [] };
-        categories.push(currentCat);
-        currentSub = null;
-        currentAnnouncement = null;
-        continue;
-      }
+    // GA detection — title takes priority
+    if (/\bGA\b|Generally Available|General Availability/i.test(title)) return { badge: 'GA', cls: 'ga' };
 
-      if (!currentCat) continue;
+    // Preview detection — title
+    if (/\bPreview\b|Public Preview/i.test(title)) return { badge: 'Preview', cls: 'preview' };
 
-      // Category description: > *description*
-      if (line.match(/^>\s*\*/)) {
-        currentCat.description = line.replace(/^>\s*\*/, '').replace(/\*$/, '').trim();
-        continue;
-      }
+    // Fall back to description hints
+    if (/private preview/i.test(d)) return { badge: 'Private Preview', cls: 'private-preview' };
+    if (/\bnow generally available\b|\bGA\b|general availability/i.test(d)) return { badge: 'GA', cls: 'ga' };
+    if (/\bpublic preview\b|\bnow in preview\b|\bpreview\b/i.test(d)) return { badge: 'Preview', cls: 'preview' };
+    if (/coming soon/i.test(d)) return { badge: 'Coming Soon', cls: 'coming-soon' };
 
-      // Skip ### headings (like "### Key Announcements")
-      if (line.match(/^###/)) continue;
+    // URL-based: Wave 1 release plan items without explicit status
+    if (/release-plan\/2026wave1/i.test(url)) return { badge: 'Wave 1', cls: 'coming-soon' };
 
-      // Subcategory: - **Name:**
-      const subMatch = line.match(/^- \*\*(.+?):\*\*$/);
-      if (subMatch) {
-        currentSub = { name: subMatch[1].trim(), announcements: [] };
-        currentCat.subcategories.push(currentSub);
-        currentAnnouncement = null;
-        continue;
-      }
-
-      // Announcement: - [Title](url) or     - [Title](url)
-      const annoMatch = line.match(/^\s{2,8}-\s+\[([^\]]+)\]\(([^)]+)\)/);
-      if (annoMatch && currentSub) {
-        currentAnnouncement = {
-          title: annoMatch[1].trim(),
-          url: annoMatch[2].trim(),
-          description: ''
-        };
-        currentSub.announcements.push(currentAnnouncement);
-        // Check for inline description after the link on the same line
-        continue;
-      }
-
-      // Also catch top-level announcements (no subcategory yet) - create a "General" subcategory
-      const topAnnoMatch = line.match(/^-\s+\[([^\]]+)\]\(([^)]+)\)/);
-      if (topAnnoMatch && currentCat && !currentSub) {
-        currentSub = { name: 'General', announcements: [] };
-        currentCat.subcategories.push(currentSub);
-        currentAnnouncement = {
-          title: topAnnoMatch[1].trim(),
-          url: topAnnoMatch[2].trim(),
-          description: ''
-        };
-        currentSub.announcements.push(currentAnnouncement);
-        continue;
-      }
-
-      // Description line: *italic text* (indented)
-      const descMatch = line.match(/^\s+\*([^*]+)\*\s*$/);
-      if (descMatch && currentAnnouncement) {
-        const desc = descMatch[1].trim();
-        if (currentAnnouncement.description) {
-          currentAnnouncement.description += ' ' + desc;
-        } else {
-          currentAnnouncement.description = desc;
-        }
-        continue;
-      }
-    }
-
-    return { categories, lastUpdated };
+    return { badge: '', cls: '' };
   }
 
   // ── Renderer ─────────────────────────────────────────────────
@@ -1299,7 +1511,7 @@ a:hover { text-decoration: underline; }
     // Source attribution in sidebar
     const sourceDiv = document.createElement('div');
     sourceDiv.className = 'sidebar-source';
-    sourceDiv.innerHTML = `📌 Aggregated from official Microsoft blogs, Learn docs, release plans, and <a href="${REPO_LINK}" target="_blank" rel="noopener">Matt Hansen's community list</a>. Core categories auto-update from his repo.`;
+    sourceDiv.innerHTML = `📌 Core categories inspired by <a href="https://github.com/matthansen0/matts-build-2026-list" target="_blank" rel="noopener">Matt Hansen's Build 2026 List</a>. Power Platform, Dynamics 365, M365 Copilot &amp; Foundry data sourced from official Microsoft channels.`;
     sidebar.appendChild(sourceDiv);
 
     if (lastUpdated) {
@@ -1338,9 +1550,13 @@ a:hover { text-decoration: underline; }
         sub.announcements.forEach(anno => {
           const safeTitle = anno.title.replace(/</g, '&lt;').replace(/>/g, '&gt;');
           const safeDesc = anno.description.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          const status = detectStatus(anno.title, anno.description, anno.url);
+          const badgeHtml = status.badge ? `<span class="source-badge ${status.cls}">${status.badge}</span>` : '';
+          // Strip status suffix from display title for cleaner cards
+          const displayTitle = safeTitle.replace(/\s*[—–-]\s*(GA|Generally Available|Preview|Public Preview|Private Preview|Coming Soon|Open Source|Experimental|Limited Access)\s*$/i, '');
           html += `
-            <div class="card" data-search="${safeTitle.toLowerCase()} ${safeDesc.toLowerCase()}">
-              <div class="card-title"><a href="${anno.url}" target="_blank" rel="noopener">${safeTitle}</a></div>
+            <div class="card" data-search="${safeTitle.toLowerCase()} ${safeDesc.toLowerCase()} ${status.badge ? status.badge.toLowerCase() : ''}">
+              <div class="card-title"><a href="${anno.url}" target="_blank" rel="noopener">${displayTitle}</a>${badgeHtml}</div>
               ${safeDesc ? `<div class="card-desc">${safeDesc}</div>` : ''}
             </div>
           `;
@@ -1555,32 +1771,8 @@ a:hover { text-decoration: underline; }
   }
 
   // ── Bootstrap ────────────────────────────────────────────────
-  async function init() {
-    try {
-      const resp = await fetch(REPO_URL);
-      if (!resp.ok) throw new Error(`HTTP ${resp.status}: ${resp.statusText}`);
-      const text = await resp.text();
-      const data = parseMarkdown(text);
-      if (data.categories.length === 0) {
-        showError('The readme was fetched but no announcements could be parsed.');
-        return;
-      }
-      // Merge supplemental categories (Power Platform, Agent 365, Foundry, etc.)
-      SUPPLEMENTAL_CATEGORIES.forEach(sup => {
-        const existing = data.categories.find(c => c.id === sup.id);
-        if (existing) {
-          // Merge subcategories into existing category
-          sup.subcategories.forEach(sub => {
-            existing.subcategories.push(sub);
-          });
-        } else {
-          data.categories.push(sup);
-        }
-      });
-      render(data);
-    } catch (err) {
-      showError(`Failed to fetch data: ${err.message}. The GitHub API may be temporarily unavailable.`);
-    }
+  function init() {
+    render({ categories: ALL_CATEGORIES, lastUpdated: '' });
   }
 
   init();
