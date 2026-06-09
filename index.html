@@ -479,6 +479,16 @@ a:hover { text-decoration: underline; }
 .category-section[data-cat="data-analytics"] .card { border-left: 3px solid rgba(59,130,246,0.35); }
 .category-section[data-cat="ai-agents"] .card { border-left: 3px solid rgba(168,85,247,0.35); }
 .category-section[data-cat="security-governance"] .card { border-left: 3px solid rgba(239,68,68,0.35); }
+.category-section[data-cat="power-apps"] .card { border-left: 3px solid rgba(107,70,193,0.35); }
+.category-section[data-cat="power-automate"] .card { border-left: 3px solid rgba(0,120,212,0.35); }
+.category-section[data-cat="copilot-studio"] .card { border-left: 3px solid rgba(16,124,65,0.35); }
+.category-section[data-cat="power-bi"] .card { border-left: 3px solid rgba(241,191,21,0.35); }
+.category-section[data-cat="power-pages"] .card { border-left: 3px solid rgba(0,153,188,0.35); }
+.category-section[data-cat="power-platform-admin"] .card { border-left: 3px solid rgba(164,38,44,0.35); }
+.category-section[data-cat="dataverse"] .card { border-left: 3px solid rgba(95,75,139,0.35); }
+.category-section[data-cat="microsoft-365-copilot"] .card { border-left: 3px solid rgba(0,120,212,0.35); }
+.category-section[data-cat="agent-365"] .card { border-left: 3px solid rgba(0,99,177,0.35); }
+.category-section[data-cat="microsoft-foundry"] .card { border-left: 3px solid rgba(0,153,188,0.35); }
 
 /* === Loading & Error States === */
 .loading-container {
@@ -785,7 +795,9 @@ a:hover { text-decoration: underline; }
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-row">
-    <span>Data sourced from <a href="https://github.com/matthansen0/matts-build-2026-list" target="_blank" rel="noopener">Matt Hansen's Build 2026 List</a></span>
+    <span>Core data from <a href="https://github.com/matthansen0/matts-build-2026-list" target="_blank" rel="noopener">Matt Hansen's Build 2026 List</a></span>
+    <span>·</span>
+    <span>Power Platform, M365 Copilot, Agent 365 & Foundry data from <a href="https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/" target="_blank" rel="noopener">official Microsoft sources</a></span>
     <span>·</span>
     <span>Built with ❤️ for the Microsoft developer community</span>
   </div>
@@ -806,8 +818,212 @@ a:hover { text-decoration: underline; }
     'apps-development':        { emoji: '🔧', color: 'var(--build-cat-apps)',  label: 'Apps & Development' },
     'data-analytics':          { emoji: '📊', color: 'var(--build-cat-data)',  label: 'Data & Analytics' },
     'ai-agents':               { emoji: '🤖', color: 'var(--build-cat-ai)',    label: 'AI & Agents' },
-    'security-governance':     { emoji: '🔒', color: 'var(--build-cat-security)', label: 'Security & Governance' }
+    'security-governance':     { emoji: '🔒', color: 'var(--build-cat-security)', label: 'Security & Governance' },
+    'power-apps':              { emoji: '⚡', color: 'rgba(107,70,193,0.6)', label: 'Power Apps' },
+    'power-automate':          { emoji: '🔄', color: 'rgba(0,120,212,0.6)',  label: 'Power Automate' },
+    'copilot-studio':          { emoji: '🎙️', color: 'rgba(16,124,65,0.6)', label: 'Copilot Studio' },
+    'power-bi':                { emoji: '📈', color: 'rgba(241,191,21,0.6)', label: 'Power BI' },
+    'power-pages':             { emoji: '🌐', color: 'rgba(0,153,188,0.6)', label: 'Power Pages' },
+    'power-platform-admin':    { emoji: '🛡️', color: 'rgba(164,38,44,0.6)', label: 'Power Platform Admin' },
+    'dataverse':               { emoji: '🗄️', color: 'rgba(95,75,139,0.6)', label: 'Dataverse' },
+    'microsoft-365-copilot':   { emoji: '✨', color: 'rgba(0,120,212,0.6)', label: 'Microsoft 365 Copilot' },
+    'agent-365':               { emoji: '🛂', color: 'rgba(0,99,177,0.6)',  label: 'Agent 365' },
+    'microsoft-foundry':       { emoji: '🏭', color: 'rgba(0,153,188,0.6)', label: 'Microsoft Foundry' }
   };
+
+  // ── Supplemental Categories (not in Matt's readme) ──────────
+  const SUPPLEMENTAL_CATEGORIES = [
+    {
+      id: 'power-apps', emoji: '⚡', title: 'Power Apps',
+      description: 'Low-code/no-code app development — model-driven, canvas, and code apps with AI integration',
+      subcategories: [
+        { name: 'AI & Copilot Integration', announcements: [
+          { title: 'M365 Copilot in Model-Driven Apps — GA', url: 'https://www.microsoft.com/en-us/power-platform/blog/2026/04/15/making-business-apps-smarter-with-ai-copilot-and-agents-in-power-apps/', description: 'Microsoft 365 Copilot embedded directly in model-driven apps for intelligent summarization and contextual answers' },
+          { title: 'App Skills (Data Entry, Exploration, Visualization) — GA', url: 'https://www.microsoft.com/en-us/power-platform/blog/2026/04/15/making-business-apps-smarter-with-ai-copilot-and-agents-in-power-apps/', description: 'Four new app skills exposing structured experiences as reusable MCP-powered tools for agents' },
+          { title: 'Agent Feed with Power Apps MCP Server — GA', url: 'https://www.microsoft.com/en-us/power-platform/blog/2026/04/15/making-business-apps-smarter-with-ai-copilot-and-agents-in-power-apps/', description: 'In-app experience to supervise, review, and guide agent activity with configurable approval thresholds' },
+          { title: 'Power Apps MCP Server: Closed-Loop Learning', url: 'https://www.microsoft.com/en-us/power-platform/blog/power-apps/power-apps-mcp-server-introduces-closed-loop-learning-for-enterprise-agents/', description: 'User corrections consolidate into org-wide patterns via Genetic-Pareto optimization — agent self-calibrates in production' },
+          { title: 'Custom Tools & Rich UI for App Conversations — Preview', url: 'https://www.microsoft.com/en-us/power-platform/blog/2026/04/22/custom-tools-and-rich-ui-for-app-based-conversations-are-now-in-public-preview/', description: 'Extend MCP server with custom tools and Fluent UI widgets for immersive M365 Copilot conversations' },
+        ]},
+        { name: 'App Development', announcements: [
+          { title: 'Generative Pages via External AI Tools — GA', url: 'https://learn.microsoft.com/en-us/power-apps/maker/model-driven-apps/generative-pages-overview', description: 'Build React/TypeScript generative pages using Copilot CLI, Claude Code — GA in all public clouds' },
+          { title: 'Canvas Apps MCP Authoring Plugin — Preview', url: 'https://www.microsoft.com/en-us/power-platform/blog/2026/04/09/whats-new-in-power-platform-april-2026-feature-update/', description: 'Use AI coding agents to build and modify canvas apps through natural language via MCP' },
+          { title: 'Power Fx User Defined Types (UDTs) — GA', url: 'https://www.microsoft.com/en-us/power-platform/blog/power-apps/power-fx-user-defined-types-generally-available/', description: 'Custom data structures with Type function for strongly typed JSON parsing and user-defined functions' },
+          { title: 'Grid Container Control — GA', url: 'https://www.microsoft.com/en-us/power-platform/blog/2026/05/14/whats-new-in-power-platform-may-2026-feature-update/', description: 'CSS grid-style responsive layout with drag-and-drop authoring replacing X/Y absolute positioning' },
+          { title: 'New Data Grid Control — Preview', url: 'https://www.microsoft.com/en-us/power-platform/blog/2026/05/14/whats-new-in-power-platform-may-2026-feature-update/', description: 'High-performance Fluent UI data grid with search, sorting, multi-row selection' },
+          { title: 'InfoPath Migration to Power Apps with AI Agents', url: 'https://www.microsoft.com/en-us/power-platform/blog/2026/05/14/whats-new-in-power-platform-may-2026-feature-update/', description: 'Canvas Authoring MCP + PowerCAT Skill automatically migrates InfoPath .xsn forms' },
+          { title: 'Direct SharePoint List Integration', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-apps/direct-sharepoint-list-integration-new-power-apps-experience', description: 'New "vibe" experience for building apps directly from SharePoint lists' },
+          { title: 'Enforce Modern Refreshed Look — GA', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-apps/enforce-modern-refreshed-look-model-driven-apps', description: 'Modern UI enforced as default for all model-driven apps' },
+        ]},
+      ]
+    },
+    {
+      id: 'power-automate', emoji: '🔄', title: 'Power Automate',
+      description: 'Workflow automation — cloud flows, desktop flows (RPA), and process mining',
+      subcategories: [
+        { name: 'Desktop Flows & RPA', announcements: [
+          { title: 'Self-Healing Desktop Flows', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-automate/', description: 'Desktop flows auto-adapt to UI changes — no more broken automations from app updates' },
+          { title: 'Desktop Flow Version Control — GA', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-automate/planned-features', description: 'Full version control for desktop flows with rollback and diff capabilities' },
+          { title: 'Desktop Flows as Flowcharts Visualization', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-automate/planned-features', description: 'Visual flowchart representation of desktop flows for easier understanding and debugging' },
+          { title: 'Video Logs for Unattended Runs', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-automate/planned-features', description: 'Screen recording of unattended desktop flow runs for debugging and auditing' },
+          { title: 'Schedule Desktop Flows Directly', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-automate/planned-features', description: 'Direct scheduling without cloud flow triggers — simpler setup for recurring RPA jobs' },
+          { title: 'Real-Time Collaboration on Desktop Flows', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-automate/planned-features', description: 'Multiple makers can edit the same desktop flow simultaneously' },
+        ]},
+        { name: 'Cloud Flows & Intelligence', announcements: [
+          { title: 'Copilot Studio-Powered Actions', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-automate/', description: 'AI creates and fixes cloud flows using natural language via Copilot Studio integration' },
+          { title: 'Object-Centric Process Mining', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-automate/', description: 'Advanced process mining that tracks multiple interrelated business objects simultaneously' },
+          { title: 'MCP Server Integration for Process Intelligence', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-automate/', description: 'Process mining exposed as MCP tools for AI agents to query and optimize workflows' },
+          { title: 'Restore Deleted Flows — GA', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-automate/planned-features', description: 'Recover accidentally deleted cloud flows from a recycle bin' },
+          { title: 'Centralized Credential Management', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-automate/planned-features', description: 'Manage credentials for desktop flows centrally — no more per-machine configurations' },
+        ]},
+      ]
+    },
+    {
+      id: 'copilot-studio', emoji: '🎙️', title: 'Copilot Studio',
+      description: 'Build, manage, and deploy AI agents and copilots with low-code tooling',
+      subcategories: [
+        { name: 'Computer-Using Agents', announcements: [
+          { title: 'Computer-Using Agents (CUA) — GA', url: 'https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/', description: 'First major cloud provider to ship production-ready CUA — available in all geographies' },
+          { title: 'Multi-LLM Support for CUA', url: 'https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/', description: 'Choose between OpenAI CUA and Claude Sonnet 4.5 as the underlying vision model' },
+          { title: 'Azure Key Vault Credential Management for CUA', url: 'https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/', description: 'Secure credential storage via Key Vault with Purview audit logging' },
+        ]},
+        { name: 'Workflows & Voice', announcements: [
+          { title: 'Redesigned Workflows Experience', url: 'https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/', description: 'Unified visual canvas combining APIs, approvals, UI tasks, and AI actions' },
+          { title: 'Real-Time Voice Agents — GA', url: 'https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/', description: 'Voice agents via Dynamics 365 Contact Center with caller identification and emotion detection' },
+          { title: 'Agent-to-Agent Communication', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/planned-features', description: 'Agents can delegate tasks to other agents, enabling multi-agent orchestration' },
+          { title: 'Frontier Tuning Integration — Private Preview', url: 'https://devblogs.microsoft.com/microsoft365dev/frontier-tuning-teaching-ai-to-work-the-way-you-do/', description: 'Reinforcement learning within compliance boundary to teach agents domain-specific behaviors' },
+        ]},
+        { name: 'Analytics & Security', announcements: [
+          { title: 'Custom Metrics for Agent Analytics', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/planned-features', description: 'Define and track custom KPIs for agent performance beyond built-in metrics' },
+          { title: 'Sentiment Analysis of Conversations', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/planned-features', description: 'Real-time sentiment scoring during agent conversations' },
+          { title: 'Multi-Turn Conversation Evaluation — GA', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/planned-features', description: 'Evaluate agent quality across full conversation flows, not just single turns' },
+          { title: 'Strengthened Agent Security — GA', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/planned-features', description: 'Enhanced security controls including prompt injection protection and data boundary enforcement' },
+        ]},
+      ]
+    },
+    {
+      id: 'power-bi', emoji: '📈', title: 'Power BI',
+      description: 'Business intelligence, data visualization, and analytics',
+      subcategories: [
+        { name: 'Copilot & AI', announcements: [
+          { title: 'Copilot Summary Shortcuts (Ribbon + Visual Header)', url: 'https://powerbi.microsoft.com/en-us/blog/', description: 'Quick access to AI-generated summaries from the ribbon and individual visual headers' },
+          { title: 'Conversational Copilot on Mobile — GA', url: 'https://powerbi.microsoft.com/en-us/blog/', description: 'Natural language Q&A with Copilot on Power BI Mobile for on-the-go insights' },
+          { title: 'Copilot Narrative Visual in Embedded Apps', url: 'https://powerbi.microsoft.com/en-us/blog/', description: 'AI-generated narrative visuals available in app-owns-data embedded scenarios' },
+        ]},
+        { name: 'Data & Visuals', announcements: [
+          { title: 'Visual Calculations & Custom Totals — GA', url: 'https://learn.microsoft.com/en-us/power-bi/fundamentals/whats-new', description: 'Define calculations directly on visuals with custom total aggregation logic' },
+          { title: 'Direct Lake Calculated Columns', url: 'https://learn.microsoft.com/en-us/power-bi/fundamentals/whats-new', description: 'Add calculated columns to Direct Lake datasets without triggering full refresh' },
+          { title: 'New Get Data Experience — Preview', url: 'https://learn.microsoft.com/en-us/power-bi/fundamentals/whats-new', description: 'Redesigned data connection experience in Power BI Desktop' },
+          { title: 'Base Theme Switcher for Brand Consistency', url: 'https://learn.microsoft.com/en-us/power-bi/fundamentals/whats-new', description: 'Easily switch between organizational brand themes across all reports' },
+        ]},
+        { name: 'Collaboration & Distribution', announcements: [
+          { title: 'Org Apps in Teams Integration', url: 'https://learn.microsoft.com/en-us/power-bi/collaborate-share/office-integration/whats-new', description: 'Access organizational Power BI apps directly within Microsoft Teams' },
+          { title: 'Power BI in PowerPoint (Org App Reports)', url: 'https://learn.microsoft.com/en-us/power-bi/collaborate-share/office-integration/whats-new', description: 'Embed org app reports in PowerPoint with live data refresh' },
+          { title: 'Teams Channel Support (Private/Shared)', url: 'https://learn.microsoft.com/en-us/power-bi/collaborate-share/office-integration/whats-new', description: 'Pin Power BI content to private and shared Teams channels' },
+        ]},
+      ]
+    },
+    {
+      id: 'power-pages', emoji: '🌐', title: 'Power Pages',
+      description: 'External-facing websites and portals built on Dataverse',
+      subcategories: [
+        { name: 'AI & Agentic Development', announcements: [
+          { title: 'Power Pages Plugin for Copilot CLI & Claude Code — GA', url: 'https://www.microsoft.com/en-us/power-platform/blog/power-pages/build-power-pages-sites-with-ai-through-agentic-coding-tools-now-generally-available/', description: 'Build entire Power Pages sites through natural language with AI coding agents' },
+          { title: 'AI Agentic Site Scaffolding', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-pages/', description: 'Describe your site requirements in natural language and auto-generate the full project' },
+          { title: 'Security Agent for Creators & Admins', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-pages/', description: 'AI agent that proactively identifies and recommends security fixes for your site' },
+        ]},
+        { name: 'Security & Enterprise', announcements: [
+          { title: 'WAF, Browser Security Headers, Vulnerability Scans', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-pages/planned-features', description: 'Enterprise-grade web security with WAF rules, CSP headers, and automated vulnerability scanning' },
+          { title: 'Multi-Provider Authentication Setup', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-pages/planned-features', description: 'Configure multiple identity providers with streamlined setup wizard' },
+          { title: 'Encrypted ID Tokens for External Auth', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-pages/planned-features', description: 'Enhanced security for external authentication with encrypted identity tokens' },
+          { title: 'Unified Authorization (Web Roles + Dataverse)', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-pages/planned-features', description: 'Merge web roles with Dataverse security roles for consistent access control' },
+          { title: 'ALM/Pipelines Support for Code Sites', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-pages/planned-features', description: 'Full application lifecycle management with deployment pipelines for code-first sites' },
+        ]},
+        { name: 'Analytics & Monitoring', announcements: [
+          { title: 'Site Analytics and Exportable Server Logs', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-pages/planned-features', description: 'Built-in analytics dashboard with exportable server-side logs for debugging' },
+          { title: 'Detailed Transaction Auditing', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-pages/planned-features', description: 'Granular audit trail for all Dataverse record operations through the portal' },
+        ]},
+      ]
+    },
+    {
+      id: 'power-platform-admin', emoji: '🛡️', title: 'Power Platform Admin',
+      description: 'Governance, administration, and security for the Power Platform',
+      subcategories: [
+        { name: 'Governance', announcements: [
+          { title: 'Advanced Connector Policies — GA', url: 'https://www.microsoft.com/en-us/power-platform/blog/2026/06/04/advanced-connector-policies-are-generally-available/', description: 'One policy per environment, action-level control, MCP server blocking, allowlist model' },
+          { title: 'Power Platform Monitor Alerts — GA', url: 'https://www.microsoft.com/en-us/power-platform/blog/power-apps/power-platform-monitor-alerts-are-now-generally-available/', description: 'Predefined alerts for apps, agents, and flows auto-enabled for every tenant' },
+          { title: 'Usage Analytics Page', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-platform-governance-administration/discover-foster-power-platform-adoption-new-usage-page', description: 'Admin center analytics for Power Apps, Power Automate, and Copilot Studio usage' },
+          { title: 'Deploy from Git with Native Pipelines', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-platform-governance-administration/planned-features', description: 'Source-control-driven deployments directly from Git repositories' },
+          { title: 'Agentic Center of Enablement', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-platform-governance-administration/planned-features', description: 'Centralized hub for managing and governing AI agents across the organization' },
+          { title: 'Automated License Reclaim', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-platform-governance-administration/planned-features', description: 'Automatically reclaim unused licenses based on activity thresholds' },
+        ]},
+      ]
+    },
+    {
+      id: 'dataverse', emoji: '🗄️', title: 'Dataverse',
+      description: 'Enterprise data platform powering the entire Power Platform and Dynamics 365',
+      subcategories: [
+        { name: 'AI & Coding Agents', announcements: [
+          { title: 'Dataverse Plugin for Coding Agents — GA', url: 'https://www.microsoft.com/en-us/power-platform/blog/2026/06/04/microsoft-dataverse-plugin-unleashing-coding-agents-on-the-enterprise-microsoft-build-2026/', description: 'Natural-language data modeling, CRM queries, and security config via Copilot CLI and Claude Code' },
+          { title: 'Guardrailed Access to Tables, Columns & Relationships', url: 'https://www.microsoft.com/en-us/power-platform/blog/2026/06/04/microsoft-dataverse-plugin-unleashing-coding-agents-on-the-enterprise-microsoft-build-2026/', description: 'AI agents operate within security boundaries for safe enterprise data access' },
+        ]},
+      ]
+    },
+    {
+      id: 'microsoft-365-copilot', emoji: '✨', title: 'Microsoft 365 Copilot',
+      description: 'AI assistant across Microsoft 365 apps — Word, Excel, Teams, Outlook, and more',
+      subcategories: [
+        { name: 'Platform & APIs', announcements: [
+          { title: 'Work IQ APIs — GA (June 16)', url: 'https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/', description: '10 generic MCP tools, Context API, and digital workspaces for enterprise AI grounding' },
+          { title: 'Frontier Tuning — Teaching AI to Work Your Way', url: 'https://devblogs.microsoft.com/microsoft365dev/frontier-tuning-teaching-ai-to-work-the-way-you-do/', description: 'Reinforcement learning within compliance boundary for domain-specific model fine-tuning' },
+          { title: 'Redesigned M365 Copilot App', url: 'https://www.microsoft.com/en-us/microsoft-365/blog/2026/05/28/introducing-a-new-design-for-microsoft-365-copilot/', description: 'New Copilot UX design across all M365 surfaces' },
+        ]},
+        { name: 'Business & Licensing', announcements: [
+          { title: 'M365 Business with Copilot (SMB) — July 1', url: 'https://www.microsoft.com/en-us/microsoft-365/blog/2026/05/28/introducing-microsoft-365-business-with-copilot-the-new-standard-for-small-business/', description: 'New Copilot-inclusive SKUs for small and medium businesses' },
+          { title: 'Copilot Credits (Unified Consumption Meter)', url: 'https://www.microsoft.com/en-us/microsoft-365/blog/', description: 'Single consumption metric across all Copilot experiences' },
+          { title: 'M365 E7 SKU (Agent 365 + Copilot + Entra Suite)', url: 'https://www.microsoft.com/en-us/microsoft-365/blog/', description: 'Premium bundle combining Agent 365, Copilot, and Entra security suite' },
+        ]},
+      ]
+    },
+    {
+      id: 'agent-365', emoji: '🛂', title: 'Agent 365',
+      description: 'Unified governance, security, and observability for all enterprise AI agents',
+      subcategories: [
+        { name: 'Core Platform', announcements: [
+          { title: 'Agent 365 — Generally Available', url: 'https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/', description: 'Unified registry, dashboards, and governance for all enterprise agents' },
+          { title: 'Agent 365 SDK — GA (Free, Framework-Agnostic)', url: 'https://microsoft.github.io/agent-resources/agent365/', description: 'Open SDK for registering any agent with Agent 365 regardless of framework' },
+          { title: 'Agent Discovery (Cloud + Local)', url: 'https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/', description: 'Discover all agents across cloud services, desktops, and local environments via Defender and Intune' },
+          { title: 'OS-Enforced Agent Identity (Entra-Backed)', url: 'https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/', description: 'Operating system-level identity for agents backed by Microsoft Entra' },
+        ]},
+        { name: 'Security & Compliance', announcements: [
+          { title: 'Shadow AI Dashboard & Prompt Injection Blocking', url: 'https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/', description: 'Detect unauthorized AI usage and block prompt injection attacks at the platform level' },
+          { title: 'Centralized Access Control & Policy', url: 'https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/', description: 'Unified policies for agent permissions across the entire enterprise' },
+          { title: 'Windows 365 for Agents — GA', url: 'https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/', description: 'Cloud PCs dedicated to running autonomous agents with full isolation and governance' },
+          { title: 'Agent Types: Delegated, Autonomous, Local, SaaS, Partner', url: 'https://microsoft.github.io/agent-resources/agent365/', description: 'Support for 20+ agent types across the full spectrum of enterprise deployment patterns' },
+        ]},
+      ]
+    },
+    {
+      id: 'microsoft-foundry', emoji: '🏭', title: 'Microsoft Foundry',
+      description: 'Unified AI development platform for building, deploying, and managing AI agents and models',
+      subcategories: [
+        { name: 'Agent Development', announcements: [
+          { title: 'Hosted Agents in Foundry Agent Service', url: 'https://devblogs.microsoft.com/foundry/agent-service-build2026/', description: 'Deploy and scale agents on managed infrastructure with built-in monitoring' },
+          { title: 'Agent Optimizer — Failure to Ranked Improvements', url: 'https://devblogs.microsoft.com/foundry/agent-optimizer-build2026/', description: 'Automatically analyze agent failures and rank improvement suggestions' },
+          { title: 'Agent Memory (Three Scopes)', url: 'https://devblogs.microsoft.com/foundry/memory-build2026/', description: 'Conversation, user, and organization memory scopes for persistent agent context' },
+          { title: 'Agent Distribution to M365 and Teams', url: 'https://devblogs.microsoft.com/foundry/from-building-agents-to-working-with-them-enterprise-agent-distribution-in-microsoft-foundry/', description: 'Publish agents from Foundry directly to Microsoft 365 and Teams' },
+          { title: 'Foundry Managed Compute', url: 'https://devblogs.microsoft.com/foundry/announcing-foundry-managed-compute/', description: 'GPU platform-as-a-service for hosting open-source and custom AI models behind Foundry APIs' },
+        ]},
+        { name: 'Tools & Platform', announcements: [
+          { title: 'Foundry IQ — Serverless Retrieval (54% Recall Improvement)', url: 'https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/', description: 'Serverless retrieval with knowledge bases achieving 54% recall improvement' },
+          { title: 'Toolboxes & Routines — Standardized Tool Endpoints', url: 'https://devblogs.microsoft.com/foundry/toolbox-build-26/', description: 'Reusable tool packages that agents can discover and invoke via standard protocols' },
+          { title: 'Browser Automation Tool with Toolboxes', url: 'https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-the-new-browser-automation-tool-with-toolboxes-in-foundry/4522790', description: 'MCP-native browser automation for agents to interact with web applications' },
+          { title: 'Foundry Toolkit for VS Code — GA', url: 'https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/', description: 'Full IDE tooling for building, testing, and deploying agents from VS Code' },
+          { title: 'Voice Live — GA', url: 'https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/', description: 'Unified real-time conversational API for voice-enabled agents' },
+          { title: 'Observability to ROI for AI Agents', url: 'https://devblogs.microsoft.com/foundry/build-2026-from-observability-to-roi-for-ai-agents-on-any-framework/', description: 'End-to-end monitoring, tracing, and ROI measurement for agents on any framework' },
+        ]},
+      ]
+    },
+  ];
 
   // ── Markdown Parser ──────────────────────────────────────────
   function parseMarkdown(text) {
@@ -1244,6 +1460,18 @@ a:hover { text-decoration: underline; }
         showError('The readme was fetched but no announcements could be parsed.');
         return;
       }
+      // Merge supplemental categories (Power Platform, Agent 365, Foundry, etc.)
+      SUPPLEMENTAL_CATEGORIES.forEach(sup => {
+        const existing = data.categories.find(c => c.id === sup.id);
+        if (existing) {
+          // Merge subcategories into existing category
+          sup.subcategories.forEach(sub => {
+            existing.subcategories.push(sub);
+          });
+        } else {
+          data.categories.push(sup);
+        }
+      });
       render(data);
     } catch (err) {
       showError(`Failed to fetch data: ${err.message}. The GitHub API may be temporarily unavailable.`);
