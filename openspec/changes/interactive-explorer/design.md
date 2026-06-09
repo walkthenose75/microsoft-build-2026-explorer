@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-The application is a **single self-contained HTML file** with zero external dependencies, no build step, and no server. All CSS, JavaScript, and data (303 announcements) are inlined. No runtime fetch is required — the page renders instantly from embedded data.
+The application is a **single self-contained HTML file** with zero external dependencies, no build step, and no server. All CSS, JavaScript, and data (388 announcements) are inlined. No runtime fetch is required — the page renders instantly from embedded data.
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -15,7 +15,7 @@ The application is a **single self-contained HTML file** with zero external depe
 │                       │                              │
 │              ┌────────▼────────┐                     │
 │              │  ALL_CATEGORIES  │                     │
-│              │  (303 inline    │                     │
+│              │  (388 inline    │                     │
 │              │   announcements)│                     │
 │              └────────┬────────┘                     │
 │                       │                              │
@@ -32,7 +32,7 @@ The application is a **single self-contained HTML file** with zero external depe
 
 ### Inline Data Model
 
-All 303 announcements are stored as a JavaScript constant `ALL_CATEGORIES`:
+All 388 announcements are stored as a JavaScript constant `ALL_CATEGORIES`:
 
 ```javascript
 const ALL_CATEGORIES = [
@@ -56,13 +56,13 @@ const ALL_CATEGORIES = [
       // ...
     ]
   },
-  // ... 21 more categories
+  // ... 26 more categories
 ];
 ```
 
 ### Category Metadata
 
-`CATEGORY_META` provides emoji, accent color, and label for each of the 22 categories:
+`CATEGORY_META` provides emoji, accent color, and label for each of the 27 categories:
 
 | Category | Emoji | Color |
 |----------|-------|-------|
@@ -88,6 +88,11 @@ const ALL_CATEGORIES = [
 | D365 Business Central | 🏢 | #00188F (royal) |
 | D365 Contact Center | 📞 | #E3008C (pink) |
 | D365 Customer Insights | 📣 | #FF8C00 (orange) |
+| Developer Tools | 💻 | #0078D4 (azure) |
+| Windows Platform | 🪟 | #0078D4 (azure) |
+| Microsoft Teams | 💬 | #6264A7 (indigo) |
+| Azure AI Services | 🧠 | #0078D4 (azure) |
+| Microsoft Entra | 🔐 | #0078D4 (azure) |
 
 ### Status Badge Detection
 
@@ -111,7 +116,7 @@ Title cleanup regex strips status suffixes: `/\s*[—–-]\s*(GA|Generally Avail
 init()
   └→ render({ categories: ALL_CATEGORIES, lastUpdated: '' })
        ├→ Build hero section (title, search, stats, keynote embed)
-       ├→ Build sidebar nav (22 category buttons with count badges)
+       ├→ Build sidebar nav (27 category buttons with count badges)
        └→ For each category:
             ├→ Category header (emoji, title, description, accent color)
             └→ For each subcategory:
@@ -165,7 +170,7 @@ Desktop (≥1024px):
 │ 🔒 Sec   │  ...                                  │
 │ ⚡ P.Apps│                                       │
 │ ...      │                                       │
-│ (22 cats)│                                       │
+│ (27 cats)│                                       │
 ├──────────┴───────────────────────────────────────┤
 │  FOOTER: Attribution + Source Credits            │
 └──────────────────────────────────────────────────┘
@@ -204,7 +209,7 @@ Mobile (<768px):
 |---------|---------------|
 | **Search** | `input` event → filter cards by `data-search` attribute → toggle `display` → update count badges |
 | **Category filter** | Click sidebar → toggle `data-active` on sections → update nav highlight |
-| **Show All** | Reset all filters, show all 303 cards |
+| **Show All** | Reset all filters, show all 388 cards |
 | **Bookmark scroll** | Click nav link → `scrollIntoView({ behavior: 'smooth' })` |
 | **Active tracking** | `IntersectionObserver` highlights current category in sidebar |
 | **Keyboard shortcuts** | `/` focuses search, `Escape` clears |
@@ -215,4 +220,4 @@ Mobile (<768px):
 - No external CSS/JS/font resources (Segoe UI is a system font, falls back to system-ui)
 - DOM built once, filtered via `display` toggling (no re-renders)
 - Search debounced to 150ms
-- ~1800 lines total, loads in <1 second
+- ~2200 lines total, loads in <1 second

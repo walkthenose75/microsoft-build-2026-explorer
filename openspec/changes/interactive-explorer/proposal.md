@@ -2,9 +2,9 @@
 
 ## Intent
 
-Build the **most comprehensive, interactive Microsoft Build 2026 announcements explorer** — a fully self-contained HTML page with **303 announcements across 22 categories**, sourced exclusively from official Microsoft channels.
+Build the **most comprehensive, interactive Microsoft Build 2026 announcements explorer** — a fully self-contained HTML page with **388 announcements across 27 categories**, sourced exclusively from official Microsoft channels.
 
-Originally inspired by [Matt Hansen's Build 2026 List](https://github.com/matthansen0/matts-build-2026-list) (130 announcements, 5 categories), the explorer was expanded with 173 additional announcements covering Power Platform, Dynamics 365, Copilot Studio, Microsoft Foundry, Agent 365, and Microsoft 365 Copilot — product families entirely absent from the original list.
+Originally inspired by [Matt Hansen's Build 2026 List](https://github.com/matthansen0/matts-build-2026-list) (130 announcements, 5 categories), the explorer was expanded with 258 additional announcements covering Power Platform, Dynamics 365, Copilot Studio, Microsoft Foundry, Agent 365, Microsoft 365 Copilot, Developer Tools, Windows Platform, Microsoft Teams, Azure AI Services, and Microsoft Entra — product families entirely absent from the original list.
 
 ## Problem
 
@@ -18,8 +18,8 @@ Originally inspired by [Matt Hansen's Build 2026 List](https://github.com/mattha
 ### In Scope
 
 - **Single self-contained `index.html`** — no build step, no external dependencies, no runtime fetch.
-- **303 announcements** organized into **22 categories** with **60+ subcategories**.
-- **All 303 URLs** verified as official Microsoft sources only (learn.microsoft.com, devblogs.microsoft.com, techcommunity.microsoft.com, azure.microsoft.com, news.microsoft.com, etc.).
+- **388 announcements** organized into **27 categories** with **70+ subcategories**.
+- **All 388 URLs** verified as official Microsoft sources only (learn.microsoft.com, devblogs.microsoft.com, techcommunity.microsoft.com, azure.microsoft.com, news.microsoft.com, etc.).
 - **Status badges** auto-detected: GA, Preview, Private Preview, Coming Soon, Wave 1, Open Source, Experimental, Limited Access.
 - Microsoft Build 2026 conference branding (dark theme, Build gold #FFB900 accent, extracted from build.microsoft.com).
 - Satya Nadella keynote embed with video, blog, transcript, and highlights links.
@@ -42,7 +42,7 @@ Originally inspired by [Matt Hansen's Build 2026 List](https://github.com/mattha
 ## Approach
 
 1. Research all Build 2026 announcements from official Microsoft sources (Learn docs, DevBlogs, TechCommunity, release plans, official blogs).
-2. Create `index.html` with all 303 announcements as inline JavaScript data — fully self-contained.
+2. Create `index.html` with all 388 announcements as inline JavaScript data — fully self-contained.
 3. Implement interactive UI: keynote banner, filter pills, sidebar nav, card grid, real-time search.
 4. Auto-detect announcement status (GA/Preview/etc.) from title, description, and URL patterns.
 5. Apply Build 2026 brand theme extracted from build.microsoft.com.
@@ -51,11 +51,11 @@ Originally inspired by [Matt Hansen's Build 2026 List](https://github.com/mattha
 
 ## Success Criteria
 
-- ✅ Page displays all 303 announcements across 22 categories within 2 seconds.
+- ✅ Page displays all 388 announcements across 27 categories within 2 seconds.
 - ✅ Users can filter to any category in one click.
 - ✅ Search narrows results in real time as the user types.
 - ✅ Keynote video is embedded and accessible with one click.
-- ✅ All 303 URLs resolve to official Microsoft domains only.
+- ✅ All 388 URLs resolve to official Microsoft domains only.
 - ✅ Status badges render correctly for GA, Preview, Wave 1, and other statuses.
 - ✅ Page renders correctly at mobile (320px) and desktop (2560px) widths.
 - ✅ GitHub Pages deploys and serves the page successfully.

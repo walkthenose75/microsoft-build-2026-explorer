@@ -9,7 +9,7 @@ The system MUST embed all announcement data inline as JavaScript — no runtime 
 #### Scenario: Instant render
 - GIVEN a user navigates to the Build Explorer page
 - WHEN the page loads
-- THEN all 303 announcements render from inline `ALL_CATEGORIES` data
+- THEN all 388 announcements render from inline `ALL_CATEGORIES` data
 - AND no network requests are made for announcement data
 - AND the page renders in under 2 seconds
 
@@ -17,7 +17,7 @@ The system MUST embed all announcement data inline as JavaScript — no runtime 
 
 ### Requirement: Category Navigation
 
-The system SHALL provide persistent navigation elements that allow users to jump directly to any of the 22 announcement categories.
+The system SHALL provide persistent navigation elements that allow users to jump directly to any of the 27 announcement categories.
 
 #### Scenario: Click category bookmark
 - GIVEN a user is viewing the page
@@ -28,7 +28,7 @@ The system SHALL provide persistent navigation elements that allow users to jump
 #### Scenario: All categories visible by default
 - GIVEN a user has just loaded the page
 - WHEN no filters are active
-- THEN all 22 categories and all 303 announcements are visible
+- THEN all 27 categories and all 388 announcements are visible
 
 ---
 

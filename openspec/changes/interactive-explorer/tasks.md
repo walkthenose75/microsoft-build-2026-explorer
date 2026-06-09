@@ -74,6 +74,22 @@
 - [x] 10.1 Create `scan_announcements.py` — Python RSS scanner for daily discovery (25+ feeds)
 - [x] 10.2 Test scanner — verified working, no pip dependencies required
 
-## 📋 Future Work
-- [ ] Add newly discovered announcements from deep research (Dev Tools, Teams, Windows, Entra, Graph)
-- [ ] Consider new categories: Developer Tools, Microsoft Teams, Windows, Microsoft Entra, Microsoft Graph
+## ✅ 11. Deep Research Expansion (303 → 388 announcements)
+- [x] 11.1 Launch 4 parallel research agents: Dev Tools, Teams/Windows, Azure AI/Networking, Industry/Misc
+- [x] 11.2 Cross-reference 100+ candidates against existing 303 items for duplicates
+- [x] 11.3 Add Developer Tools category (24 items: VS 2026, VS Code 1.123, .NET 11, TypeScript 6/7, GitHub Copilot SDK)
+- [x] 11.4 Add Windows Platform category (18 items: Coreutils GA, WSL Containers, Aion, MXC, Intelligent Terminal)
+- [x] 11.5 Add Microsoft Teams category (10 items: Teams SDK GA, Dev CLI, targeted messages, agent distribution)
+- [x] 11.6 Add Azure AI Services category (21 items: GPT Realtime 2.0, Content Understanding, AI Search, PII, Translator)
+- [x] 11.7 Add Microsoft Entra category (12 items: Agent ID Platform, passkeys, FIDO2, identity governance)
+- [x] 11.8 Add CSS category card border colors and CATEGORY_META entries for 5 new categories
+- [x] 11.9 Verify page renders: 27 categories, 388 announcements, no JS errors
+- [x] 11.10 Commit and push to GitHub
+
+## ✅ 12. Final Documentation Update
+- [x] 12.1 Update proposal.md (388 items, 27 categories)
+- [x] 12.2 Update design.md (27-category metadata table, updated counts)
+- [x] 12.3 Update tasks.md (this file) with Phase 11 & 12
+- [x] 12.4 Update spec.md with current counts
+- [x] 12.5 Regenerate source-reference.md with all 388 URLs across 22 domains
+- [x] 12.6 Commit and push OpenSpec documentation
