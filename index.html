@@ -489,6 +489,13 @@ a:hover { text-decoration: underline; }
 .category-section[data-cat="microsoft-365-copilot"] .card { border-left: 3px solid rgba(0,120,212,0.35); }
 .category-section[data-cat="agent-365"] .card { border-left: 3px solid rgba(0,99,177,0.35); }
 .category-section[data-cat="microsoft-foundry"] .card { border-left: 3px solid rgba(0,153,188,0.35); }
+.category-section[data-cat="d365-finance-operations"] .card { border-left: 3px solid rgba(0,120,215,0.35); }
+.category-section[data-cat="d365-sales"] .card { border-left: 3px solid rgba(130,60,220,0.35); }
+.category-section[data-cat="d365-customer-service"] .card { border-left: 3px solid rgba(0,120,212,0.35); }
+.category-section[data-cat="d365-field-service"] .card { border-left: 3px solid rgba(16,124,65,0.35); }
+.category-section[data-cat="d365-business-central"] .card { border-left: 3px solid rgba(0,99,177,0.35); }
+.category-section[data-cat="d365-contact-center"] .card { border-left: 3px solid rgba(107,70,193,0.35); }
+.category-section[data-cat="d365-customer-insights"] .card { border-left: 3px solid rgba(220,62,95,0.35); }
 
 /* === Loading & Error States === */
 .loading-container {
@@ -828,7 +835,14 @@ a:hover { text-decoration: underline; }
     'dataverse':               { emoji: '🗄️', color: 'rgba(95,75,139,0.6)', label: 'Dataverse' },
     'microsoft-365-copilot':   { emoji: '✨', color: 'rgba(0,120,212,0.6)', label: 'Microsoft 365 Copilot' },
     'agent-365':               { emoji: '🛂', color: 'rgba(0,99,177,0.6)',  label: 'Agent 365' },
-    'microsoft-foundry':       { emoji: '🏭', color: 'rgba(0,153,188,0.6)', label: 'Microsoft Foundry' }
+    'microsoft-foundry':       { emoji: '🏭', color: 'rgba(0,153,188,0.6)', label: 'Microsoft Foundry' },
+    'd365-finance-operations': { emoji: '💰', color: 'rgba(0,120,215,0.6)', label: 'D365 Finance & Operations' },
+    'd365-sales':              { emoji: '📊', color: 'rgba(130,60,220,0.6)', label: 'D365 Sales' },
+    'd365-customer-service':   { emoji: '🎧', color: 'rgba(0,120,212,0.6)', label: 'D365 Customer Service' },
+    'd365-field-service':      { emoji: '🔧', color: 'rgba(16,124,65,0.6)', label: 'D365 Field Service' },
+    'd365-business-central':   { emoji: '🏢', color: 'rgba(0,99,177,0.6)',  label: 'D365 Business Central' },
+    'd365-contact-center':     { emoji: '📞', color: 'rgba(107,70,193,0.6)', label: 'D365 Contact Center' },
+    'd365-customer-insights':  { emoji: '🎯', color: 'rgba(220,62,95,0.6)', label: 'D365 Customer Insights' }
   };
 
   // ── Supplemental Categories (not in Matt's readme) ──────────
@@ -1023,6 +1037,102 @@ a:hover { text-decoration: underline; }
         ]},
       ]
     },
+    {
+      id: 'd365-finance-operations', emoji: '💰', title: 'D365 Finance & Operations',
+      description: 'Enterprise ERP — finance, supply chain, manufacturing, and HR',
+      subcategories: [
+        { name: 'Finance & AI', announcements: [
+          { title: 'Copilot in Financial Workflows', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/finance-operations/dynamics365-finance/', description: 'AI-powered process suggestions, anomaly detection, and smarter automated journal entries' },
+          { title: 'AI-Powered Account Reconciliation Agent', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/finance-operations/dynamics365-finance/', description: 'Handles intricate matching rules, subledgers, and bulk exception handling with prioritized feed' },
+          { title: 'Enhanced AI Invoice Capture', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/finance-operations/dynamics365-finance/', description: 'Learns from user corrections, auto-applies charges, side-by-side workspace for review' },
+          { title: 'New Multi-Entity Journal Framework', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/finance-operations/dynamics365-finance/', description: 'Multi-entity vouchers, document type control, flexible analytics for multinationals' },
+          { title: 'Unified E-Invoicing', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/finance-operations/dynamics365-finance/', description: 'Decoupled from individual providers — easier global regulatory compliance' },
+        ]},
+        { name: 'Supply Chain & Operations', announcements: [
+          { title: 'AI-Driven Demand Forecasting', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/finance-operations/dynamics365-supply-chain-management/', description: 'Incorporates macroeconomic indicators, inflation trends, and geopolitical effects' },
+          { title: 'Price-to-Demand Correlation Analysis', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/finance-operations/dynamics365-supply-chain-management/', description: 'Deeper insights into how pricing strategy impacts actual demand' },
+          { title: 'Improved Planning Optimization', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/finance-operations/dynamics365-supply-chain-management/', description: 'Enhanced reliability of delivery commitments and protection of confirmed order dates' },
+          { title: 'Unified Workspace & Personalized Dashboards', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/finance-operations/dynamics365-supply-chain-management/', description: 'Single view for finance, supply chain, and operations teams — minimize context switching' },
+        ]},
+      ]
+    },
+    {
+      id: 'd365-sales', emoji: '📊', title: 'D365 Sales',
+      description: 'CRM and sales acceleration with AI-driven insights',
+      subcategories: [
+        { name: 'AI & Copilot', announcements: [
+          { title: 'Proactive Copilot Experience', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/sales/dynamics365-sales/', description: 'Surfaces recommended next actions, highlights at-risk opportunities from CRM + M365 signals' },
+          { title: 'Sales Development & Research Agents', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/sales/dynamics365-sales/', description: 'AI agents qualify leads, build pipeline, and provide enriched insights before meetings' },
+          { title: 'Cleaner CRM Data via Background Agents', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/sales/dynamics365-sales/', description: 'Copilot keeps opportunities updated based on real activity and nudges sellers for updates' },
+          { title: 'Enhanced M365 Integration', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/sales/dynamics365-sales/', description: 'CRM data, communications, and AI suggestions unified in Teams and Outlook' },
+        ]},
+      ]
+    },
+    {
+      id: 'd365-customer-service', emoji: '🎧', title: 'D365 Customer Service',
+      description: 'AI-powered customer service with multi-agent framework',
+      subcategories: [
+        { name: 'AI Agents & Copilot', announcements: [
+          { title: 'Multi-Agent AI Framework (4 Built-In Agents)', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/service/dynamics365-customer-service/planned-features', description: 'Case Management, Customer Intent, Quality Evaluation, and Knowledge agents work in tandem' },
+          { title: 'Copilot Workspace — Formless Resolution', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/service/dynamics365-customer-service/planned-features', description: 'Faster, formless workspace with step-by-step recommendations for agents' },
+          { title: 'Shadow Mode for Safe AI Adoption', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/service/dynamics365-customer-service/planned-features', description: 'Simulate Copilot-powered resolutions before production — validate AI before going live' },
+          { title: 'Data Sensitivity Labels for Outgoing Emails', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/service/dynamics365-customer-service/planned-features', description: 'Automatic sensitivity classification and governance enforcement on outgoing communications' },
+        ]},
+      ]
+    },
+    {
+      id: 'd365-field-service', emoji: '🔧', title: 'D365 Field Service',
+      description: 'Field workforce management with AI scheduling optimization',
+      subcategories: [
+        { name: 'Scheduling & Operations', announcements: [
+          { title: 'Scheduling Operations Agent — 30 Technician Bulk Optimization', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/service/dynamics365-field-service/', description: 'AI optimizes jobs for up to 30 technicians in bulk with goal-based scheduling' },
+          { title: 'Deeper Project Operations Integration', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/service/dynamics365-field-service/', description: 'Work orders, scheduling, and time tracking sync with project plans and billing' },
+          { title: 'Enhanced Mobile Experience', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/service/dynamics365-field-service/', description: 'Updated mobile UX for technicians with complex scheduling and resource allocation' },
+        ]},
+      ]
+    },
+    {
+      id: 'd365-business-central', emoji: '🏢', title: 'D365 Business Central',
+      description: 'SMB ERP with AI-powered commerce, supply chain, and finance',
+      subcategories: [
+        { name: 'AI & Copilot', announcements: [
+          { title: 'Expanded Copilot Agents (Payables, Sales Orders, Fulfillment)', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/', description: 'AI automates document categorization, invoice processing, and approval workflows' },
+          { title: 'MCP (Model Context Protocol) Support', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/', description: 'Simplifies AI integration between Business Central and Copilot Studio' },
+          { title: 'AI Insights on Supply Chain Data', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/', description: 'Item pages surface KPIs — inventory value, obsolescence, sales growth, margin, return rates' },
+        ]},
+        { name: 'Commerce & Operations', announcements: [
+          { title: 'Deeper Shopify Integration', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/', description: 'Custom collections, product image sync, checkout currency support, improved B2B' },
+          { title: 'Batch-Level Approval Workflows', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/', description: 'Formal approvals for item, inventory, output, and consumption journals' },
+          { title: 'Native Quality Checks', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/', description: 'End-to-end quality inspections on receipts, production, assemblies with quarantine plans' },
+          { title: 'Sustainability & CSRD Reporting', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/', description: 'Built-in sustainability compliance reporting including plastics and sugar tax' },
+        ]},
+      ]
+    },
+    {
+      id: 'd365-contact-center', emoji: '📞', title: 'D365 Contact Center',
+      description: 'AI-first omnichannel contact center with agentic automation',
+      subcategories: [
+        { name: 'AI & Channels', announcements: [
+          { title: 'Agentic Self-Service Automation', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/service/dynamics365-contact-center/', description: 'Enhanced containment using generative AI across all channels' },
+          { title: 'Quality Evaluation Agent — GA September 2026', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/service/dynamics365-contact-center/', description: 'Generative AI automates quality management with actionable feedback for supervisors' },
+          { title: 'Custom Voice for Voice Agents', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/service/dynamics365-contact-center/', description: 'Brand-consistent custom voice for IVR and automated contacts' },
+          { title: 'Proactive Outbound Engagement (Calls + SMS)', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/service/dynamics365-contact-center/', description: 'Agents initiate outbound contacts directly from their workflow' },
+          { title: 'Omnichannel Intelligence (Voice + Messaging)', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/service/dynamics365-contact-center/', description: 'Unified capabilities across voice and messaging with new communication channels' },
+        ]},
+      ]
+    },
+    {
+      id: 'd365-customer-insights', emoji: '🎯', title: 'D365 Customer Insights',
+      description: 'Unified customer data platform with AI-driven marketing journeys',
+      subcategories: [
+        { name: 'Journeys & Marketing', announcements: [
+          { title: 'Copilot-Powered Conversational Texts', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/customer-insights/journeys/', description: 'Two-way real-time SMS engagement — Copilot handles customer replies and keeps journeys moving' },
+          { title: 'Branded Links with Copilot Setup', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/customer-insights/journeys/', description: 'Vanity domains for campaigns — Copilot guides through link authentication' },
+          { title: 'Message Expirations', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/customer-insights/journeys/', description: 'Auto-expiry on campaign messages to reduce marketing fatigue from outdated offers' },
+          { title: 'Live Content Updates in Emails & Push', url: 'https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/customer-insights/journeys/', description: 'Real-time content refresh — recipients always see latest information' },
+        ]},
+      ]
+    },
   ];
 
   // ── Markdown Parser ──────────────────────────────────────────
@@ -1047,7 +1157,7 @@ a:hover { text-decoration: underline; }
       // Category heading: ## 🏗️ Hardware & Infrastructure
       if (line.match(/^## [🏗🔧📊🤖🔒]/)) {
         // Stop at non-announcement sections
-        if (line.includes('Event Information') || line.includes('Contributing') || line.includes('Resources')) {
+        if (line.includes('Event Information') || line.includes('Contributing') || line.includes('Resources') || line.includes('Table of Contents')) {
           currentCat = null;
           continue;
         }
