@@ -17,61 +17,60 @@
 /* === Clawpilot Theme Variables (mandatory) === */
 :root {
   color-scheme: light;
-  --cp-bg: #f7f4ef;
-  --cp-bg-elevated: #fcfbf8;
+  --cp-bg: #f8f9fb;
+  --cp-bg-elevated: #ffffff;
   --cp-surface: #ffffff;
-  --cp-surface-soft: #f5f5f5;
-  --cp-border: #dedede;
-  --cp-border-strong: #919191;
-  --cp-text: #242424;
-  --cp-text-muted: #5c5c5c;
-  --cp-text-soft: #6f6f6f;
-  --cp-accent: #b11f4b;
-  --cp-accent-hover: #9a1a41;
-  --cp-accent-soft: rgba(177, 31, 75, 0.08);
+  --cp-surface-soft: #f1f3f5;
+  --cp-border: #e2e5ea;
+  --cp-border-strong: #9ca3af;
+  --cp-text: #111827;
+  --cp-text-muted: #6b7280;
+  --cp-text-soft: #9ca3af;
+  --cp-accent: #c87600;
+  --cp-accent-hover: #a85f00;
+  --cp-accent-soft: rgba(200, 118, 0, 0.08);
   --cp-accent-fg: #ffffff;
-  --cp-success: #16a34a;
+  --cp-success: #059669;
   --cp-danger: #dc2626;
-  --cp-warning: #f59e0b;
-  --cp-link: #0078d4;
-  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+  --cp-warning: #d97706;
+  --cp-link: #0067b8;
+  --cp-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
   --cp-overlay: rgba(255, 255, 255, 0.8);
-  --cp-panel: rgba(255, 255, 255, 0.86);
-  --cp-panel-strong: rgba(255, 255, 255, 0.96);
+  --cp-panel: rgba(255, 255, 255, 0.92);
+  --cp-panel-strong: rgba(255, 255, 255, 0.97);
   --cp-sheen: rgba(255, 255, 255, 0.55);
-  --cp-highlight: rgba(177, 31, 75, 0.12);
+  --cp-highlight: rgba(200, 118, 0, 0.08);
 }
 html[data-theme="dark"] {
   color-scheme: dark;
-  --cp-bg: #3d3b3a;
-  --cp-bg-elevated: #343231;
-  --cp-surface: #292929;
-  --cp-surface-soft: #2e2e2e;
-  --cp-border: #474747;
-  --cp-border-strong: #5f5f5f;
-  --cp-text: #dedede;
-  --cp-text-muted: #919191;
-  --cp-text-soft: #b0b0b0;
-  --cp-accent: #fd8ea1;
-  --cp-accent-hover: #fb7b91;
-  --cp-accent-soft: rgba(253, 142, 161, 0.14);
-  --cp-accent-fg: #1a1a1a;
-  --cp-success: #4ade80;
+  --cp-bg: #0d1017;
+  --cp-bg-elevated: #141821;
+  --cp-surface: #1a1f2e;
+  --cp-surface-soft: #212738;
+  --cp-border: #2a3045;
+  --cp-border-strong: #3d4663;
+  --cp-text: #e2e5eb;
+  --cp-text-muted: #8891a5;
+  --cp-text-soft: #a0a8bc;
+  --cp-accent: #ffb900;
+  --cp-accent-hover: #e5a600;
+  --cp-accent-soft: rgba(255, 185, 0, 0.1);
+  --cp-accent-fg: #0d1017;
+  --cp-success: #34d399;
   --cp-danger: #f87171;
   --cp-warning: #fbbf24;
-  --cp-link: #4da6ff;
-  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
-  --cp-overlay: rgba(41, 41, 41, 0.88);
-  --cp-panel: rgba(41, 41, 41, 0.72);
-  --cp-panel-strong: rgba(41, 41, 41, 0.96);
-  --cp-sheen: rgba(255, 255, 255, 0.04);
-  --cp-highlight: rgba(253, 142, 161, 0.12);
+  --cp-link: #60a5fa;
+  --cp-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 4px 16px rgba(0,0,0,0.15);
+  --cp-overlay: rgba(13, 16, 23, 0.85);
+  --cp-panel: rgba(26, 31, 46, 0.8);
+  --cp-panel-strong: rgba(26, 31, 46, 0.95);
+  --cp-sheen: rgba(255, 255, 255, 0.03);
+  --cp-highlight: rgba(255, 185, 0, 0.1);
 }
 
 /* === Build 2026 Branding Extensions === */
 :root {
-  --build-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 30%, #a855f7 60%, #3b82f6 100%);
-  --build-hero-bg: linear-gradient(135deg, #1e1145 0%, #0f172a 50%, #0c1426 100%);
+  --build-gradient: linear-gradient(135deg, #FFB900 0%, #FF8C00 50%, #c87600 100%);
   --build-cat-infra: #f59e0b;
   --build-cat-apps: #10b981;
   --build-cat-data: #3b82f6;
@@ -79,10 +78,10 @@ html[data-theme="dark"] {
   --build-cat-security: #ef4444;
 }
 html[data-theme="dark"] {
-  --build-hero-bg: linear-gradient(135deg, #1e1145 0%, #0f172a 50%, #0c1426 100%);
+  --build-hero-bg: linear-gradient(160deg, #0d1017 0%, #121a2e 40%, #1a1040 70%, #0d1017 100%);
 }
 html[data-theme="light"] {
-  --build-hero-bg: linear-gradient(135deg, #312e81 0%, #1e3a5f 50%, #1e40af 100%);
+  --build-hero-bg: linear-gradient(160deg, #111827 0%, #1e2a4a 40%, #2d1b69 70%, #111827 100%);
 }
 
 /* === Base Reset === */
@@ -112,7 +111,7 @@ a:hover { text-decoration: underline; }
   right: -20%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255,185,0,0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 .hero::after {
@@ -122,7 +121,7 @@ a:hover { text-decoration: underline; }
   left: -10%;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(96,165,250,0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 .hero-inner {
@@ -205,7 +204,7 @@ a:hover { text-decoration: underline; }
 }
 .search-input::placeholder { color: rgba(255,255,255,0.4); }
 .search-input:focus {
-  border-color: rgba(139,92,246,0.6);
+  border-color: rgba(255,185,0,0.5);
   background: rgba(255,255,255,0.12);
 }
 .search-icon {
@@ -261,8 +260,8 @@ a:hover { text-decoration: underline; }
   border-color: rgba(255,255,255,0.25);
 }
 .filter-pill.active {
-  background: rgba(255,255,255,0.18);
-  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,185,0,0.2);
+  border-color: rgba(255,185,0,0.5);
   color: #fff;
   font-weight: 600;
 }
@@ -274,7 +273,7 @@ a:hover { text-decoration: underline; }
   font-variant-numeric: tabular-nums;
 }
 .filter-pill.active .pill-count {
-  background: rgba(255,255,255,0.25);
+  background: rgba(255,185,0,0.3);
 }
 
 /* === Main Layout === */
