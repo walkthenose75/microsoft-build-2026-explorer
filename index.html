@@ -8,9 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
 <script>
 (()=>{
-  const param=new URLSearchParams(window.location.search).get("scoutTheme");
-  const theme=param||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
-  document.documentElement.setAttribute("data-theme",theme);
+  document.documentElement.setAttribute("data-theme","dark");
 })();
 </script>
 <style>
@@ -746,7 +744,7 @@ a:hover { text-decoration: underline; }
           <div class="stat-badge">📢 <span class="num" id="totalCount">—</span> announcements</div>
           <div class="stat-badge">📁 <span class="num" id="catCount">5</span> categories</div>
         </div>
-        <button class="theme-toggle" id="themeToggle" title="Toggle light/dark theme">🌙</button>
+        <button class="theme-toggle" id="themeToggle" title="Toggle light/dark theme" style="display:none">🌙</button>
       </div>
     </div>
     <div class="search-container">
