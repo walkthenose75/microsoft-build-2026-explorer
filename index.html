@@ -1893,12 +1893,6 @@ a:hover { text-decoration: underline; }
     storyPill.innerHTML = `🔥 Your Competitors Are Moving`;
     filterBar.appendChild(storyPill);
 
-    const allPill = document.createElement('button');
-    allPill.className = 'filter-pill';
-    allPill.dataset.cat = 'all';
-    allPill.innerHTML = `All <span class="pill-count" id="pillCountAll">${totalCount}</span>`;
-    filterBar.appendChild(allPill);
-
     categories.forEach(cat => {
       const meta = CATEGORY_META[cat.id] || {};
       let catCount = 0;
@@ -1928,12 +1922,6 @@ a:hover { text-decoration: underline; }
     storyBtn.dataset.cat = 'story';
     storyBtn.innerHTML = `<span class="nav-emoji">🔥</span><span class="nav-label">Your Competitors Are Moving</span>`;
     sidebar.appendChild(storyBtn);
-
-    const showAllBtn = document.createElement('button');
-    showAllBtn.className = 'nav-btn';
-    showAllBtn.dataset.cat = 'all';
-    showAllBtn.innerHTML = `<span class="nav-emoji">📋</span><span class="nav-label">Show All</span><span class="nav-count" id="navCountAll">${totalCount}</span>`;
-    sidebar.appendChild(showAllBtn);
 
     const divider = document.createElement('div');
     divider.className = 'nav-divider';
@@ -2420,7 +2408,7 @@ a:hover { text-decoration: underline; }
 
       // Toggle Story section
       const storyEl = document.getElementById('story-section');
-      if (storyEl) storyEl.style.display = catId === 'story' ? '' : 'none';
+      if (storyEl) storyEl.style.display = catId === 'story' ? 'block' : 'none';
 
       // Show/hide category sections
       document.querySelectorAll('.category-section').forEach(s => {
