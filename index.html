@@ -1029,11 +1029,6 @@ a:hover { text-decoration: underline; }
         <button class="theme-toggle" id="themeToggle" title="Toggle light/dark theme" style="display:none">🌙</button>
       </div>
     </div>
-    <div class="search-container">
-      <span class="search-icon">🔍</span>
-      <input type="text" class="search-input" id="searchInput" placeholder="Search announcements..." autocomplete="off" spellcheck="false">
-      <button class="search-clear" id="searchClear" title="Clear search">✕</button>
-    </div>
     <div class="filter-bar" id="filterBar"></div>
   </div>
 </header>
@@ -2451,91 +2446,8 @@ a:hover { text-decoration: underline; }
       });
     });
 
-    // Search
-    function applySearch() {
-      const query = searchInput.value.trim().toLowerCase();
-      searchClear.classList.toggle('visible', query.length > 0);
-
-      // When Vision or Story tab is active, search doesn't apply
-      if (activeCategory === 'vision' || activeCategory === 'story') {
-        noResults.style.display = 'none';
-        return;
-      }
-
-      let totalVisible = 0;
-      const catCounts = {};
-
-      document.querySelectorAll('.category-section').forEach(section => {
-        const catId = section.dataset.cat;
-        let catVisible = 0;
-
-        // Skip hidden categories (from filter)
-        if (activeCategory !== 'all' && catId !== activeCategory) {
-          catCounts[catId] = 0;
-          return;
-        }
-
-        section.querySelectorAll('.card').forEach(card => {
-          const text = card.dataset.search || '';
-          const matches = !query || text.includes(query);
-          card.classList.toggle('hidden', !matches);
-          if (matches) catVisible++;
-        });
-
-        // Hide empty subcategories
-        section.querySelectorAll('.subcategory').forEach(sub => {
-          const visibleCards = sub.querySelectorAll('.card:not(.hidden)').length;
-          sub.style.display = visibleCards === 0 ? 'none' : '';
-        });
-
-        // Hide section if no visible cards
-        const sectionHasCards = catVisible > 0;
-        if (activeCategory === 'all') {
-          section.style.display = sectionHasCards ? '' : 'none';
-        }
-
-        catCounts[catId] = catVisible;
-        totalVisible += catVisible;
-      });
-
-      // Update counts
-      const allCount = Object.values(catCounts).reduce((a, b) => a + b, 0);
-      // Recount for "all" if we're filtering by category
-      const displayTotal = activeCategory === 'all' ? totalVisible : totalVisible;
-
-      const totalEl = document.getElementById('pillCountAll');
-      if (totalEl) totalEl.textContent = query ? allCount : categories.reduce((t, c) => t + c.subcategories.reduce((s, sub) => s + sub.announcements.length, 0), 0);
-
-      const navTotalEl = document.getElementById('navCountAll');
-      if (navTotalEl) navTotalEl.textContent = totalEl.textContent;
-
-      categories.forEach(cat => {
-        const count = catCounts[cat.id] !== undefined ? catCounts[cat.id] : 0;
-        const origCount = cat.subcategories.reduce((s, sub) => s + sub.announcements.length, 0);
-        const displayCount = query ? count : origCount;
-
-        const pillEl = document.getElementById(`pillCount-${cat.id}`);
-        if (pillEl) pillEl.textContent = displayCount;
-        const navEl = document.getElementById(`navCount-${cat.id}`);
-        if (navEl) navEl.textContent = displayCount;
-        const badgeEl = document.getElementById(`catBadge-${cat.id}`);
-        if (badgeEl) badgeEl.textContent = displayCount;
-      });
-
-      // No results
-      noResults.style.display = totalVisible === 0 && query ? 'block' : 'none';
-    }
-
-    searchInput.addEventListener('input', () => {
-      clearTimeout(searchDebounce);
-      searchDebounce = setTimeout(applySearch, 150);
-    });
-
-    searchClear.addEventListener('click', () => {
-      searchInput.value = '';
-      applySearch();
-      searchInput.focus();
-    });
+    // Search (disabled — elements removed)
+    function applySearch() {}
 
     // Scroll-to-top button
     const scrollTopBtn = document.getElementById('scrollTop');
@@ -2575,17 +2487,8 @@ a:hover { text-decoration: underline; }
       updateThemeIcon();
     });
 
-    // Keyboard shortcut: / to focus search
+    // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
-      if (e.key === '/' && document.activeElement !== searchInput) {
-        e.preventDefault();
-        searchInput.focus();
-      }
-      if (e.key === 'Escape' && document.activeElement === searchInput) {
-        searchInput.value = '';
-        applySearch();
-        searchInput.blur();
-      }
     });
   }
 
