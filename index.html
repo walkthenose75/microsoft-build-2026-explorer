@@ -1131,6 +1131,12 @@ a:hover { text-decoration: underline; }
           { title: 'Restore Deleted Flows — GA', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-automate/planned-features', description: 'Recover accidentally deleted cloud flows from a recycle bin' },
           { title: 'Centralized Credential Management', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-automate/planned-features', description: 'Manage credentials for desktop flows centrally — no more per-machine configurations' },
         ]},
+        { name: 'Copilot Credits & AI Builder Sunset', announcements: [
+          { title: 'Copilot Credits — New Unified Consumption Model', url: 'https://learn.microsoft.com/en-us/copilot/manage-copilot-credits', description: 'Single consumption currency replacing AI Builder credits across Power Platform and Copilot Studio — all AI features metered through Copilot Credits' },
+          { title: 'AI Builder Credits End of Life — November 2026', url: 'https://learn.microsoft.com/en-us/ai-builder/endofaibcredits', description: 'AI Builder capacity add-ons and seeded credits permanently removed November 1, 2026 — migrate to Copilot Credits before sunset' },
+          { title: 'Dual-Mode Licensing Transition', url: 'https://learn.microsoft.com/en-us/ai-builder/dual-mode-licensing', description: 'During transition, environments consume remaining AI Builder credits first, then automatically switch to Copilot Credits' },
+          { title: 'Copilot Studio Credit Budget Monitor', url: 'https://walkthenose75.github.io/copilot-studio-credit-budget-monitor/', description: 'Community tool — interactive dashboard for tracking and managing Copilot Studio credit consumption and budgets' },
+        ]},
       ]
     },
     {
@@ -1187,6 +1193,12 @@ a:hover { text-decoration: underline; }
           { title: 'Analytics Viewer Role — GA', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/give-read-only-analytics-access-users', description: 'Read-only analytics access via Analyst role without granting editor permissions' },
           { title: 'Custom Metrics for Agent Analytics', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/planned-features', description: 'Define and track custom KPIs for agent performance beyond built-in metrics' },
           { title: 'Sentiment Analysis of Conversations', url: 'https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/planned-features', description: 'Real-time sentiment scoring during agent conversations' },
+        ]},
+        { name: 'Copilot Credits & AI Builder Sunset', announcements: [
+          { title: 'Copilot Credits — New Unified Consumption Model', url: 'https://learn.microsoft.com/en-us/copilot/manage-copilot-credits', description: 'Single consumption currency replacing AI Builder credits across Power Platform and Copilot Studio — all AI features metered through Copilot Credits' },
+          { title: 'AI Builder Credits End of Life — November 2026', url: 'https://learn.microsoft.com/en-us/ai-builder/endofaibcredits', description: 'AI Builder capacity add-ons and seeded credits permanently removed November 1, 2026 — migrate to Copilot Credits before sunset' },
+          { title: 'Dual-Mode Licensing Transition', url: 'https://learn.microsoft.com/en-us/ai-builder/dual-mode-licensing', description: 'During transition, environments consume remaining AI Builder credits first, then automatically switch to Copilot Credits' },
+          { title: 'Copilot Studio Credit Budget Monitor', url: 'https://walkthenose75.github.io/copilot-studio-credit-budget-monitor/', description: 'Community tool — interactive dashboard for tracking and managing Copilot Studio credit consumption and budgets' },
         ]},
       ]
     },
@@ -1799,8 +1811,8 @@ a:hover { text-decoration: underline; }
       section.innerHTML = html;
       content.appendChild(section);
 
-      // Add related tool callout for Copilot Studio
-      if (cat.id === 'copilot-studio') {
+      // Add related tool callout for Copilot Studio and Power Automate
+      if (cat.id === 'copilot-studio' || cat.id === 'power-automate') {
         const callout = document.createElement('div');
         callout.className = 'related-tool-callout';
         callout.innerHTML = `
