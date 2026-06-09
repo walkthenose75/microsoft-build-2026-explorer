@@ -1304,7 +1304,7 @@ a:hover { text-decoration: underline; }
     // Source attribution in sidebar
     const sourceDiv = document.createElement('div');
     sourceDiv.className = 'sidebar-source';
-    sourceDiv.innerHTML = `📌 Data sourced live from <a href="${REPO_LINK}" target="_blank" rel="noopener">Matt Hansen's repo</a>. Auto-updates when the list changes.`;
+    sourceDiv.innerHTML = `📌 Aggregated from official Microsoft blogs, Learn docs, release plans, and <a href="${REPO_LINK}" target="_blank" rel="noopener">Matt Hansen's community list</a>. Core categories auto-update from his repo.`;
     sidebar.appendChild(sourceDiv);
 
     if (lastUpdated) {
