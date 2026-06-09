@@ -347,6 +347,25 @@ a:hover { text-decoration: underline; }
   background: var(--cp-border);
   margin: 0.5rem 0.75rem;
 }
+.nav-sublink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.75rem 0.3rem 2.5rem;
+  font-size: 0.75rem;
+  color: var(--cp-text-muted);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: all 0.15s;
+}
+.nav-sublink:hover {
+  background: var(--cp-surface-soft);
+  color: var(--cp-accent);
+  text-decoration: none;
+}
+.nav-sublink .sublink-icon { font-size: 0.8rem; flex-shrink: 0; }
+.nav-sublink .sublink-label { flex: 1; }
+.nav-sublink .sublink-external { font-size: 0.6rem; opacity: 0.5; }
 .sidebar-source {
   margin-top: 1rem;
   padding: 0.75rem;
@@ -1722,6 +1741,17 @@ a:hover { text-decoration: underline; }
       btn.dataset.cat = cat.id;
       btn.innerHTML = `<span class="nav-emoji">${meta.emoji || cat.emoji}</span><span class="nav-label">${cat.title}</span><span class="nav-count" id="navCount-${cat.id}">${catCount}</span>`;
       sidebar.appendChild(btn);
+
+      // Add Credit Budget Monitor sub-link under Copilot Studio and Power Automate
+      if (cat.id === 'copilot-studio' || cat.id === 'power-automate') {
+        const sublink = document.createElement('a');
+        sublink.className = 'nav-sublink';
+        sublink.href = 'https://walkthenose75.github.io/copilot-studio-credit-budget-monitor/';
+        sublink.target = '_blank';
+        sublink.rel = 'noopener';
+        sublink.innerHTML = `<span class="sublink-icon">💳</span><span class="sublink-label">Credit Budget Monitor</span><span class="sublink-external">↗</span>`;
+        sidebar.appendChild(sublink);
+      }
     });
 
     // Source attribution in sidebar
