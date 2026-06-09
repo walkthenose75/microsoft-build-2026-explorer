@@ -509,6 +509,50 @@ a:hover { text-decoration: underline; }
 .source-badge.announced { background: rgba(148,163,184,0.1); color: #94a3b8; }
 .card.hidden { display: none; }
 
+/* === Status Filter Bar === */
+.status-filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0.4rem 0 0.2rem;
+}
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--cp-border);
+  background: var(--cp-surface);
+  color: var(--cp-text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.status-pill:hover { border-color: var(--cp-text-muted); }
+.status-pill.active { border-color: transparent; }
+.status-pill[data-status="all"].active { background: var(--cp-text); color: var(--cp-bg); }
+.status-pill[data-status="GA"].active { background: rgba(74,222,128,0.2); color: #4ade80; border-color: #4ade80; }
+.status-pill[data-status="Preview"].active { background: rgba(96,165,250,0.2); color: #60a5fa; border-color: #60a5fa; }
+.status-pill[data-status="Wave 1"].active { background: rgba(251,191,36,0.2); color: #fbbf24; border-color: #fbbf24; }
+.status-pill[data-status="Announced"].active { background: rgba(148,163,184,0.15); color: #94a3b8; border-color: #94a3b8; }
+.status-pill[data-status="Coming Soon"].active { background: rgba(251,191,36,0.2); color: #fbbf24; border-color: #fbbf24; }
+.status-pill[data-status="Open Source"].active { background: rgba(74,222,128,0.2); color: #4ade80; border-color: #4ade80; }
+.status-pill .status-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+}
+.status-pill[data-status="GA"] .status-dot { background: #4ade80; }
+.status-pill[data-status="Preview"] .status-dot { background: #60a5fa; }
+.status-pill[data-status="Wave 1"] .status-dot { background: #fbbf24; }
+.status-pill[data-status="Announced"] .status-dot { background: #94a3b8; }
+.status-pill[data-status="Coming Soon"] .status-dot { background: #fbbf24; }
+.status-pill[data-status="Open Source"] .status-dot { background: #4ade80; }
+.status-pill[data-status="all"] .status-dot { background: var(--cp-text-muted); }
+
 /* === Category accent left border on cards === */
 .category-section[data-cat="hardware-infrastructure"] .card { border-left: 3px solid rgba(245,158,11,0.35); }
 .category-section[data-cat="apps-development"] .card { border-left: 3px solid rgba(16,185,129,0.35); }
@@ -1035,6 +1079,7 @@ a:hover { text-decoration: underline; }
       <button class="search-clear" id="searchClear" title="Clear search">✕</button>
     </div>
     <div class="filter-bar" id="filterBar"></div>
+    <div class="status-filter-bar" id="statusFilterBar"></div>
   </div>
 </header>
 
@@ -1835,34 +1880,228 @@ a:hover { text-decoration: underline; }
   ];
 
   // ── Status Detection ─────────────────────────────────────────
+  // ── Status Overrides (manually verified from official sources) ──
+  const STATUS_OVERRIDES = {
+    // ── GA (Generally Available — use it today) ──
+    'Azure Cobalt 200 VMs': 'GA',
+    'Azure Linux 4.0': 'GA',
+    'MAI-Code-1-Flash in GitHub Copilot': 'GA',
+    'Azure Database for MySQL Self-Service quota management': 'GA',
+    'GitHub Copilot App': 'GA',
+    'Agent apps for GitHub': 'GA',
+    'Microsoft Marketplace for apps and agents': 'GA',
+    'Microsoft Agent Framework': 'GA',
+    'Seven new First-Party Microsoft AI models': 'GA',
+    'Azure Container Linux on AKS': 'GA',
+    'Cosmos DB Agent Kit': 'GA',
+    'Cosmos DB backup': 'GA',
+    'Azure SQL TDE with AES keys': 'GA',
+    'Azure SQL June updates': 'GA',
+    'Redesigned M365 Copilot App': 'GA',
+    'Copilot Credits — New Unified Consumption Model': 'GA',
+    'Dual-Mode Licensing Transition': 'GA',
+    'M365 Business with Copilot (SMB) — July 1': 'GA',
+    'M365 E7 SKU (Agent 365 + Copilot + Entra Suite)': 'GA',
+    'Copilot Credits (Unified Consumption Meter)': 'GA',
+    'Hosted Agents in Foundry Agent Service': 'GA',
+    'Agent Distribution to M365 and Teams': 'GA',
+    'Foundry Managed Compute': 'GA',
+    'GPU-accelerated Fabric Data Warehouse': 'GA',
+    'Database Hub in Fabric': 'GA',
+    'OneLake catalog in Foundry': 'GA',
+    'Copilot Summary Shortcuts (Ribbon + Visual Header)': 'GA',
+    'Copilot Narrative Visual in Embedded Apps': 'GA',
+    'Direct Lake Calculated Columns': 'GA',
+    'Base Theme Switcher for Brand Consistency': 'GA',
+    'Org Apps in Teams Integration': 'GA',
+    'Power BI in PowerPoint (Org App Reports)': 'GA',
+    'Teams Channel Support (Private/Shared)': 'GA',
+    'Agent Discovery (Cloud + Local)': 'GA',
+    'OS-Enforced Agent Identity (Entra-Backed)': 'GA',
+    'Shadow AI Dashboard & Prompt Injection Blocking': 'GA',
+    'Centralized Access Control & Policy': 'GA',
+    'Agent Types: Delegated, Autonomous, Local, SaaS, Partner': 'GA',
+    'Azure Monitor Copilot Observability Agent': 'GA',
+    'Direct OpenTelemetry ingestion': 'GA',
+    'Azure Monitor agent observability': 'GA',
+    'File share centric management model': 'GA',
+    'Cosmos DB all versions and deletes change feed': 'GA',
+    'Cosmos DB change partition keys': 'GA',
+    'DocumentDB graceful failovers': 'GA',
+    'Monitoring Coverage': 'GA',
+    'Microsoft-Authored Copilot Skills': 'GA',
+    'Enterprise agent distribution in Microsoft Foundry': 'GA',
+    'Build and run agents at scale with Microsoft Foundry': 'GA',
+    'Hosted Agents in Microsoft Foundry Agent Service': 'GA',
+    'Kubernetes Center security and version insights': 'GA',
+    'ACR Artifact Cache deep dive': 'GA',
+    'Azure Event Grid at Build 2026': 'GA',
+    'Windows platform security for AI agents': 'GA',
+
+    // ── Preview (opt-in, try it now) ──
+    'GitHub Enterprise Local': 'Preview',
+    'Azure Functions Serverless Agents Runtime': 'Preview',
+    'Go support in Azure Functions': 'Preview',
+    'Azure Functions MCP Extension': 'Preview',
+    'Managed Connectors for Azure Functions': 'Preview',
+    'azure-functions-skills': 'Preview',
+    'Azure SRE Agent at Build 2026': 'Preview',
+    'SRE Agent VNet integration': 'Preview',
+    'SRE Agent managed connectors': 'Preview',
+    'SRE Agent tool permissions and hooks': 'Preview',
+    'SRE Agent GitHub Enterprise support': 'Preview',
+    'SRE Agent private plugin marketplace': 'Preview',
+    'Azure Container Apps Sandboxes': 'Preview',
+    'Azure HorizonDB': 'Preview',
+    'DuckDB extension for Azure Database for PostgreSQL': 'Preview',
+    'Rayfin': 'Preview',
+    'Small form factor infrastructure': 'Preview',
+    'Foundry Local on Azure Local for sovereign AI': 'Preview',
+    'Foundry Local multi-node inference and vLLM': 'Preview',
+    'Agentic retrieval in Foundry Local': 'Preview',
+    'Azure Files on macOS with Entra ID': 'Preview',
+    'File share migrations with Azure Copilot Migration Agent': 'Preview',
+    'DocumentDB MCP Toolkit': 'Preview',
+    'DocumentDB instant free tier clusters': 'Preview',
+    'DocumentDB migration extension': 'Preview',
+    'Advanced full-text search in Azure DocumentDB': 'Preview',
+    'DocumentDB service-managed failovers': 'Preview',
+    'DocumentDB change streams': 'Preview',
+    'Logic Apps Automation': 'Preview',
+    'Knowledge as a Service for Logic Apps': 'Preview',
+    'Azure Connector Namespaces': 'Preview',
+    'Guest RDMA for Azure Boost': 'Preview',
+    'Lasv5 and Laosv5 VMs': 'Preview',
+    'Azure Infrastructure Resiliency Manager': 'Preview',
+    'AKS on bare metal': 'Preview',
+    'Anyscale on Azure': 'Preview',
+    'Cosmos DB integrated embeddings': 'Preview',
+    'Cosmos DB Migration Assistant': 'Preview',
+    'Power Apps MCP Server: Closed-Loop Learning': 'Preview',
+    'InfoPath Migration to Power Apps with AI Agents': 'Preview',
+    'Multi-LLM Support for CUA': 'Preview',
+    'Azure Key Vault Credential Management for CUA': 'Preview',
+    'Redesigned Workflows Experience': 'Preview',
+    'PostgreSQL workflow in Cursor': 'Preview',
+    'Foundry IQ recall improvements for knowledge bases': 'Preview',
+    'Foundry IQ governance and enterprise AI security': 'Preview',
+    'Browser automation tool with Toolboxes in Foundry': 'Preview',
+    'Agent Optimizer in Foundry Agent Service': 'Preview',
+    'Agent memory in Foundry': 'Preview',
+    'Voice Live evaluation harness': 'Preview',
+    'Text Analytics for Health NextGen Playground': 'Preview',
+    'TextPII NextGen Playground updates': 'Preview',
+    'Conversational PII NextGen Playground': 'Preview',
+    'Purview sensitivity labels in Azure AI Search': 'Preview',
+    'Purview label auditing in Azure AI Search': 'Preview',
+    'PostgreSQL Defender security assessments': 'Preview',
+    'PostgreSQL cross-tenant CMK': 'Preview',
+    'Azure SQL TDE with AES customer-managed keys': 'Preview',
+    'Defender for Cloud hardened images': 'Preview',
+    'Microsoft Execution Containers SDK': 'Preview',
+    'Guardrailed Access to Tables, Columns & Relationships': 'Preview',
+    'Foundry IQ 54% Recall Improvement': 'Preview',
+    'Domain Filter for Model Discovery': 'Preview',
+    'Agent Optimizer': 'Preview',
+    'Agents Window — Multiple Sessions': 'Preview',
+    '.NET 11 Previews at Build 2026': 'Preview',
+    'Agent Apps for GitHub': 'Preview',
+    'OS-Enforced Agent Identity': 'Preview',
+    'Smart App Control Expansion': 'Preview',
+    'Teams Developer CLI': 'Preview',
+    'Azure API Management Unified Model API': 'Preview',
+    'New AI Gateway capabilities in APIM': 'Preview',
+    'MCP Test Console and Git sync in Azure API Center': 'Preview',
+    'Monitor AI coding agents with OpenTelemetry': 'Preview',
+    'Multi-stage transformations for Azure Monitor DCRs': 'Preview',
+    'Toolboxes and Routines in Microsoft Foundry': 'Preview',
+    'Domain filter for specialized model discovery': 'Preview',
+    'Build MDASH / Agentic DevSecOps': 'Preview',
+    'Securing code, agents, and models across the development lifecycle': 'Preview',
+    'Start secure, stay secure': 'Preview',
+    'Content Understanding Enhancements': 'Preview',
+
+    // ── Open Source ──
+    'OmniVec': 'Open Source',
+    'OpenClaw on Windows with Microsoft Execution Containers': 'Open Source',
+    'OpenClaw Windows Node': 'Open Source',
+
+    // ── Coming Soon ──
+    'AI Builder Credits End of Life — November 2026': 'Coming Soon',
+    'C# Union Types — Coming in .NET 11': 'Coming Soon',
+    'Post-Quantum Cryptography in Windows': 'Coming Soon',
+
+    // ── Announced (hardware, research, roundups, partnerships) ──
+    'Surface RTX Spark Dev Box and DGX Station for Windows': 'Announced',
+    'Project Solara': 'Announced',
+    'Majorana 2 (Microsoft Quantum)': 'Announced',
+    'Majorana 2 and Microsoft Discovery': 'Announced',
+    'Mayo Clinic frontier healthcare model partnership': 'Announced',
+    'Microsoft Agent Platform Build Blog': 'Announced',
+    'Work IQ APIs': 'Announced',
+    'Web IQ': 'Announced',
+    'Microsoft Scout': 'Announced',
+    'Frontier Tuning': 'Announced',
+    'Frontier Tuning — Teaching AI to Work Your Way': 'Announced',
+    'Copilot Studio Credit Budget Monitor': 'Announced',
+    'Azure Content Understanding at Build 2026': 'Announced',
+    'Visual Studio 2026 Roadmap at Build': 'Announced',
+    'VS Code 1.123 — Build 2026 Release': 'Announced',
+    'Computer-using agents, workflows, and real-time voice experiences': 'Announced',
+    'Azure Speech at Build 2026': 'Announced',
+    'Windows 365 at Build 2026': 'Announced',
+    'Building agentic apps with Microsoft Fabric and Microsoft Databases': 'Announced',
+    'Cosmos DB Build 2026 roundup': 'Announced',
+    'PostgreSQL Build 2026 roundup': 'Announced',
+    "What's new in Observability at Build 2026": 'Announced',
+    "What's new in AKS at Microsoft Build 2026": 'Announced',
+    "What's new in Azure Container Apps at Build 2026": 'Announced',
+    "What's new in Azure API Management at Build 2026": 'Announced',
+    "What's new in Azure Logic Apps at Build 2026": 'Announced',
+    "What's new in Microsoft Foundry | Build Edition": 'Announced',
+    "What's new in Foundry IQ | Build Edition": 'Announced',
+  };
+
   function detectStatus(title, description, url) {
+    // Check manual overrides first
+    if (STATUS_OVERRIDES[title]) {
+      const s = STATUS_OVERRIDES[title];
+      const clsMap = {
+        'GA': 'ga', 'Preview': 'preview', 'Private Preview': 'private-preview',
+        'Coming Soon': 'coming-soon', 'Open Source': 'open-source',
+        'Experimental': 'experimental', 'Announced': 'announced',
+        'Limited Access': 'preview'
+      };
+      return { badge: s, cls: clsMap[s] || 'announced' };
+    }
+
     const t = title.toLowerCase();
     const d = (description || '').toLowerCase();
-    const combined = t + ' ' + d;
+    const u = (url || '').toLowerCase();
 
-    // Order matters — check most specific first
+    // Title checks — most specific first
     if (/private preview/i.test(title)) return { badge: 'Private Preview', cls: 'private-preview' };
     if (/open source/i.test(title)) return { badge: 'Open Source', cls: 'open-source' };
     if (/experimental/i.test(title)) return { badge: 'Experimental', cls: 'experimental' };
     if (/coming soon/i.test(title)) return { badge: 'Coming Soon', cls: 'coming-soon' };
     if (/limited access/i.test(title)) return { badge: 'Limited Access', cls: 'preview' };
-
-    // GA detection — title takes priority
     if (/\bGA\b|Generally Available|General Availability/i.test(title)) return { badge: 'GA', cls: 'ga' };
-
-    // Preview detection — title
     if (/\bPreview\b|Public Preview/i.test(title)) return { badge: 'Preview', cls: 'preview' };
 
-    // Fall back to description hints
+    // Description checks
     if (/private preview/i.test(d)) return { badge: 'Private Preview', cls: 'private-preview' };
     if (/\bnow generally available\b|\bGA\b|general availability/i.test(d)) return { badge: 'GA', cls: 'ga' };
     if (/\bpublic preview\b|\bnow in preview\b|\bpreview\b/i.test(d)) return { badge: 'Preview', cls: 'preview' };
     if (/coming soon/i.test(d)) return { badge: 'Coming Soon', cls: 'coming-soon' };
 
-    // URL-based: Wave 1 release plan items without explicit status
+    // URL-based detection
     if (/release-plan\/2026wave1/i.test(url)) return { badge: 'Wave 1', cls: 'coming-soon' };
+    if (/generally[_-]available|now[_-]ga|is-now-generally/i.test(u)) return { badge: 'GA', cls: 'ga' };
+    if (/public[_-]preview|announcing[_-]preview/i.test(u)) return { badge: 'Preview', cls: 'preview' };
+    if (/private[_-]preview/i.test(u)) return { badge: 'Private Preview', cls: 'private-preview' };
 
-    return { badge: '', cls: '' };
+    // Default: everything was announced at Build 2026
+    return { badge: 'Announced', cls: 'announced' };
   }
 
   // ── Renderer ─────────────────────────────────────────────────
@@ -1906,6 +2145,35 @@ a:hover { text-decoration: underline; }
       pill.dataset.cat = cat.id;
       pill.innerHTML = `${meta.emoji || cat.emoji} ${cat.title} <span class="pill-count" id="pillCount-${cat.id}">${catCount}</span>`;
       filterBar.appendChild(pill);
+    });
+
+    // Build status filter pills — count by status across all categories
+    const statusFilterBar = document.getElementById('statusFilterBar');
+    const statusCounts = {};
+    let totalAnn = 0;
+    categories.forEach(cat => {
+      cat.subcategories.forEach(sub => {
+        sub.announcements.forEach(a => {
+          const s = detectStatus(a.title, a.description, a.url);
+          const key = s.badge || 'Other';
+          statusCounts[key] = (statusCounts[key] || 0) + 1;
+          totalAnn++;
+        });
+      });
+    });
+    const statusOrder = ['GA', 'Preview', 'Wave 1', 'Coming Soon', 'Announced', 'Open Source'];
+    const allPill = document.createElement('button');
+    allPill.className = 'status-pill active';
+    allPill.dataset.status = 'all';
+    allPill.innerHTML = `<span class="status-dot"></span> All ${totalAnn}`;
+    statusFilterBar.appendChild(allPill);
+    statusOrder.forEach(st => {
+      if (!statusCounts[st]) return;
+      const sp = document.createElement('button');
+      sp.className = 'status-pill';
+      sp.dataset.status = st;
+      sp.innerHTML = `<span class="status-dot"></span> ${st} <span style="opacity:0.6">${statusCounts[st]}</span>`;
+      statusFilterBar.appendChild(sp);
     });
 
     // Build sidebar nav
@@ -2347,7 +2615,7 @@ a:hover { text-decoration: underline; }
           // Strip status suffix from display title for cleaner cards
           const displayTitle = safeTitle.replace(/\s*[—–-]\s*(GA|Generally Available|Preview|Public Preview|Private Preview|Coming Soon|Open Source|Experimental|Limited Access)\s*$/i, '');
           html += `
-            <div class="card" data-search="${safeTitle.toLowerCase()} ${safeDesc.toLowerCase()} ${status.badge ? status.badge.toLowerCase() : ''}">
+            <div class="card" data-search="${safeTitle.toLowerCase()} ${safeDesc.toLowerCase()} ${status.badge ? status.badge.toLowerCase() : ''}" data-status="${status.badge}">
               <div class="card-title"><a href="${anno.url}" target="_blank" rel="noopener">${displayTitle}</a>${badgeHtml}</div>
               ${safeDesc ? `<div class="card-desc">${safeDesc}</div>` : ''}
             </div>
@@ -2393,11 +2661,18 @@ a:hover { text-decoration: underline; }
     const searchClear = document.getElementById('searchClear');
     const noResults = document.getElementById('noResults');
     let activeCategory = 'vision';
+    let activeStatusFilter = 'all';
     let searchDebounce = null;
 
     // Category filter (pills + sidebar nav)
     function setActiveCategory(catId) {
       activeCategory = catId;
+
+      // Reset status filter when switching to vision/story
+      if (catId === 'vision' || catId === 'story') {
+        activeStatusFilter = 'all';
+        document.querySelectorAll('.status-pill').forEach(p => p.classList.toggle('active', p.dataset.status === 'all'));
+      }
 
       // Update pill styles
       document.querySelectorAll('.filter-pill').forEach(p => {
@@ -2454,6 +2729,27 @@ a:hover { text-decoration: underline; }
       });
     });
 
+    // Status filter pill clicks
+    document.querySelectorAll('.status-pill').forEach(sp => {
+      sp.addEventListener('click', () => {
+        activeStatusFilter = sp.dataset.status;
+        document.querySelectorAll('.status-pill').forEach(p => p.classList.toggle('active', p.dataset.status === activeStatusFilter));
+
+        // If on vision/story, switch to show all categories so filter can apply
+        if (activeStatusFilter !== 'all' && (activeCategory === 'vision' || activeCategory === 'story')) {
+          activeCategory = 'all';
+          document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+          document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+          const visionEl = document.getElementById('vision-section');
+          if (visionEl) visionEl.style.display = 'none';
+          const storyEl = document.getElementById('story-section');
+          if (storyEl) storyEl.style.display = 'none';
+          document.querySelectorAll('.category-section').forEach(s => s.style.display = '');
+        }
+        applySearch();
+      });
+    });
+
     // Search
     function applySearch() {
       const query = searchInput.value.trim().toLowerCase();
@@ -2488,9 +2784,11 @@ a:hover { text-decoration: underline; }
 
         section.querySelectorAll('.card').forEach(card => {
           const text = card.dataset.search || '';
-          const matches = !query || text.includes(query);
-          card.classList.toggle('hidden', !matches);
-          if (matches) catVisible++;
+          const matchesQuery = !query || text.includes(query);
+          const matchesStatus = activeStatusFilter === 'all' || card.dataset.status === activeStatusFilter;
+          const visible = matchesQuery && matchesStatus;
+          card.classList.toggle('hidden', !visible);
+          if (visible) catVisible++;
         });
 
         // Hide empty subcategories
