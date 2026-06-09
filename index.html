@@ -1029,6 +1029,11 @@ a:hover { text-decoration: underline; }
         <button class="theme-toggle" id="themeToggle" title="Toggle light/dark theme" style="display:none">🌙</button>
       </div>
     </div>
+    <div class="search-container">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search announcements..." autocomplete="off" spellcheck="false">
+      <button class="search-clear" id="searchClear" title="Clear search">✕</button>
+    </div>
     <div class="filter-bar" id="filterBar"></div>
   </div>
 </header>
@@ -1983,11 +1988,13 @@ a:hover { text-decoration: underline; }
           <div class="keynote-label">🎤 Opening Keynote</div>
           <div class="keynote-title">Satya Nadella — Microsoft Build 2026: "Be Yourself at Work"</div>
           <div class="keynote-desc">
-            Satya Nadella unveils Microsoft's vision for the age of AI — intelligence that's truly yours, a full stack your way, and frontier science accelerating human progress. From Microsoft IQ to Azure AI Foundry, agents in Teams & M365, and the Majorana 2 quantum chip.
+            Satya Nadella unveils Microsoft's five-layer AI stack and introduces Microsoft IQ — the context layer grounding agents in world knowledge and enterprise knowledge. From Web IQ, Fabric IQ, and Work IQ to the Agent Framework, Windows as the agent OS, and the Majorana 2 quantum chip.
           </div>
           <div class="keynote-links">
             <a href="https://www.youtube.com/watch?v=FFMm454fxNA" target="_blank" rel="noopener" class="keynote-link primary">▶ Watch Full Keynote</a>
             <a href="https://www.youtube.com/watch?v=ZhZqeo7SD0Y" target="_blank" rel="noopener" class="keynote-link secondary">⚡ Highlights</a>
+            <a href="https://www.youtube.com/live/JeGDoJvute8" target="_blank" rel="noopener" class="keynote-link secondary">🛠️ Scott Hanselman Keynote</a>
+            <a href="https://news.microsoft.com/build-2026-book-of-news/" target="_blank" rel="noopener" class="keynote-link secondary">📖 Book of News</a>
             <a href="https://blogs.microsoft.com/blog/2026/06/02/microsoft-build-2026-be-yourself-at-work/" target="_blank" rel="noopener" class="keynote-link secondary">📝 Blog Post</a>
             <a href="https://news.microsoft.com/build-2026/" target="_blank" rel="noopener" class="keynote-link secondary">📰 News Hub</a>
 
@@ -2446,8 +2453,70 @@ a:hover { text-decoration: underline; }
       });
     });
 
-    // Search (disabled — elements removed)
-    function applySearch() {}
+    // Search
+    function applySearch() {
+      const query = searchInput.value.trim().toLowerCase();
+      searchClear.classList.toggle('visible', query.length > 0);
+
+      // If user starts typing while on Vision or Story, switch to show all categories
+      if (query && (activeCategory === 'vision' || activeCategory === 'story')) {
+        activeCategory = 'vision'; // keep pill state but show categories
+        const visionEl = document.getElementById('vision-section');
+        if (visionEl) visionEl.style.display = 'none';
+        const storyEl = document.getElementById('story-section');
+        if (storyEl) storyEl.style.display = 'none';
+        document.querySelectorAll('.category-section').forEach(s => s.style.display = '');
+      }
+
+      // If query cleared and still on vision/story, restore that tab
+      if (!query && (activeCategory === 'vision' || activeCategory === 'story')) {
+        setActiveCategory(activeCategory);
+        return;
+      }
+
+      let totalVisible = 0;
+
+      document.querySelectorAll('.category-section').forEach(section => {
+        const catId = section.dataset.cat;
+        let catVisible = 0;
+
+        // Skip hidden categories when filtered to a specific category
+        if (activeCategory !== 'vision' && activeCategory !== 'story' && activeCategory !== 'all' && catId !== activeCategory) {
+          return;
+        }
+
+        section.querySelectorAll('.card').forEach(card => {
+          const text = card.dataset.search || '';
+          const matches = !query || text.includes(query);
+          card.classList.toggle('hidden', !matches);
+          if (matches) catVisible++;
+        });
+
+        // Hide empty subcategories
+        section.querySelectorAll('.subcategory').forEach(sub => {
+          const visibleCards = sub.querySelectorAll('.card:not(.hidden)').length;
+          sub.style.display = visibleCards === 0 ? 'none' : '';
+        });
+
+        // Hide section if no visible cards
+        section.style.display = catVisible > 0 ? '' : 'none';
+        totalVisible += catVisible;
+      });
+
+      // No results
+      noResults.style.display = totalVisible === 0 && query ? 'block' : 'none';
+    }
+
+    searchInput.addEventListener('input', () => {
+      clearTimeout(searchDebounce);
+      searchDebounce = setTimeout(applySearch, 150);
+    });
+
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      applySearch();
+      searchInput.focus();
+    });
 
     // Scroll-to-top button
     const scrollTopBtn = document.getElementById('scrollTop');
@@ -2489,6 +2558,15 @@ a:hover { text-decoration: underline; }
 
     // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+      }
+      if (e.key === 'Escape' && document.activeElement === searchInput) {
+        searchInput.value = '';
+        applySearch();
+        searchInput.blur();
+      }
     });
   }
 
