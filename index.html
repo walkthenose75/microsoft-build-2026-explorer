@@ -514,6 +514,39 @@ a:hover { text-decoration: underline; }
 .category-section[data-cat="d365-contact-center"] .card { border-left: 3px solid rgba(107,70,193,0.35); }
 .category-section[data-cat="d365-customer-insights"] .card { border-left: 3px solid rgba(220,62,95,0.35); }
 
+/* === Related Tool Callout === */
+.related-tool-callout {
+  margin: 1.5rem 0 0.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(16,124,65,0.08), rgba(0,120,212,0.06));
+  border: 1px dashed rgba(16,124,65,0.3);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.related-tool-callout .callout-icon { font-size: 1.5rem; flex-shrink: 0; }
+.related-tool-callout .callout-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(16,124,65,0.7);
+  margin-bottom: 0.15rem;
+  font-weight: 600;
+}
+.related-tool-callout .callout-title a {
+  color: #FFB900;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.related-tool-callout .callout-title a:hover { text-decoration: underline; }
+.related-tool-callout .callout-desc {
+  font-size: 0.82rem;
+  color: var(--build-text-secondary);
+  margin-top: 0.15rem;
+}
+
 /* === Loading & Error States === */
 .loading-container {
   display: flex;
@@ -1566,6 +1599,21 @@ a:hover { text-decoration: underline; }
 
       section.innerHTML = html;
       content.appendChild(section);
+
+      // Add related tool callout for Copilot Studio
+      if (cat.id === 'copilot-studio') {
+        const callout = document.createElement('div');
+        callout.className = 'related-tool-callout';
+        callout.innerHTML = `
+          <div class="callout-icon">🔧</div>
+          <div>
+            <div class="callout-label">Related Community Tool</div>
+            <div class="callout-title"><a href="https://walkthenose75.github.io/copilot-studio-credit-budget-monitor/" target="_blank" rel="noopener">Copilot Studio Credit Budget Monitor</a></div>
+            <div class="callout-desc">Interactive dashboard for tracking and managing Copilot Studio credit consumption and budgets.</div>
+          </div>
+        `;
+        section.appendChild(callout);
+      }
     });
 
     // No results message
