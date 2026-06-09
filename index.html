@@ -3,8 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Microsoft Build 2026 Announcements</title>
-<meta name="description" content="Interactive explorer for Microsoft Build 2026 announcements. Filter, search, and browse 260+ announcements across 22 categories.">
+<title>Microsoft Build 2026 Explorer — 396 Announcements, Searchable & Categorized</title>
+<meta name="description" content="Interactive explorer for Microsoft Build 2026 announcements. Filter by status (GA, Preview, Wave 1), search, and browse 396 announcements across 27 categories. Unofficial community resource.">
+<meta property="og:title" content="Microsoft Build 2026 Explorer — 396 Announcements">
+<meta property="og:description" content="The most complete interactive index of Build 2026. 143 GA, 139 Preview, 60 Wave 1 — filter by status, search across 27 categories. Unofficial community resource.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://walkthenose75.github.io/microsoft-build-2026-explorer/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Microsoft Build 2026 Explorer — 396 Announcements">
+<meta name="twitter:description" content="Interactive index of Build 2026. 143 GA, 139 Preview, 60 Wave 1 — searchable across 27 categories.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
 <script>
 (()=>{
@@ -722,6 +729,8 @@ a:hover { text-decoration: underline; }
   .category-title { font-size: 1.15rem; }
   .filter-bar { gap: 0.35rem; }
   .filter-pill { font-size: 0.72rem; padding: 0.3rem 0.65rem; }
+  .status-filter-bar { gap: 0.3rem; }
+  .status-pill { font-size: 0.65rem; padding: 0.25rem 0.55rem; }
 }
 
 /* === Theme Toggle === */
@@ -1055,44 +1064,44 @@ a:hover { text-decoration: underline; }
 <body>
 
 <!-- Hero Header -->
-<header class="hero">
+<header class="hero" role="banner">
   <div class="hero-inner">
     <div class="hero-top">
       <div class="hero-brand">
-        <div class="hero-logo">🚀</div>
+        <div class="hero-logo" aria-hidden="true">🚀</div>
         <div>
           <div class="hero-title">Microsoft <span>//Build 2026</span> Announcements</div>
-          <div class="hero-subtitle">Interactive browser for Build 2026 & Wave 1 Release announcements</div>
+          <div class="hero-subtitle">Unofficial community explorer for Build 2026 & Wave 1 announcements</div>
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:0.75rem;">
-        <div class="hero-stats">
+        <div class="hero-stats" aria-label="Site statistics">
           <div class="stat-badge">📢 <span class="num" id="totalCount">—</span> announcements</div>
           <div class="stat-badge">📁 <span class="num" id="catCount">5</span> categories</div>
         </div>
-        <button class="theme-toggle" id="themeToggle" title="Toggle light/dark theme" style="display:none">🌙</button>
+        <button class="theme-toggle" id="themeToggle" title="Toggle light/dark theme" aria-label="Toggle light/dark theme" style="display:none">🌙</button>
       </div>
     </div>
-    <div class="search-container">
-      <span class="search-icon">🔍</span>
-      <input type="text" class="search-input" id="searchInput" placeholder="Search announcements..." autocomplete="off" spellcheck="false">
-      <button class="search-clear" id="searchClear" title="Clear search">✕</button>
+    <div class="search-container" role="search">
+      <span class="search-icon" aria-hidden="true">🔍</span>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search announcements..." autocomplete="off" spellcheck="false" aria-label="Search announcements">
+      <button class="search-clear" id="searchClear" title="Clear search" aria-label="Clear search">✕</button>
     </div>
-    <div class="filter-bar" id="filterBar"></div>
-    <div class="status-filter-bar" id="statusFilterBar"></div>
+    <div class="filter-bar" id="filterBar" role="tablist" aria-label="Category filters"></div>
+    <div class="status-filter-bar" id="statusFilterBar" role="toolbar" aria-label="Status filters"></div>
   </div>
 </header>
 
 <!-- Main Layout -->
 <div class="main-layout">
   <!-- Sidebar Navigation -->
-  <nav class="sidebar" id="sidebar">
+  <nav class="sidebar" id="sidebar" aria-label="Category navigation">
     <div class="sidebar-heading">Categories</div>
     <!-- Populated dynamically -->
   </nav>
 
   <!-- Content -->
-  <main class="content" id="content">
+  <main class="content" id="content" role="main">
     <div class="loading-container" id="loadingState">
       <div class="spinner"></div>
       <div class="loading-text">Loading announcements...</div>
@@ -2263,7 +2272,7 @@ a:hover { text-decoration: underline; }
             <a href="https://www.youtube.com/watch?v=ZhZqeo7SD0Y" target="_blank" rel="noopener" class="keynote-link secondary">⚡ Highlights</a>
             <a href="https://www.youtube.com/live/JeGDoJvute8" target="_blank" rel="noopener" class="keynote-link secondary">🛠️ Scott Hanselman Keynote</a>
             <a href="https://www.youtube.com/watch?v=OvLIae4HCeM" target="_blank" rel="noopener" class="keynote-link secondary">🧠 Mustafa Suleyman Keynote</a>
-            <a href="https://news.microsoft.com/build-2026-book-of-news/" target="_blank" rel="noopener" class="keynote-link secondary">📖 Book of News</a>
+            <a href="https://news.microsoft.com/build-2026-live-blog/microsoft-build-2026-live/" target="_blank" rel="noopener" class="keynote-link secondary">📖 Book of News</a>
             <a href="https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/" target="_blank" rel="noopener" class="keynote-link secondary">📅 2026 Wave 1 Release Plan</a>
             <a href="https://blogs.microsoft.com/blog/2026/06/02/microsoft-build-2026-be-yourself-at-work/" target="_blank" rel="noopener" class="keynote-link secondary">📝 Blog Post</a>
             <a href="https://news.microsoft.com/build-2026/" target="_blank" rel="noopener" class="keynote-link secondary">📰 News Hub</a>
@@ -2297,7 +2306,7 @@ a:hover { text-decoration: underline; }
         <div class="story-eyebrow">Microsoft Build 2026 — Be Yourself at Work</div>
         <h2>Developer Conferences Are About Understanding Tech Shifts.<br>This Is the Biggest One in a Generation.</h2>
         <div class="story-hook">
-          At Build 2026, Satya Nadella unveiled a <strong>five-layer agent stack</strong> — compute, models, context, tools, and security — and introduced <strong>Microsoft IQ</strong>, the context layer that grounds agents in both world knowledge and enterprise knowledge. ${gaCount}+ capabilities are in production <strong>today</strong>. This isn't a roadmap. This is a new computing paradigm, shipping now.
+          At Build 2026, Satya Nadella unveiled a <strong>five-layer agent stack</strong> — compute, models, context, tools, and security — and introduced <strong>Microsoft IQ</strong>, the context layer that grounds agents in world knowledge and enterprise knowledge. ${gaCount}+ capabilities are already shipping, with ${previewCount}+ more in preview and 60 on the Wave 1 roadmap.
         </div>
       </div>
 
@@ -2528,7 +2537,7 @@ a:hover { text-decoration: underline; }
         <div class="story-narrative">
           Everything in the five-layer stack — compute, models, context, tools, security — exists for one purpose: to give every person in every organization the ability to <strong>do their best work</strong>. Not just knowledge workers. Not just developers. <strong>Everyone.</strong><br><br>
           In <strong>Teams</strong>, agents maintain persistent sessions, participate in threaded conversations, and operate across shared channels — even cross-tenant. In <strong>M365 Copilot</strong>, new SKUs make AI accessible to small businesses for the first time. Across <strong>Dynamics 365</strong>, AI agents are embedded in every workload — finance, sales, service, field service, supply chain. In <strong>Power Platform</strong>, self-healing flows, AI app generation, and MCP integration connect automations to the agent ecosystem.<br><br>
-          And looking to the frontier: <strong>Majorana 2</strong> represents a breakthrough in quantum computing — topological qubits for problems no classical machine can solve. <strong>Seven new Microsoft AI models</strong> span voice, code, transcription, and healthcare. <strong>Project Solara</strong> reimagines sustainable datacenters — because the AI era must also be the sustainability era.<br><br>
+          And looking to the frontier: <strong>Majorana 2</strong> pushes toward scalable quantum computing with topological qubits. <strong>Seven new Microsoft AI models</strong> span voice, code, transcription, and healthcare. <strong>Project Solara</strong> reimagines agent-first device infrastructure — standardizing how agents are built, deployed, and managed at the edge.<br><br>
           <strong>Technology's purpose is to empower every person and every organization on the planet to achieve more.</strong> What we shipped at Build 2026 is the most complete expression of that mission we've ever delivered. And it's just the beginning.
         </div>
         <div class="story-featured-grid">
@@ -2550,11 +2559,11 @@ a:hover { text-decoration: underline; }
           </div>
           <div class="story-featured-card">
             <div class="sfc-title"><a href="https://quantum.microsoft.com/en-us/insights/blogs/majorana-2-scalable-quantum-processor" target="_blank" rel="noopener">Majorana 2 Quantum Chip</a></div>
-            <div class="sfc-desc">Topological qubits — commercially viable quantum computing for problems no classical machine can solve</div>
+            <div class="sfc-desc">Topological qubits — advancing toward scalable quantum computing</div>
           </div>
           <div class="story-featured-card">
             <div class="sfc-title"><a href="https://devblogs.microsoft.com/foundry/seven-new-first-party-models/" target="_blank" rel="noopener">7 New Microsoft AI Models (MAI)</a></div>
-            <div class="sfc-desc">MAI-Voice-2, MAI-Code-1-Flash, MAI-Transcribe-2, healthcare models with Mayo Clinic and DARPA</div>
+            <div class="sfc-desc">MAI-Voice-2, MAI-Code-1-Flash, MAI-Transcribe-2, and frontier healthcare models with Mayo Clinic</div>
           </div>
         </div>
       </div>
@@ -2767,8 +2776,12 @@ a:hover { text-decoration: underline; }
       }
 
       // If query cleared and still on vision/story, restore that tab
-      if (!query && (activeCategory === 'vision' || activeCategory === 'story')) {
-        setActiveCategory(activeCategory);
+      if (!query && activeStatusFilter === 'all' && (activeCategory === 'vision' || activeCategory === 'story')) {
+        const visionEl = document.getElementById('vision-section');
+        const storyEl = document.getElementById('story-section');
+        if (visionEl) visionEl.style.display = activeCategory === 'vision' ? '' : 'none';
+        if (storyEl) storyEl.style.display = activeCategory === 'story' ? 'block' : 'none';
+        document.querySelectorAll('.category-section').forEach(s => s.style.display = 'none');
         return;
       }
 
