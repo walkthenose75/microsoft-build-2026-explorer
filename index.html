@@ -1058,6 +1058,9 @@ a:hover { text-decoration: underline; }
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-row">
+    <span>Unofficial community resource — all links point to official Microsoft sources</span>
+  </div>
+  <div class="footer-row">
     <span>Inspired by <a href="https://github.com/matthansen0/matts-build-2026-list" target="_blank" rel="noopener">Matt Hansen's Build 2026 List</a> · Additional data from <a href="https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/" target="_blank" rel="noopener">Microsoft Learn</a>, <a href="https://news.microsoft.com/build-2026/" target="_blank" rel="noopener">official blogs</a>, &amp; <a href="https://devblogs.microsoft.com/" target="_blank" rel="noopener">DevBlogs</a></span>
     <span>·</span>
     <span>Built with ❤️ for the Microsoft developer community</span>
@@ -2020,9 +2023,9 @@ a:hover { text-decoration: underline; }
     storySection.innerHTML = `
       <div class="story-hero">
         <div class="story-eyebrow">Microsoft Build 2026 — Be Yourself at Work</div>
-        <h2>The Question Isn't Whether AI Will Transform Your Business.<br>It's Whether You'll Lead That Transformation — Or React to It.</h2>
+        <h2>Developer Conferences Are About Understanding Tech Shifts.<br>This Is the Biggest One in a Generation.</h2>
         <div class="story-hook">
-          We are at an inflection point that comes perhaps once in a generation. At Build 2026, we didn't just announce features — we showed what becomes possible when intelligence is woven into <strong>every layer of the technology stack</strong>. ${gaCount}+ capabilities are in production today. This is not a roadmap. This is the platform your industry will run on. And the organizations that lean in now will define what comes next.
+          At Build 2026, Satya Nadella unveiled a <strong>five-layer agent stack</strong> — compute, models, context, tools, and security — and introduced <strong>Microsoft IQ</strong>, the context layer that grounds agents in both world knowledge and enterprise knowledge. ${gaCount}+ capabilities are in production <strong>today</strong>. This isn't a roadmap. This is a new computing paradigm, shipping now.
         </div>
       </div>
 
@@ -2033,115 +2036,157 @@ a:hover { text-decoration: underline; }
         <div class="story-stat"><div class="stat-number">${previewCount}+</div><div class="stat-label">Shipping Soon</div></div>
       </div>
 
-      <!-- Pillar 1: Intelligence That's Yours -->
+      <!-- Pillar 1: The Agent-First Shift -->
       <div class="story-section">
         <div class="story-section-header">
           <span class="story-section-icon">🤖</span>
-          <h3>"Intelligence That's Truly Yours"</h3>
+          <h3>"AI Is No Longer About Responding to a Prompt — It's About Running the Work"</h3>
         </div>
         <div class="story-narrative">
-          What excites me most about this moment is not the technology itself — it's what it <strong>empowers people to do</strong>. And so when we think about AI agents, we don't think about replacing human judgment. We think about amplifying it. Giving every person in your organization the ability to <strong>delegate the mundane and focus on what only humans can do</strong> — create, empathize, lead.<br><br>
-          <strong>Computer-Using Agents</strong> are now generally available — these are agents that can see a screen, navigate an application, and complete a task, across any application your business runs. <strong>Copilot Studio</strong> puts that power in the hands of every maker in your organization — not just developers, but business analysts, operations leads, and domain experts. And <strong>Agent 365</strong> ensures that every agent, no matter who built it or where it runs, operates within your security and compliance boundaries.<br><br>
-          With <strong>Microsoft Foundry</strong>, your developers can choose from the world's best models — OpenAI, Anthropic, Meta, Mistral, and our own MAI family — and deploy agents at enterprise scale with built-in evaluation, tracing, and governance. The <strong>A2A protocol</strong> means these agents don't work in isolation; they collaborate, delegate, and compose — just like the best teams do.<br><br>
-          This is what I mean by <strong>"intelligence that's truly yours."</strong> Not a generic AI bolted onto your processes — but intelligence that understands your data, respects your policies, and works the way your people work.
+          We are moving from an era where AI <em>assists</em> you to an era where AI agents <strong>act on your behalf</strong>. Not copilots that suggest — agents that plan, reason, execute, and learn. This is the most significant platform shift since the move to cloud.<br><br>
+          The <strong>Microsoft Agent Framework 1.0</strong> is now generally available — the backbone of this shift. It's a provider-neutral SDK unifying Semantic Kernel and AutoGen with multi-agent orchestration. <strong>Computer-Using Agents</strong> can see a screen, navigate applications, and complete multi-step tasks across any software your business runs. The <strong>A2A protocol</strong> lets agents collaborate with each other — delegating, exchanging context, composing workflows — just like the best human teams.<br><br>
+          In <strong>Copilot Studio</strong>, every maker in your organization — not just developers — can build these agents with multi-model choice: GPT-5, Claude Opus, Mistral. The right model for every task. <strong>Real-time voice agents</strong> handle live customer calls with emotion detection and caller identification. And <strong>Agent 365</strong> ensures that every agent, no matter who built it or where it runs, operates within your security and compliance boundaries.<br><br>
+          And here's the duality that matters: you're a <strong>tinkerer</strong>, choosing your own tools and models — and you're an <strong>enterprise builder</strong>, shipping systems that demand governance, security, and trust from day one. This platform serves both.
         </div>
         <div class="story-featured-grid">
+          <div class="story-featured-card">
+            <div class="sfc-title"><a href="https://commandline.microsoft.com/agent-framework-layered-sdk-loops-workflows-harnesses/" target="_blank" rel="noopener">Microsoft Agent Framework 1.0</a><span class="sfc-badge">GA</span></div>
+            <div class="sfc-desc">The backbone of the agentic era — provider-neutral SDK unifying Semantic Kernel and AutoGen with multi-agent orchestration</div>
+          </div>
           <div class="story-featured-card">
             <div class="sfc-title"><a href="https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/" target="_blank" rel="noopener">Computer-Using Agents (CUA)</a><span class="sfc-badge">GA</span></div>
             <div class="sfc-desc">Agents that see, navigate, and operate any application — with enterprise credential management via Azure Key Vault</div>
           </div>
           <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/" target="_blank" rel="noopener">Agent 365</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">Unified governance for every agent in your estate — cloud, local, SaaS, and partner-built — with shadow AI detection</div>
-          </div>
-          <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://devblogs.microsoft.com/foundry/build-and-run-agents-at-scale-with-microsoft-foundry/" target="_blank" rel="noopener">Microsoft Foundry Agent Service</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">Build, evaluate, and deploy agents at scale — multi-model, multi-framework, with enterprise distribution</div>
-          </div>
-          <div class="story-featured-card">
             <div class="sfc-title"><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-add-other-agents" target="_blank" rel="noopener">A2A Protocol</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">Open standard for agent-to-agent collaboration — agents delegate, exchange context, and compose workflows together</div>
+            <div class="sfc-desc">Open standard for agent-to-agent collaboration — agents delegate, exchange context, and compose workflows</div>
+          </div>
+          <div class="story-featured-card">
+            <div class="sfc-title"><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-select-agent-model" target="_blank" rel="noopener">Copilot Studio Multi-Model Choice</a><span class="sfc-badge">GA</span></div>
+            <div class="sfc-desc">GPT-5, Claude Opus 4.6, Mistral — choose the right model for every agent task, not locked to one vendor</div>
           </div>
           <div class="story-featured-card">
             <div class="sfc-title"><a href="https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/" target="_blank" rel="noopener">Real-Time Voice Agents</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">AI agents that handle live customer calls with emotion detection, natural language understanding, and caller identification</div>
+            <div class="sfc-desc">Live customer calls with emotion detection, natural language understanding, and caller identification</div>
           </div>
           <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-select-agent-model" target="_blank" rel="noopener">Multi-Model Choice in Copilot Studio</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">GPT-5, Claude Opus 4.6, Claude Sonnet 4.5, Mistral — choose the right model for every agent task</div>
+            <div class="sfc-title"><a href="https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/" target="_blank" rel="noopener">Agent 365</a><span class="sfc-badge">GA</span></div>
+            <div class="sfc-desc">Unified governance for every agent — cloud, local, SaaS, partner-built — with shadow AI detection</div>
           </div>
         </div>
       </div>
 
       <div class="story-divider"></div>
 
-      <!-- Pillar 2: A Full Stack, Your Way -->
+      <!-- Pillar 2: Microsoft IQ -->
+      <div class="story-section">
+        <div class="story-section-header">
+          <span class="story-section-icon">🧠</span>
+          <h3>"Microsoft IQ — Grounding Agents in World Knowledge and Enterprise Knowledge"</h3>
+        </div>
+        <div class="story-narrative">
+          An agent without context is just a language model guessing. <strong>Microsoft IQ</strong> is the new context layer at the heart of the five-layer stack — generally available this month across GitHub Copilot, Microsoft Foundry, and Copilot Studio. It grounds agents in both <strong>world knowledge</strong> and <strong>enterprise knowledge</strong>.<br><br>
+          <strong>Web IQ</strong> is the fastest real-world grounding you can give your agents — an AI-first web search stack that's model-agnostic and MCP-native, returning relevant passages at nearly <strong>2.5x the speed</strong> of the next best alternative, with sub-165ms latency and zero data retention.<br><br>
+          <strong>Work IQ</strong> is the workplace intelligence layer — capturing how work actually happens across Microsoft 365, organizational systems, and external sources: people, emails, documents, meetings, and how they connect. The Work IQ APIs are generally available June 16 with 10 MCP tools that give agents the context they need to work effectively in your organization.<br><br>
+          <strong>Fabric IQ</strong> connects agents to your structured business data through Microsoft Fabric — analytics, data warehouse, and business intelligence flowing directly into agent reasoning. And <strong>Foundry IQ</strong> unifies all of this with SLA-backed retrieval, 54% recall improvement, layout-aware ingestion, and serverless scale-to-zero pricing.<br><br>
+          This is what makes agents <strong>yours</strong> — not generic AI, but intelligence grounded in your data, your processes, your organization.
+        </div>
+        <div class="story-featured-grid">
+          <div class="story-featured-card">
+            <div class="sfc-title"><a href="https://blogs.bing.com/search/June-2026/Announcing-Microsoft-Web-IQ" target="_blank" rel="noopener">Web IQ</a></div>
+            <div class="sfc-desc">AI-first web grounding — 2.5x faster than alternatives, sub-165ms latency, model-agnostic, MCP-native</div>
+          </div>
+          <div class="story-featured-card">
+            <div class="sfc-title"><a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/" target="_blank" rel="noopener">Work IQ APIs</a><span class="sfc-badge">GA</span></div>
+            <div class="sfc-desc">10 MCP tools capturing how work actually happens — people, emails, documents, meetings, and how they connect</div>
+          </div>
+          <div class="story-featured-card">
+            <div class="sfc-title"><a href="https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/" target="_blank" rel="noopener">Fabric IQ</a></div>
+            <div class="sfc-desc">Structured business data from Microsoft Fabric flowing directly into agent reasoning — analytics meets intelligence</div>
+          </div>
+          <div class="story-featured-card">
+            <div class="sfc-title"><a href="https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/" target="_blank" rel="noopener">Foundry IQ</a><span class="sfc-badge">GA</span></div>
+            <div class="sfc-desc">SLA-backed retrieval unifying 5+ knowledge sources with 54% recall improvement — no custom RAG pipelines</div>
+          </div>
+          <div class="story-featured-card">
+            <div class="sfc-title"><a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/" target="_blank" rel="noopener">Microsoft Scout</a></div>
+            <div class="sfc-desc">Always-on personal agent that learns your patterns — powered by IQ, governed by your policies</div>
+          </div>
+          <div class="story-featured-card">
+            <div class="sfc-title"><a href="https://devblogs.microsoft.com/microsoft365dev/frontier-tuning-teaching-ai-to-work-the-way-you-do/" target="_blank" rel="noopener">Frontier Tuning</a></div>
+            <div class="sfc-desc">Reinforcement learning that teaches AI how your organization works — intelligence that isn't generic, it's yours</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-divider"></div>
+
+      <!-- Pillar 3: Infrastructure + Windows as Agent OS -->
       <div class="story-section">
         <div class="story-section-header">
           <span class="story-section-icon">🏗️</span>
-          <h3>"A Full Stack, Your Way"</h3>
+          <h3>"We're Giving Agents a Whole Computer to Live In"</h3>
         </div>
         <div class="story-narrative">
-          I've always believed that Microsoft's unique strength is not any single product — it's the <strong>completeness of the platform</strong>. And so what we've done at Build 2026 is bring that full stack together in a way that I think is genuinely unprecedented.<br><br>
-          Start with the <strong>infrastructure</strong>. Azure Cobalt 200 VMs deliver 50% better performance for AI workloads. We're running AI on bare metal with AKS. Azure Container Apps Sandboxes provide secure execution for untrusted code. And <strong>Foundry Local</strong> brings the full power of our AI platform to sovereign and on-premises scenarios — because we believe you should be able to run AI <strong>wherever your data lives</strong>.<br><br>
-          Move up the stack to <strong>data</strong>. Azure HorizonDB, Rayfin, GPU-accelerated Fabric Data Warehouse, Cosmos DB with integrated embeddings and agent kits — your data isn't just stored, it's <strong>intelligent</strong>. It participates in your AI workloads natively. And with <strong>Microsoft Fabric</strong> and the new Database Hub, we're creating a single data estate that spans analytics, AI, and operational workloads.<br><br>
-          Then look at <strong>business applications</strong>. Dynamics 365 now has AI agents embedded across <strong>every workload</strong> — finance, sales, customer service, field service, supply chain, and business central. Power Platform gets self-healing desktop flows, AI-powered app generation, and MCP integration that connects your automations to the agent ecosystem. <strong>Power Pages</strong> can now be built entirely through natural language by AI coding agents.<br><br>
-          This is what I mean by "your way." You can go <strong>pro-code with GitHub Copilot and Foundry</strong>, or <strong>low-code with Power Platform and Copilot Studio</strong>, or <strong>no-code with natural language</strong>. The full stack meets you where you are.
+          The five-layer stack starts with <strong>compute</strong> — and we've reimagined infrastructure for the agentic era, from the silicon in the datacenter to the operating system on every device.<br><br>
+          <strong>Azure Cobalt 200 VMs</strong> deliver 50% better performance for AI workloads. <strong>AKS on bare metal</strong> removes the hypervisor for maximum throughput. <strong>Foundry Local</strong> brings the full power of our AI platform to sovereign and on-premises scenarios — multi-node inference with vLLM, agentic retrieval at the edge — because we believe you should run AI <strong>wherever your data lives</strong>.<br><br>
+          <strong>Windows is now the agent OS.</strong> We've built agent identity into the operating system itself — <strong>OS-enforced agent identities</strong> with Entra-backed credentials. <strong>Microsoft Execution Containers (MXC)</strong> provide process-level and session-level isolation for agent code. The <strong>Aion 1.0</strong> model ships in-box for fully local agentic workflows. <strong>Surface RTX Spark</strong> puts 1 petaflop and 128 GB of memory on a developer's desk. This is what I mean by giving agents a whole computer to live in.<br><br>
+          <strong>Windows 365</strong> now offers Cloud PCs purpose-built for agents — GPU options, 32 vCPU configurations, developer-ready images. And <strong>Rayfin</strong> moves you from prototype to governed Fabric backend in minutes, not weeks. This is infrastructure that wasn't adapted for AI — it was <strong>built for it</strong>.
         </div>
         <div class="story-featured-grid">
           <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://azure.microsoft.com/en-us/blog/embrace-the-future-of-ai-infrastructure-with-microsoft-azure/" target="_blank" rel="noopener">Azure Cobalt 200 VMs</a></div>
-            <div class="sfc-desc">Arm-based VMs with 50% better AI workload performance — the silicon foundation for the AI era</div>
+            <div class="sfc-title"><a href="https://blogs.windows.com/windowsdeveloper/2026/06/02/build-2026-furthering-windows-as-the-trusted-platform-for-development/" target="_blank" rel="noopener">Windows: The Agent OS</a></div>
+            <div class="sfc-desc">OS-enforced agent identity, MXC isolation, Aion 1.0 in-box — Windows rebuilt for autonomous AI workloads</div>
           </div>
           <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://devblogs.microsoft.com/azure-sql/azure-sql-updates-at-build-2026/" target="_blank" rel="noopener">Azure SQL, Cosmos DB & HorizonDB</a></div>
-            <div class="sfc-desc">Databases that power AI natively — integrated embeddings, agent kits, and intelligent data participation</div>
+            <div class="sfc-title"><a href="https://azure.microsoft.com/en-us/blog/new-azure-cobalt-200-vms-deliver-50-performance-improvement-fully-optimized-for-modern-agentic-ai-workloads/" target="_blank" rel="noopener">Azure Cobalt 200 VMs</a></div>
+            <div class="sfc-desc">Arm-based VMs with 50% better AI workload performance — the silicon foundation for the agentic era</div>
           </div>
           <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-automate/" target="_blank" rel="noopener">Self-Healing Desktop Flows</a></div>
-            <div class="sfc-desc">Power Automate flows that auto-adapt to UI changes — automation that maintains itself</div>
+            <div class="sfc-title"><a href="https://blogs.windows.com/windowsdeveloper/2026/06/02/build-2026-furthering-windows-as-the-trusted-platform-for-development/" target="_blank" rel="noopener">Surface RTX Spark + DGX Station</a></div>
+            <div class="sfc-desc">1 petaflop on your desk. 128 GB memory. Enterprise AI development locally, with NVIDIA DGX for Windows</div>
           </div>
           <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/dynamics365-finance/" target="_blank" rel="noopener">D365 AI Agents Across Every Workload</a></div>
-            <div class="sfc-desc">Finance, sales, service, field service, supply chain — AI agents embedded at the core, not bolted on</div>
+            <div class="sfc-title"><a href="https://techcommunity.microsoft.com/blog/azurearcblog/build-deploy-and-govern-sovereign-ai-with-foundry-local-on-azure-local/4522945" target="_blank" rel="noopener">Foundry Local</a></div>
+            <div class="sfc-desc">Full AI platform for sovereign and on-prem — multi-node vLLM inference, agentic retrieval at the edge</div>
           </div>
           <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://www.microsoft.com/en-us/power-platform/blog/power-pages/build-power-pages-sites-with-ai-through-agentic-coding-tools-now-generally-available/" target="_blank" rel="noopener">Power Pages AI Coding Agents</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">Build entire websites through natural language — Copilot CLI and Claude Code integration for Power Pages</div>
+            <div class="sfc-title"><a href="https://techcommunity.microsoft.com/blog/windows-itpro-blog/made-for-developers-and-agents-windows-365-at-build-2026/4519041" target="_blank" rel="noopener">Windows 365 for Agents</a><span class="sfc-badge">GA</span></div>
+            <div class="sfc-desc">Cloud PCs purpose-built for autonomous agent workloads — GPU options, 32 vCPU, developer-ready images</div>
           </div>
           <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/copilot-in-power-apps" target="_blank" rel="noopener">Power Apps AI App Generation</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">M365 Copilot in Model-Driven Apps, agent feeds, generative pages — apps that build themselves</div>
+            <div class="sfc-title"><a href="https://aka.ms/rayfin" target="_blank" rel="noopener">Rayfin</a></div>
+            <div class="sfc-desc">Backend-as-a-service — prototype to governed Fabric backend in minutes, not weeks</div>
           </div>
         </div>
       </div>
 
       <div class="story-divider"></div>
 
-      <!-- Pillar 3: Developer Empowerment -->
+      <!-- Pillar 4: Developer Empowerment -->
       <div class="story-section">
         <div class="story-section-header">
           <span class="story-section-icon">⚡</span>
-          <h3>"Every Developer Deserves to Be an AI Developer"</h3>
+          <h3>"What Does It Mean to Be a Modern Developer Today?"</h3>
         </div>
         <div class="story-narrative">
-          One of the things I feel most strongly about is <strong>democratizing access to the best tools</strong>. The developer experience we're shipping today would have been unimaginable even two years ago. And what I love about it is that it meets every developer where they are — whether you're writing Rust at the systems level or building a Power App with no code at all.<br><br>
-          <strong>GitHub Copilot</strong> now operates with 1 million token context windows. Think about what that means — your AI assistant can hold your <strong>entire codebase in context</strong> while you work. Remote agents run via SSH and Dev Tunnels. MCP server sandboxing means agents can safely use external tools. The new <strong>GitHub Copilot SDK</strong> lets you embed that intelligence directly into your own products.<br><br>
-          <strong>Visual Studio 2026</strong> ships with Copilot Skills authored by Microsoft's own product teams — deep, domain-specific intelligence for Azure, .NET, and more. <strong>TypeScript 6.0</strong> is GA, and the <strong>native TypeScript 7.0 port</strong> is already in preview delivering 10x faster compilation. <strong>.NET 11</strong> introduces union types — one of the most requested language features in years.<br><br>
-          And here's what ties it all together: the <strong>Model Context Protocol (MCP)</strong> is becoming the universal integration layer. It's in Foundry, in Copilot Studio, in Power Platform, in Azure API Management, in Azure Functions. <strong>One protocol connecting every tool, every agent, every data source.</strong> That's the kind of platform-level thinking that creates compounding returns for every developer who builds on it.
+          This is the question we asked ourselves, and the answer is: <strong>every developer deserves to be an AI developer</strong>. The tools layer of the stack meets every developer where they are — whether you're writing Rust at the systems level, building agents in Foundry, or creating a Power App with natural language.<br><br>
+          <strong>GitHub Copilot</strong> now operates with 1 million token context windows — your AI assistant holds your <strong>entire codebase in context</strong> while you work. Remote agents run via SSH and Dev Tunnels. The <strong>GitHub Copilot SDK</strong> lets you embed that intelligence directly into your own products. And <strong>Visual Studio 2026</strong> ships with Copilot Skills authored by Microsoft's own product teams — deep, domain-specific intelligence for Azure, .NET, and more.<br><br>
+          <strong>TypeScript 6.0</strong> is GA. The <strong>native TypeScript 7.0 port</strong> is in preview delivering 10x faster compilation. <strong>.NET 11</strong> introduces union types. The <strong>Foundry Toolkit</strong> for VS Code lets you build, debug, and deploy agents directly from your IDE.<br><br>
+          And the <strong>Model Context Protocol (MCP)</strong> is becoming the universal integration layer — in Foundry, Copilot Studio, Power Platform, Azure API Management, Azure Functions. <strong>One protocol connecting every tool, every agent, every data source.</strong> This is platform-level thinking that creates compounding returns for everyone who builds on it.
         </div>
         <div class="story-featured-grid">
           <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://code.visualstudio.com/blogs/2026/06/04/build2026" target="_blank" rel="noopener">VS Code 1.123 + 1M Token Context</a><span class="sfc-badge">GA</span></div>
+            <div class="sfc-title"><a href="https://code.visualstudio.com/blogs/2026/06/04/build2026" target="_blank" rel="noopener">GitHub Copilot + 1M Token Context</a><span class="sfc-badge">GA</span></div>
             <div class="sfc-desc">Multi-session agents, million-token context, remote SSH — the AI-native development environment</div>
-          </div>
-          <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/" target="_blank" rel="noopener">TypeScript 6.0 + Native 7.0 Port</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">GA today with 7.0 native preview delivering 10x faster compilation — the language of the web, accelerated</div>
           </div>
           <div class="story-featured-card">
             <div class="sfc-title"><a href="https://github.blog/changelog/2026-06-03-github-copilot-sdk-ga-build-production-apps-powered-by-copilot/" target="_blank" rel="noopener">GitHub Copilot SDK</a><span class="sfc-badge">GA</span></div>
             <div class="sfc-desc">Embed Copilot intelligence directly into your own products and internal tools</div>
+          </div>
+          <div class="story-featured-card">
+            <div class="sfc-title"><a href="https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/" target="_blank" rel="noopener">TypeScript 6.0 + Native 7.0 Port</a><span class="sfc-badge">GA</span></div>
+            <div class="sfc-desc">GA today with 7.0 native preview delivering 10x faster compilation — the language of the web, accelerated</div>
           </div>
           <div class="story-featured-card">
             <div class="sfc-title"><a href="https://devblogs.microsoft.com/dotnet/dotnet-11-build-2026/" target="_blank" rel="noopener">.NET 11 with Union Types</a></div>
@@ -2152,135 +2197,92 @@ a:hover { text-decoration: underline; }
             <div class="sfc-desc">Build, debug, and deploy Foundry agents directly from your IDE — seamless inner-loop development</div>
           </div>
           <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://playwright.dev/blog/2026-06-02-playwright-v1-59" target="_blank" rel="noopener">Playwright v1.59 — Screencast API</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">Record and replay browser interactions — the testing framework for the agentic web</div>
+            <div class="sfc-title"><a href="https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/" target="_blank" rel="noopener">MCP Everywhere</a><span class="sfc-badge">GA</span></div>
+            <div class="sfc-desc">Model Context Protocol in Foundry, Copilot Studio, Power Platform, API Management — one protocol for everything</div>
           </div>
         </div>
       </div>
 
       <div class="story-divider"></div>
 
-      <!-- Pillar 4: Trust as Foundation -->
+      <!-- Pillar 5: Trust & Security -->
       <div class="story-section">
         <div class="story-section-header">
           <span class="story-section-icon">🔒</span>
-          <h3>"Trust Is the Foundation Everything Else Is Built On"</h3>
+          <h3>"Security and Governance Wrap Everything"</h3>
         </div>
         <div class="story-narrative">
-          I say this every time we talk about AI, and I'll say it again: <strong>there is no AI transformation without trust</strong>. Every capability we've shipped — every agent, every model, every automation — is built on a security and compliance foundation that we believe is the strongest in the industry.<br><br>
-          <strong>Microsoft Entra</strong> now provides dedicated identities for AI agents — not shared credentials, not service accounts, but <strong>first-class agent identities</strong> with scoped permissions, Conditional Access policies, and full audit trails through Purview. <strong>Agent 365</strong> gives your security team a single pane of glass to discover, monitor, and govern every agent in your organization — whether it was built by your developers, by a business user in Copilot Studio, or by a third-party vendor.<br><br>
-          <strong>Microsoft Execution Containers</strong> provide OS-level sandboxing for AI workloads — the same technology we use to secure our own infrastructure. <strong>Purview sensitivity labels</strong> now extend into Azure AI Search and security groups. <strong>Defender for Cloud</strong> ships hardened images. And <strong>post-quantum cryptography</strong> is coming to Windows — because the security decisions you make today need to hold up for the next decade.<br><br>
-          We've also made <strong>passkeys</strong> the default path forward — with automated registration campaigns that move your entire organization toward passwordless authentication. This is security that <strong>enables speed</strong>. The organizations that trust their platform move faster. Period.
+          The fifth layer of the stack wraps everything else — and this is non-negotiable. <strong>There is no AI transformation without trust.</strong> Every agent action is permissioned, inspectable, and tied back to identity and compliance requirements.<br><br>
+          <strong>Microsoft Entra</strong> now provides first-class identities for AI agents — not shared credentials, not service accounts, but <strong>dedicated agent identities</strong> with scoped permissions, Conditional Access policies, and full audit trails. <strong>Agent 365</strong> gives your security team a single pane of glass to discover, monitor, and govern every agent in your organization — whether built by developers, business users, or vendors.<br><br>
+          <strong>Microsoft Execution Containers</strong> provide OS-level sandboxing at both the process and session level — the same containment model adopted by GitHub Copilot CLI. <strong>Purview sensitivity labels</strong> extend into Foundry IQ retrieval with ACL sync and private connectivity. <strong>Passkeys</strong> are the default path forward with automated registration campaigns.<br><br>
+          And <strong>post-quantum cryptography</strong> is coming to Windows — because the security decisions you make today need to hold for the next decade. The organizations that trust their platform <strong>move faster</strong>. Period.
         </div>
         <div class="story-featured-grid">
           <div class="story-featured-card">
             <div class="sfc-title"><a href="https://learn.microsoft.com/en-us/entra/identity/agents/concept-agent-id" target="_blank" rel="noopener">Entra Agent ID Platform</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">First-class identities for AI agents with scoped permissions, lifecycle management, and Conditional Access</div>
+            <div class="sfc-desc">First-class identities for AI agents — scoped permissions, lifecycle management, and Conditional Access</div>
           </div>
           <div class="story-featured-card">
             <div class="sfc-title"><a href="https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/" target="_blank" rel="noopener">Agent 365 Governance</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">Discover, audit, and govern every agent — with shadow AI dashboard and prompt injection blocking</div>
+            <div class="sfc-desc">Discover, audit, and govern every agent — shadow AI dashboard, prompt injection blocking, compliance reporting</div>
+          </div>
+          <div class="story-featured-card">
+            <div class="sfc-title"><a href="https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/" target="_blank" rel="noopener">MXC Process & Session Isolation</a></div>
+            <div class="sfc-desc">OS-level containment for agent code — restricts file, network, clipboard, and UI access per policy</div>
           </div>
           <div class="story-featured-card">
             <div class="sfc-title"><a href="https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-register-passkey-authentication" target="_blank" rel="noopener">Passkey Registration Campaigns</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">Automated organizational rollout of passwordless authentication — security that removes friction, not adds it</div>
+            <div class="sfc-desc">Automated organizational rollout of passwordless authentication — security that removes friction</div>
+          </div>
+          <div class="story-featured-card">
+            <div class="sfc-title"><a href="https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/foundry-iq-new-governance-and-enterprise-ai-security-capabilities/4524825" target="_blank" rel="noopener">Foundry IQ Governance</a><span class="sfc-badge">GA</span></div>
+            <div class="sfc-desc">ACL sync, Purview integration, private connectivity — governed retrieval across your entire data estate</div>
           </div>
           <div class="story-featured-card">
             <div class="sfc-title"><a href="https://devblogs.microsoft.com/engineering-at-microsoft/securing-code-agents-and-models-across-the-development-lifecycle/" target="_blank" rel="noopener">Agentic DevSecOps</a></div>
-            <div class="sfc-desc">Security embedded across the full development lifecycle — code, agents, and models, from commit to production</div>
-          </div>
-          <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://learn.microsoft.com/en-us/purview/sensitivity-labels" target="_blank" rel="noopener">Purview Labels in AI Search & Groups</a></div>
-            <div class="sfc-desc">Sensitivity labels extend into Azure AI Search results and Entra security groups — data governance everywhere</div>
-          </div>
-          <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://devblogs.microsoft.com/windows-developer/post-quantum-cryptography/" target="_blank" rel="noopener">Post-Quantum Cryptography for Windows</a></div>
-            <div class="sfc-desc">Preparing Windows for the post-quantum era — security decisions today that hold up for the next decade</div>
+            <div class="sfc-desc">Security across the full development lifecycle — code, agents, and models, from commit to production</div>
           </div>
         </div>
       </div>
 
       <div class="story-divider"></div>
 
-      <!-- Pillar 5: Reinventing Work -->
+      <!-- Pillar 6: Be Yourself at Work -->
       <div class="story-section">
         <div class="story-section-header">
-          <span class="story-section-icon">💼</span>
+          <span class="story-section-icon">💡</span>
           <h3>"Be Yourself at Work"</h3>
         </div>
         <div class="story-narrative">
-          The theme of Build 2026 is <strong>"Be Yourself at Work"</strong> — and I chose those words very deliberately. For too long, technology has asked people to adapt to its limitations. We believe the opposite should be true: <strong>technology should adapt to you</strong>.<br><br>
-          <strong>Work IQ APIs</strong> make this real. They connect AI agents to the full context of how you actually work — your email, your calendar, your Teams conversations, your files. <strong>Microsoft Scout</strong> is an always-on personal agent that learns your patterns and priorities, while operating entirely within your enterprise governance boundary. And <strong>Frontier Tuning</strong> goes even further — it uses reinforcement learning to teach AI how <strong>your specific organization</strong> works, so the intelligence you get isn't generic. It's <em>yours</em>.<br><br>
-          In <strong>Teams</strong>, agents now maintain persistent sessions, participate in threaded conversations, and operate across shared channels — even cross-tenant. In <strong>M365 Copilot</strong>, we've redesigned the entire experience and introduced new SKUs that make Copilot accessible to small businesses for the first time. And in <strong>Windows</strong>, on-device AI APIs are expanding so intelligence works even when you're offline — respecting your privacy and your bandwidth.<br><br>
-          We want every person in every organization to have access to <strong>the same quality of AI assistance</strong> — not just knowledge workers, not just developers, not just executives. <strong>Everyone.</strong> That's what democratizing AI actually means.
+          Everything in the five-layer stack — compute, models, context, tools, security — exists for one purpose: to give every person in every organization the ability to <strong>do their best work</strong>. Not just knowledge workers. Not just developers. <strong>Everyone.</strong><br><br>
+          In <strong>Teams</strong>, agents maintain persistent sessions, participate in threaded conversations, and operate across shared channels — even cross-tenant. In <strong>M365 Copilot</strong>, new SKUs make AI accessible to small businesses for the first time. Across <strong>Dynamics 365</strong>, AI agents are embedded in every workload — finance, sales, service, field service, supply chain. In <strong>Power Platform</strong>, self-healing flows, AI app generation, and MCP integration connect automations to the agent ecosystem.<br><br>
+          And looking to the frontier: <strong>Majorana 2</strong> represents a breakthrough in quantum computing — topological qubits for problems no classical machine can solve. <strong>Seven new Microsoft AI models</strong> span voice, code, transcription, and healthcare. <strong>Project Solara</strong> reimagines sustainable datacenters — because the AI era must also be the sustainability era.<br><br>
+          <strong>Technology's purpose is to empower every person and every organization on the planet to achieve more.</strong> What we shipped at Build 2026 is the most complete expression of that mission we've ever delivered. And it's just the beginning.
         </div>
         <div class="story-featured-grid">
-          <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/" target="_blank" rel="noopener">Work IQ APIs</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">10 MCP tools connecting agents to real-time M365 context — the intelligence layer for how you actually work</div>
-          </div>
-          <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/" target="_blank" rel="noopener">Microsoft Scout</a></div>
-            <div class="sfc-desc">Always-on personal agent that learns your patterns — with full enterprise governance</div>
-          </div>
-          <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://devblogs.microsoft.com/microsoft365dev/frontier-tuning-teaching-ai-to-work-the-way-you-do/" target="_blank" rel="noopener">Frontier Tuning</a></div>
-            <div class="sfc-desc">Teach AI how your organization works through reinforcement learning — within your compliance boundary</div>
-          </div>
           <div class="story-featured-card">
             <div class="sfc-title"><a href="https://devblogs.microsoft.com/microsoft365dev/build-collaborative-agents-where-work-happens/" target="_blank" rel="noopener">Teams Agent Platform</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">Agents with persistent sessions, threaded conversations, slash commands — collaboration that's truly intelligent</div>
+            <div class="sfc-desc">Persistent sessions, threaded conversations, slash commands — agents collaborating where work happens</div>
           </div>
           <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/05/28/introducing-microsoft-365-business-with-copilot-the-new-standard-for-small-business/" target="_blank" rel="noopener">M365 Business with Copilot (SMB)</a></div>
-            <div class="sfc-desc">Copilot-inclusive SKUs for small and medium businesses — AI that's accessible to every organization</div>
+            <div class="sfc-title"><a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/05/28/introducing-microsoft-365-business-with-copilot-the-new-standard-for-small-business/" target="_blank" rel="noopener">M365 Business with Copilot</a></div>
+            <div class="sfc-desc">Copilot-inclusive SKUs for small and medium businesses — AI accessible to every organization, not just enterprise</div>
           </div>
           <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://azure.microsoft.com/en-us/products/virtual-desktop/" target="_blank" rel="noopener">Windows 365 for Agents</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">Cloud PCs purpose-built for AI agent workloads — with GPU options and 32 vCPU configurations</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="story-divider"></div>
-
-      <!-- Pillar 6: Frontier Science -->
-      <div class="story-section">
-        <div class="story-section-header">
-          <span class="story-section-icon">🔬</span>
-          <h3>"Frontier Science Accelerating Human Progress"</h3>
-        </div>
-        <div class="story-narrative">
-          Everything I've described so far is what's available <strong>today</strong>. But I want to talk about where this is going — because the trajectory matters as much as the present.<br><br>
-          <strong>Majorana 2</strong> represents a fundamental breakthrough in quantum computing. Topological qubits give us a path to error-corrected quantum computers that can solve problems no classical machine ever will — in materials science, in drug discovery, in climate modeling. We're working with <strong>DARPA</strong> and with partners like <strong>Mayo Clinic</strong>, who are co-developing frontier healthcare models with us.<br><br>
-          <strong>Surface RTX Spark</strong> puts 1 petaflop and 128 GB of memory on a developer's desk. <strong>DGX Station for Windows</strong> brings NVIDIA's most powerful workstation AI to the Windows ecosystem. <strong>Seven new first-party Microsoft AI models</strong> span voice, code, transcription, and healthcare — purpose-built for the workloads that matter most.<br><br>
-          And <strong>Project Solara</strong> is reimagining how we build datacenters sustainably — because the AI era must also be the sustainability era.<br><br>
-          I have a deep belief that <strong>technology's purpose is to empower every person and every organization on the planet to achieve more</strong>. What we announced at Build 2026 is the most complete expression of that mission I've ever seen. And it's just the beginning.
-        </div>
-        <div class="story-featured-grid">
-          <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://azure.microsoft.com/en-us/blog/quantum/majorana-2/" target="_blank" rel="noopener">Majorana 2 Quantum Chip</a></div>
-            <div class="sfc-desc">Topological qubits — a path to commercially viable quantum computing for problems no classical machine can solve</div>
+            <div class="sfc-title"><a href="https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/dynamics365-finance/" target="_blank" rel="noopener">D365 AI Agents — Every Workload</a></div>
+            <div class="sfc-desc">Finance, sales, service, field service, supply chain — AI agents embedded at the core, not bolted on</div>
           </div>
           <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-select-agent-model" target="_blank" rel="noopener">GPT-5, GPT-5.5, Claude Opus 4.6</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">The world's most capable reasoning models — available today in Copilot Studio and Foundry</div>
+            <div class="sfc-title"><a href="https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/power-automate/" target="_blank" rel="noopener">Power Platform + MCP</a></div>
+            <div class="sfc-desc">Self-healing flows, AI app generation, MCP integration — connecting automations to the agent ecosystem</div>
           </div>
           <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://www.microsoft.com/en-us/surface" target="_blank" rel="noopener">Surface RTX Spark + DGX Station</a></div>
-            <div class="sfc-desc">1 petaflop on your desk. Enterprise AI development that runs locally — with NVIDIA DGX for Windows</div>
+            <div class="sfc-title"><a href="https://quantum.microsoft.com/en-us/insights/blogs/majorana-2-scalable-quantum-processor" target="_blank" rel="noopener">Majorana 2 Quantum Chip</a></div>
+            <div class="sfc-desc">Topological qubits — commercially viable quantum computing for problems no classical machine can solve</div>
           </div>
           <div class="story-featured-card">
             <div class="sfc-title"><a href="https://devblogs.microsoft.com/foundry/seven-new-first-party-models/" target="_blank" rel="noopener">7 New Microsoft AI Models (MAI)</a></div>
-            <div class="sfc-desc">MAI-Voice-2, MAI-Code-1-Flash, MAI-Transcribe-2, and healthcare models with Mayo Clinic</div>
-          </div>
-          <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://news.microsoft.com/build-2026/" target="_blank" rel="noopener">Microsoft Discovery & OmniVec</a><span class="sfc-badge">GA</span></div>
-            <div class="sfc-desc">Scientific discovery platform and universal vector embeddings — the tools to accelerate research itself</div>
-          </div>
-          <div class="story-featured-card">
-            <div class="sfc-title"><a href="https://news.microsoft.com/build-2026/" target="_blank" rel="noopener">Project Solara</a></div>
-            <div class="sfc-desc">Sustainable datacenter innovation — because the AI era must also be the sustainability era</div>
+            <div class="sfc-desc">MAI-Voice-2, MAI-Code-1-Flash, MAI-Transcribe-2, healthcare models with Mayo Clinic and DARPA</div>
           </div>
         </div>
       </div>
@@ -2289,9 +2291,10 @@ a:hover { text-decoration: underline; }
 
       <!-- Closer -->
       <div class="story-closer">
-        <h3>This Is the Moment. What Will You Build?</h3>
+        <h3>The Five-Layer Stack Is Here. What Will You Build on It?</h3>
         <p>
-          ${gaCount} capabilities are in production today. ${previewCount}+ more are shipping soon. Every layer of the stack — from silicon to business process, from infrastructure to the end-user experience — is being transformed simultaneously. The organizations that lean in now won't just keep pace. They'll <strong>define the pace</strong> for their entire industry.<br><br>
+          Compute. Models. Context. Tools. Security. Five layers, fully integrated, ${gaCount} capabilities in production today, ${previewCount}+ more shipping soon, across ${categories.length} product areas. <strong>Microsoft IQ</strong> grounds your agents in real knowledge. <strong>Windows</strong> gives them a computer to live in. The <strong>Agent Framework</strong> gives them a runtime. And <strong>trust</strong> wraps everything.<br><br>
+          The organizations that build on this stack now won't just keep pace. They'll <strong>define the pace</strong> for their entire industry.<br><br>
           <em>"Empower every person and every organization on the planet to achieve more."</em><br>
           That's not just our mission. It's your opportunity.
         </p>
