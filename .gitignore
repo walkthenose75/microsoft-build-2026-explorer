@@ -1,0 +1,7 @@
+# Python
+__pycache__/
+*.pyc
+
+# Local scanner outputs (discovery helpers — not committed)
+tracked_announcements.json
+new_findings.json
