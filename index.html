@@ -521,7 +521,8 @@ a:hover { text-decoration: underline; }
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 1rem;
   padding: 0.4rem 0 0.2rem;
 }
 .status-pill {
@@ -1087,7 +1088,6 @@ a:hover { text-decoration: underline; }
       <input type="text" class="search-input" id="searchInput" placeholder="Search announcements..." autocomplete="off" spellcheck="false" aria-label="Search announcements">
       <button class="search-clear" id="searchClear" title="Clear search" aria-label="Clear search">✕</button>
     </div>
-    <div class="filter-bar" id="filterBar" role="tablist" aria-label="Category filters"></div>
     <div class="status-filter-bar" id="statusFilterBar" role="toolbar" aria-label="Status filters"></div>
   </div>
 </header>
@@ -2118,7 +2118,6 @@ a:hover { text-decoration: underline; }
     const { categories, lastUpdated } = data;
     const content = document.getElementById('content');
     const sidebar = document.getElementById('sidebar');
-    const filterBar = document.getElementById('filterBar');
 
     // Count total
     let totalCount = 0;
@@ -2130,31 +2129,6 @@ a:hover { text-decoration: underline; }
 
     // Clear loading
     content.innerHTML = '';
-
-    // Build filter pills in hero — Microsoft Vision first (default)
-    const visionPill = document.createElement('button');
-    visionPill.className = 'filter-pill active';
-    visionPill.dataset.cat = 'vision';
-    visionPill.innerHTML = `🎤 Microsoft Vision`;
-    filterBar.appendChild(visionPill);
-
-    const storyPill = document.createElement('button');
-    storyPill.className = 'filter-pill';
-    storyPill.dataset.cat = 'story';
-    storyPill.innerHTML = `🔥 Your Competitors Are Moving`;
-    filterBar.appendChild(storyPill);
-
-    categories.forEach(cat => {
-      const meta = CATEGORY_META[cat.id] || {};
-      let catCount = 0;
-      cat.subcategories.forEach(sub => { catCount += sub.announcements.length; });
-
-      const pill = document.createElement('button');
-      pill.className = 'filter-pill';
-      pill.dataset.cat = cat.id;
-      pill.innerHTML = `${meta.emoji || cat.emoji} ${cat.title} <span class="pill-count" id="pillCount-${cat.id}">${catCount}</span>`;
-      filterBar.appendChild(pill);
-    });
 
     // Build status filter pills — count by status across all categories
     const statusFilterBar = document.getElementById('statusFilterBar');
